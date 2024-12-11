@@ -1,0 +1,174 @@
+configuration {
+  modi:                       "drun";
+  show-icons:                 true;
+  display-drun:               "Applications";
+  display-run:                "Run";
+  display-filebrowser:        "Files";
+  display-window:             "Windows";
+  drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+  me-select-entry:            "";
+  me-accept-entry:            [ MousePrimary, MouseSecondary, MouseDPrimary ];
+}
+
+@theme "~/.config/rofi/theme/catppuccin-macchiato.rasi"
+
+// Main Window
+window {
+  location:                    center;
+  anchor:                      center;
+  fullscreen:                  false;
+  border:                      1px;
+  border-radius:               7px;
+  border-color:                @accent;
+  width:                       450px;
+  x-offset:                    0px;
+  y-offset:                    0px;
+  enabled:                     true;
+  margin:                      0px;
+  padding:                     0px;
+  border-radius:               10px;
+  cursor:                      "default";
+  transparency:                "real";
+  background-color:            @background;
+}
+
+// Main Box
+mainbox {
+  enabled:                     true;
+  spacing:                     10px;
+  padding:                     15px;
+  background-color:            transparent;
+  children:                    [ "inputbar", "mode-switcher", "listview" ];
+}
+
+// Inputbar
+inputbar {
+  enabled:                     true;
+  spacing:                     15px;
+  margin:                      0px;
+  background-color:            transparent;
+  children:                    [ "textbox-prompt-colon", "entry" ];
+}
+
+textbox-prompt-colon {
+  enabled:                     true;
+  expand:                      false;
+  padding:                     13px 12px 13px 16px;
+  border:                      0px;
+  border-radius:               7px;
+  border-color:                @border-tb;
+  background-color:            @background-tb;
+  text-color:                  @foreground;
+  str:                         " ";
+}
+
+entry {
+  enabled:                     true;
+  padding:                     12px 16px;
+  border:                      0px;
+  border-radius:               7px;
+  border-color:                @border-tb;
+  background-color:            @background-tb;
+  text-color:                  @foreground;
+  cursor:                      text;
+  placeholder:                 "Search...";
+  placeholder-color:           inherit;
+  vertical-align:              0.5;
+  horizontal-align:            0.0;
+}
+
+// Listview
+listview {
+  enabled:                     true;
+  columns:                     1;
+  lines:                       5;
+  cycle:                       true;
+  dynamic:                     true;
+  scrollbar:                   false;
+  layout:                      vertical;
+  reverse:                     false;
+  fixed-height:                true;
+  fixed-columns:               true;
+  spacing:                     5px;
+  background-color:            transparent;
+  cursor:                      "default";
+}
+
+// Elements
+element {
+  enabled:                     true;
+  spacing:                     5px;
+  margin:                      0px;
+  padding:                     10px;
+  border:                      0px solid;
+  border-radius:               7px;
+  background-color:            transparent;
+  text-color:                  @foreground;
+  cursor:                      pointer;
+}
+
+element normal.active {
+  background-image:            @active;
+  text-color:                  @foreground;
+}
+
+element selected.normal {
+  border-radius:               7px;
+  background-image:            @selected;
+  text-color:                  @foreground;
+}
+
+element selected.active {
+  background-image:            @urgent;
+  text-color:                  @foreground;
+}
+
+element-icon {
+  background-color:            transparent;
+  size:                        48px;
+  cursor:                      inherit;
+}
+
+element-text {
+  background-color:            inherit;
+  text-color:                  inherit;
+  cursor:                      inherit;
+  vertical-align:              0.5;
+  horizontal-align:            0.0;
+}
+
+// Mode Switcher
+mode-switcher {
+  enabled:                     false;
+  expand:                      false;
+  spacing:                     15px;
+  background-color:            transparent;
+}
+
+button {
+  padding:                     10px;
+  border-radius:               7px;
+  background-image:            @button;
+  text-color:                  @background;
+  cursor:                      pointer;
+}
+
+button selected {
+  background-image:            @button-selected;
+  text-color:                  @background;
+}
+
+// Message
+error-message {
+  padding:                     20px;
+  background-color:            @background;
+  text-color:                  @foreground;
+}
+
+textbox {
+  padding:                     0px;
+  border-radius:               7px;
+  text-color:                  @foreground;
+  vertical-align:              0.5;
+  horizontal-align:            0.0;
+}

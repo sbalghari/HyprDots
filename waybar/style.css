@@ -1,0 +1,175 @@
+@import "../../.cache/wal/colors-waybar.css";
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Hack Nerd Font", "Font Awesome 6 Free", "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 14px;
+    background-color: transparent;
+}
+
+#cpu,
+#memory,
+#temperature,
+#disk {
+    background: @background;
+    margin: 2px 2px;
+    padding: 0px 15px 0px 15px;
+    border-radius: 15px 0px 15px 0px;
+}
+
+#cpu {
+    color: #68b0d6;
+}
+
+#memory {
+    color: #a6da95;
+}
+
+#temperature {
+    color: #8aadf4;
+}
+
+#disk {
+    color: #eed49f;
+}
+
+#custom-window-name {
+    color: #68b0d6;
+    background-color: @background;
+    margin: 2px 2px;
+    padding: 0px 15px 0px 15px;
+    border-radius: 15px 0px 15px 0px;
+}
+
+#workspaces button:nth-child(1) label {
+    color: @color14;
+    margin: 0px 8px;
+    background-color: transparent;
+}
+
+#workspaces button:nth-child(2) label {
+    color: @color15;
+    margin: 0px 8px;
+    background-color: transparent;
+}
+
+#workspaces button:nth-child(3) label {
+    color: @color13;
+    margin: 0px 8px;
+    background-color: transparent;
+}
+
+#workspaces button:nth-child(4) label {
+    color: @color12;
+    margin: 0px 8px;
+    background-color: transparent;
+}
+
+#workspaces button:nth-child(5) label {
+    color: @color11;
+    margin: 0px 8px;
+    background-color: transparent;
+}
+
+#workspaces button:nth-child(6) label {
+    color: @color10;
+    margin: 0px 8px;
+    background-color: transparent;
+}
+
+#workspaces button:nth-child(7) label {
+    color: @color9;
+    margin: 0px 8px;
+    background-color: transparent;
+}
+
+#workspaces button:nth-child(8) label {
+    color: @color8;
+    margin: 0px 8px;
+    background-color: transparent;
+}
+
+#workspaces button:nth-child(9) label {
+    color: @color7;
+    margin: 0px 8px;
+    background-color: transparent;
+}
+#battery,
+#pulseaudio,
+#backlight {
+    margin: 2px 2px;
+    padding: 0px 15px 0px 15px;
+    border-radius: 0px 15px 0px 15px;
+    background-color: @background;
+}
+
+#battery {
+    color: #a6da95;
+}
+
+#backlight {
+    color: #c6a0f6;
+}
+
+#pulseaudio {
+    color: #91d7e3;
+}
+
+#network {
+    color: #eed49f;
+    margin: 2px 2px;
+    padding: 0px 15px 0px 15px;
+    border-radius: 0px 15px 0px 15px;
+    background-color: @background;
+}
+
+#clock {
+    color: #fff;
+    margin: 2px 2px;
+    padding: 0px 15px 0px 15px;
+    border-radius: 0px 15px 0px 15px;
+    background-color: @background;
+}
+
+#custom-dot {
+    color: @foreground;
+    padding-right: 10px;
+    background-color: transparent;
+}
+
+/* #custom-dot-alt {
+    color: #a5adcb;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#custom-clock-icon {
+    color: #cad3f5;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+#custom-filler {
+    color: #6e738d;
+    padding-left: 0px;
+    padding-right: 9px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+#custom-filler2 {
+    color: #6e738d;
+    padding-left: 3px;
+    padding-right: 9px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+} */
+
+/*# sourceMappingURL=style.css.map */

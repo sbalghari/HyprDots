@@ -1,0 +1,17 @@
+#!/bin/bash
+
+HISTORY_FILE="$HOME/.cache/wl-clipboard-history"
+
+touch "$HISTORY_FILE"
+
+while true; do
+  # Get current clipboard content
+  CURRENT_CLIP=$(wl-paste --no-newline)
+
+  # Check if the clipboard content is already in the history
+  if [ -n "$CURRENT_CLIP" ] && ! grep -qFx "$CURRENT_CLIP" "$HISTORY_FILE"; then
+    echo "$CURRENT_CLIP" >> "$HISTORY_FILE"
+  fi
+
+  sleep 0.5
+done
