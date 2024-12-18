@@ -1,0 +1,80 @@
+[
+  {
+    "layer": "top",
+    "margin-top": 4,
+    "margin-left": 8,
+    "margin-bottom": -3,
+    "margin-right": 8,
+    "height": 18,
+    "output": "eDP-1",
+    "exclusive": true,
+    "passtrough": false,
+    "gtk-layer-shell": true,
+
+    "include": [
+      "~/.config/waybar/modules/cpu.jsonc",
+      "~/.config/waybar/modules/disk.jsonc",
+      "~/.config/waybar/modules/memory.jsonc",
+      "~/.config/waybar/modules/temperature.jsonc",
+      "~/.config/waybar/modules/hyprworkspaces.jsonc",
+      "~/.config/waybar/modules/hyprwindow.jsonc",
+      "~/.config/waybar/modules/battery.jsonc",
+      "~/.config/waybar/modules/backlight.jsonc",
+      "~/.config/waybar/modules/pulseaudio.jsonc",
+      "~/.config/waybar/modules/network.jsonc",
+      "~/.config/waybar/modules/clock.jsonc",
+      "~/.config/waybar/modules/bluetooth.jsonc",
+      "~/.config/waybar/modules/user.jsonc",
+      "~/.config/waybar/modules/taskbar.jsonc",
+      "~/.config/waybar/modules/appmenu.jsonc",
+      "~/.config/waybar/modules/exit.jsonc",
+      "~/.config/waybar/modules/dot.jsonc",
+      "~/.config/waybar/modules/separator.jsonc",
+      "~/.config/waybar/modules/mediaplayer.jsonc",
+      "~/.config/waybar/modules/shader.jsonc",
+      "~/.config/waybar/modules/expander.jsonc",
+      "~/.config/waybar/modules/hypridle.jsonc",
+      "~/.config/waybar/modules/notifications.jsonc"
+    ],
+    "modules-left": [
+      "custom/apps",
+      "group/sysinfo",
+      "wlr/taskbar",
+      "hyprland/window"
+    ],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": [
+      "custom/hyprshade",
+      "bluetooth",
+      "custom/mediaplayer",
+      "custom/hypridle",
+      "custom/dot",
+      "backlight",
+      "battery",
+      "pulseaudio",
+      "network",
+      "custom/dot",
+      "clock",
+      "custom/notifications",
+      "custom/exit"
+    ],
+    "group/sysinfo": {
+      "orientation": "inherit",
+      "drawer": {
+        "transition-duration": 300,
+        "children-class": "not-memory",
+        "transition-left-to-right": true
+      },
+      "modules": [
+        "custom/empty",
+        "cpu",
+        "custom/separator",
+        "memory",
+        "custom/separator",
+        "temperature",
+        "custom/separator",
+        "disk"
+      ]
+    }
+  }
+]

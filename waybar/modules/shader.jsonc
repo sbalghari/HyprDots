@@ -1,0 +1,12 @@
+{
+  "custom/hyprshade": {
+    "format": "",
+    "return-type": "json",
+    "escape": true,
+    "exec-on-event": true,
+    "interval": 12,
+    "tooltip-format": "Toggle Screen Shader",
+    "on-click": "sleep 0.5; ~/.config/rofi/applets/hyprshade.sh",
+    "on-click-right": "sleep 0.5; ~/.config/rofi/applets/hyprshade.sh rofi"
+  }
+}

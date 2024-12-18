@@ -1,0 +1,8 @@
+{
+  "temperature": {
+    "thermal-zone": 0,
+    "critical-threshold": 80,
+    "format-critical": " {temperatureC}°C",
+    "format": " {temperatureC}°C"
+  }
+}

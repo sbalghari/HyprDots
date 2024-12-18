@@ -1,0 +1,22 @@
+{
+  "pulseaudio": {
+    "scroll-step": 5,
+    "format-alt": "{icon} ",
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " Muted",
+    "format-source": "{volume}% ",
+    "format-source-muted": " ",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click-right": "/home/sbalghari/.config/rofi/applets/volume.sh"
+  }
+}

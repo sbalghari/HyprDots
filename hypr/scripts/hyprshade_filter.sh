@@ -1,0 +1,1 @@
+hyprshade_filter="  vibrance"

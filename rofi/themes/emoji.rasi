@@ -1,0 +1,17 @@
+
+@import "~/.config/rofi/themes/dmenu.rasi"
+
+inputbar {
+    children:                    [ "textbox-prompt-colon", "entry"];
+}
+
+entry {
+  enabled:                     true;
+  padding:                     10px;
+  border-radius:               100%;
+  background-color:            @active;
+  text-color:                  @background;
+  cursor:                      text;
+  placeholder:                 "Search for emojis";
+  placeholder-color:           @selected;
+}

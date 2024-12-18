@@ -1,0 +1,8 @@
+{
+  "disk": {
+    "interval": 60,
+    "format": " {}%",
+    "on-click": "filelight /",
+    "on-click-right": "filelight /home/"
+  }
+}

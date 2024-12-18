@@ -1,0 +1,16 @@
+@import "~/.config/rofi/themes/dmenu.rasi"
+
+window {
+    width:                       600px;
+}
+
+listview {
+    lines:                       10;
+}
+
+element {
+    padding:                     16px;
+}
+element-text {
+    vertical-align:              0.6;
+}
