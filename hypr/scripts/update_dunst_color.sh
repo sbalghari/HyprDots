@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# By:  Saifullah Balghari
+
 # Paths
 DUNST_CONFIG="$HOME/.config/dunst/dunstrc"
 DUNST_BACKUP="$DUNST_CONFIG.backup"
@@ -15,7 +17,7 @@ fi
 cp "$DUNST_BACKUP" "$DUNST_CONFIG"
 
 # Extract Pywal colors
-WAL_BG=$(sed -n '1p' "$WAL_COLORS")     # Line 1: Background color
+WAL_BG=$(sed -n '1p' "$WAL_COLORS") # Line 1: Background color
 WAL_FRAME=$(sed -n '12p' "$WAL_COLORS") # Line 12: color11
 
 # Replace placeholders in the Dunst config

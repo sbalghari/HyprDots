@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# By:  Saifullah Balghari
+
 # Pick and auto-copy
 color=$(hyprpicker -a)
 

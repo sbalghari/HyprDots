@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# By:  Saifullah Balghari
+
 config_file=~/.config/hypr/configs/keybindings.conf
 theme=~/.config/rofi/themes/keybinds.rasi
 keybinds=""

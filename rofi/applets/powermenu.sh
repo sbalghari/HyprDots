@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Modified by:  Saifullah Balghari
+# Original:     Aditya Shakya (adi1090x)
+
 # Theme
 theme="$HOME/.config/rofi/themes/dmenu"
 

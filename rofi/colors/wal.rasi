@@ -1,3 +1,10 @@
+/**
+ *
+ * By : Saifullah Balghari
+ *
+ **/
+
+// Pywal colors
 @theme "~/.cache/wal/colors-rofi-dark.rasi"
 
 * {

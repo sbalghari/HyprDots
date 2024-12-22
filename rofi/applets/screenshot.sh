@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Modified by:  Saifullah Balghari
+# Original:     Aditya Shakya (adi1090x)
+
 mesg="Destination: $(xdg-user-dir PICTURES)/Screenshots"
 
 list_col='1'

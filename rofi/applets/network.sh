@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# By:  Saifullah Balghari
+
 # Theme
 theme="$HOME/.config/rofi/themes/dmenu.rasi"
 toggle_icon=""

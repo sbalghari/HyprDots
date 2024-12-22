@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# By:  Saifullah Balghari
+
 # Note: This script is used by Udev rules
 
 # If the battery is charging

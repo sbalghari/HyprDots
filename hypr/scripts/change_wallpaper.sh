@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# By:  Saifullah Balghari
+
 if [[ -z "$1" ]]; then
     echo "No arguments passed."
     echo "Usage: $0 <change|restore|help>"

@@ -28,8 +28,8 @@ window {
     fullscreen:                  false;
     enabled:                     true;
     padding:                     10px;
-    border:                      2px solid;
-    border-radius:               30px;
+    border:                      1px solid;
+    border-radius:               12px;
     cursor:                      "default";
     border-color:                @border-color;
     background-color:            rgba(0, 0, 0, 0.7);

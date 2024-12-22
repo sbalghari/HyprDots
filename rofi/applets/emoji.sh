@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# By:  Saifullah Balghari
+
 # Theme Configuration (Ensure the path is correct)
 theme="$HOME/.config/rofi/themes/emoji.rasi"
 

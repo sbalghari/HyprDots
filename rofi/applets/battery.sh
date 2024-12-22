@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Modified by:  Saifullah Balghari
+# Original:     Aditya Shakya (adi1090x)
+
 theme=~/.config/rofi/themes/dmenu.rasi
 
 # Battery Info using upower

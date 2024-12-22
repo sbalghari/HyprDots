@@ -1,18 +1,17 @@
+# Fish Configuration
+# by Saifullah Balghari 
+# -----------------------------------------------------
 
-# Set prompt (optional; Fish has a nice default prompt)
-function fish_prompt
-    echo -n (whoami)"@"(hostname)" " (basename (pwd)) "> "
-end
-
-# Add fzf to PATH (if installed)
-set -U fish_user_paths /usr/bin/fzf $fish_user_paths
-
-# Alias examples
-alias ll="ls -lh"
+# Aliases
 alias update="sudo pacman -Syu"
 
+# Remove the fish greetings
 set -g fish_greeting
+
+# Start neofetch
 neofetch
+
+# Start atuin
 atuin init fish | source
 
 # List Directory
@@ -24,6 +23,8 @@ alias lt='eza --icons=auto --tree' # list folder as tree
 
 # Sets starship as the promt
 eval (starship init fish)
+
+# Variables
 set -Ux GTK_CURSOR_THEME Bibata-Modern-Classic
 set -Ux XCURSOR_THEME Bibata-Modern-Classic
 set -Ux XCURSOR_SIZE 20

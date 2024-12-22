@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# By:  Saifullah Balghari
+
 if [ -z "$1" ]; then
     echo "Usage: $0 <path_to_your_wallpaper>"
     exit 1

@@ -1,5 +1,8 @@
-/* PyWal Colors */
+/* By:  Saifullah Balghari */
+
+/* PyWal & Catppuccin Colors */
 @import "../../../.cache/wal/colors-waybar.css";
+@import "../../../.config/waybar/bar_1/colors.css";
 
 /* General  */
 * {
@@ -14,7 +17,7 @@
   background: transparent;
 }
 tooltip {
-  background: alpha(@background, 0.8);
+  background: alpha(@base, 0.8);
   color: @foreground;
 }
 window#waybar.empty #window {
@@ -63,7 +66,7 @@ window#waybar.empty #window {
 #network,
 #clock,
 #custom-exit {
-  background: alpha(@background, 0.5);
+  background: alpha(@base, 0.7);
   border: 1px solid @color11;
   border-radius: 8px;
 }
@@ -75,15 +78,15 @@ window#waybar.empty #window {
   padding: 0px 0px 0px 0px;
 }
 #taskbar button {
-  margin: 0px 0px;
-  border-radius: 6px;
-  padding: 0px 5px 0px 5px;
+  margin: 0px 4px;
+  border-radius: 10px;
+  padding: 0px 2px 0px 0px;
 }
 #taskbar button.active {
-  background-color: alpha(@color11, 0.6);
+  background-color: alpha(@color11, 0.2);
 }
 #taskbar button:hover {
-  background-color: alpha(@color11, 0.3);
+  background-color: alpha(@color11, 0.1);
 }
 #taskbar.empty {
   background: transparent;
@@ -94,32 +97,32 @@ window#waybar.empty #window {
 
 /* Setting colours  */
 #bluetooth,
-#cpu {
-  color: #68b0d6;
+#network {
+  color: @blue;
 }
-#custom-hyprshade,
+#battery,
 #memory {
-  color: #a6da95;
+  color: @teal;
 }
 #temperature {
-  color: #8aadf4;
+  color: @rosewater;
 }
+#custom-mediaplayer,
 #disk {
-  color: #68b0d6;
+  color: @mauve;
 }
+#custom-hyprshade,
 #backlight {
-  color: #eed49f;
+  color: @yellow;
 }
 #pulseaudio {
-  color: #91d7e3;
+  color: @lavender;
 }
-#network {
-  color: #c6a0f6;
+#window,
+#cpu {
+  color: @green;
 }
 #custom-dot,
-#custom-mediaplayer,
-#custom-window-name,
-#window,
 #custom-apps,
 #clock,
 #custom-exit {
@@ -127,21 +130,18 @@ window#waybar.empty #window {
 }
 
 /* Battery  */
-#battery {
-  color: #a6da95;
-}
 #battery.charging,
 #battery.plugged {
-  color: #26a65b;
+  color: #28d16e;
 }
 @keyframes blink {
   to {
-    background-color: #ffffff;
-    color: #000000;
+    color: @base;
+    background-color: @red;
   }
 }
 #battery.critical:not(.charging) {
-  color: #f53c3c;
+  color: @red;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -191,7 +191,7 @@ window#waybar.empty #window {
   box-shadow: inset 0 -3px #ffffff;
 }
 #workspaces button.urgent {
-  background-color: #eb4d4b;
+  background-color: @red;
 }
 
 /* System info drawers*/
@@ -202,11 +202,19 @@ window#waybar.empty #window {
   padding: 0px 10px 0px 10px;
 }
 
-/* Makes the borders round */
+/* borders radius */
+#custom-apps,
+#taskbar,
+#window{
+  border-radius: 12px 0px 12px 0px;
+  margin: 2px 2px;
+}
+
+
 #clock,
 #backlight,
 #custom-hyprshade {
-  border-radius: 8px 0px 0px 8px;
+  border-radius: 0px 0px 0px 12px;
   margin: 2px 0px;
 }
 #bluetooth,
@@ -221,12 +229,7 @@ window#waybar.empty #window {
 #custom-exit,
 #network {
   margin: 2px 0px;
-  border-radius: 0px 8px 8px 0px;
-}
-
-/* App-menu */
-#custom-apps {
-  margin: 2px 0px;
+  border-radius: 0px 12px 0px 0px;
 }
 
 /* Hide the empty */

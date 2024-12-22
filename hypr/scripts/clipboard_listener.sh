@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# By:  Saifullah Balghari
+
 # Cache file for clipboard history
 cache_file="$HOME/.cache/wl-clipboard-history"
 touch "$cache_file"

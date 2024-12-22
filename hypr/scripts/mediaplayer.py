@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+
+# Modified by:  Saifullah Balghari
+# Original:     Idk
+
 import gi
 
 gi.require_version("Playerctl", "2.0")

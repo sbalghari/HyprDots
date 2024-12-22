@@ -23,8 +23,8 @@ window {
     enabled:                     true;
     margin:                      0px;
     padding:                     5px;
-    border:                      2px solid;
-    border-radius:               30px;
+    border:                      1px solid;
+    border-radius:               12px;
     border-color:                @border-color;
     cursor:                      "default";
     background-color:            rgba(0, 0, 0, 0.7);

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Modified by:  Saifullah Balghari
+# Original:     Stephen Raabe (ML4W)
+
 # Setup Timers
 _sleep1="0.1"
 _sleep2="0.5"

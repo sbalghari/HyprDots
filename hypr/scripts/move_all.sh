@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Modified by:  Saifullah Balghari
+# Original:     Stephen Raabe (ML4W)
+
 # Function to log messages (useful for debugging)
 log_message() {
     # echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" >> ~/moveto_log.txt
