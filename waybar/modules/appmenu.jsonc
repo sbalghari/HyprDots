@@ -1,7 +1,7 @@
 {
   "custom/apps": {
     "format": "󰣇 Menu",
-    "on-click": "~/.config/rofi/launchers/launcher.sh",
+    "on-click": "~/.config/rofi/launcher.sh",
     "tooltip-format": "Menu\nLeft-click: Application Launcher\nRight-click: Display Keybinds",
     "on-click-right": "~/.config/rofi/applets/keybindings.sh"
   }

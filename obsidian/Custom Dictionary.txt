@@ -1,0 +1,3 @@
+Rofi
+Waybar
+checksum_v1 = b561e8845a67e0f8d95bea756f0a92cb

@@ -1,2 +1,5 @@
 [General]
 theme=catppuccin-mocha-mauve
+
+[Applications]
+catppuccin-mocha-mauve=dolphin, kate, org.dolphin.kde

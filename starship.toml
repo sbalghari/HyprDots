@@ -1,54 +1,116 @@
-# starship.toml
-
-add_newline = false
-palette = "default"
+"$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[╭](fg:separator)\
-$status\
+[](surface0)\
+$os\
+$username\
+[](bg:peach fg:surface0)\
 $directory\
+[](fg:peach bg:green)\
+$git_branch\
+$git_status\
+[](fg:green bg:teal)\
+$c\
+$nodejs\
+$python\
+[](fg:teal bg:red)\
 $cmd_duration\
-$line_break\
-[╰](fg:separator)\
-$character\
-"""
+[ ](fg:red)\
+$line_break$character"""
 
-###########################################
+palette = 'catppuccin_mocha'
 
-[palettes.default]
-prompt_ok  = "#8047c1"
-prompt_err = "#e23140"
-icon       = "#161514"
-separator  = "#35312c"
-background = "#35312c"
+[palettes.gruvbox_dark]
+color_fg0 = '#fbf1c7'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
 
-directory  = "#9f31e2"
-duration   = "#e26f31"
-status     = "#e23140"
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+orange = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
 
-###########################################
+[os]
+disabled = false
+style = "bg:surface0 fg:text"
 
-[character]
-success_symbol = "[❯](fg:prompt_ok)"
-error_symbol = "[❯](fg:prompt_err)"
+[os.symbols]
+Windows = "󰍲"
+Macos = ""
+Linux = "󰌽"
+Arch = "󰣇"
+
+[username]
+show_always = true
+style_user = "bg:surface0 fg:text"
+style_root = "bg:surface0 fg:text"
+format = '[ $user ]($style)'
 
 [directory]
-format = "[─](fg:separator)[](fg:directory)[](fg:icon bg:directory)[](fg:directory bg:background)[ $path](bg:background)[](fg:background)"
-truncate_to_repo = false
-truncation_length = 0
+style = "fg:mantle bg:peach"
+format = "[ $path ]($style)"
+truncation_length = 1
+truncation_symbol = "…/"
 
-[status]
-format = "[─](fg:separator)[](fg:status)[](fg:icon bg:status)[](fg:status bg:background)[ $status](bg:background)[](fg:background)"
-pipestatus = true
-pipestatus_separator = "-"
-pipestatus_segment_format = "$status"
-pipestatus_format = "[─](fg:separator)[](fg:status)[](fg:icon bg:status)[](fg:status bg:background)[ $pipestatus](bg:background)[](fg:background)"
-disabled = false
+[git_branch]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol $branch ](fg:base bg:green)]($style)'
+
+[git_status]
+style = "bg:teal"
+format = '[[($all_status$ahead_behind )](fg:base bg:green)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[c]
+symbol = " "
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[python]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [cmd_duration]
-format = "[─](fg:separator)[](fg:duration)[󱐋](fg:icon bg:duration)[](fg:duration bg:background)[ $duration](bg:background)[](fg:background)"
-min_time = 1000
+min_time = 5
+style = "bg:peach"
+format = '[[ 󱎫 $duration ](fg:mantle bg:red)]($style)'
 
-[time]
-format = "[](fg:duration)[󰥔](fg:icon bg:duration)[](fg:duration bg:background)[ $time](bg:background)[](fg:background)"
-disabled = false
+[character]
+success_symbol = '[](bold fg:green)'
+error_symbol = '[](bold fg:red)'

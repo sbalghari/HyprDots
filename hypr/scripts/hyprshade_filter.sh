@@ -1,1 +1,1 @@
-hyprshade_filter="  vibrance"
+hyprshade_filter="  blue-light-filter-25"

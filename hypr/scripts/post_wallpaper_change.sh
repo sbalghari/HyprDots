@@ -10,7 +10,13 @@ echo "Generating pywal colors..."
 wal -i "$1"
 echo "Generated pywal colors"
 
+# Reload with the new colors
+echo "Reloading waybar, hyprland and dunst..."
+pkill waybar
+waybar &
+echo "Successfully reloaded waybar and dunst"
 
+sleep 0.2
 echo "Running script..."
 # This will convert wal color (color11 and color0) into ARGB for hyprland's borders
 ~/.config/hypr/scripts/update_hyprland_colors.sh
@@ -22,14 +28,5 @@ echo "Running script..."
 ~/.config/hypr/scripts/update_dunst_color.sh
 echo "Successfully ran the scripts"
 
-sleep 0.2
-
-# Reload with the new colors
-echo "Reloading waybar, hyprland and dunst..."
-pkill dunst  && pkill waybar
-
-waybar &
-dunst &
+pkill dunst && dunst &
 hyprctl reload
-echo "Successfully reloaded waybar and dunst"
-

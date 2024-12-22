@@ -1,6 +1,6 @@
 {
   "custom/hyprshade": {
-    "format": "",
+    "format": " ",
     "return-type": "json",
     "escape": true,
     "exec-on-event": true,

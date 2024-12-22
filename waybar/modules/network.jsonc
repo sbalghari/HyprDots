@@ -2,7 +2,6 @@
   "network": {
     "format-wifi": " ",
     "format-alt": "  {essid}",
-    "on-click": "",
     "on-click-middle": "kitty nmtui",
     "on-click-right": "~/.config/rofi/applets/network.sh",
     "format-ethernet": " wired",

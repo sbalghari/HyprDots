@@ -1,9 +1,10 @@
 @theme "~/.cache/wal/colors-rofi-dark.rasi"
 
 * {
-    background-alt:   transparent;
-    selected:rgba(122, 162, 247, 0.8);
-    active:rgba(171, 233, 179, 0.9);
-    urgent:rgba(242, 143, 173, 0.9);
-    border-color:     @selected-urgent-background;
+    background-alt:       transparent;
+    selected:           rgba(255, 255, 255, 0.7);
+    active:             rgba(100, 230, 117, 0.8);
+    urgent:             rgba(250, 110, 110, 0.8);
+    border-color:         @selected-urgent-background;
 }
+ 

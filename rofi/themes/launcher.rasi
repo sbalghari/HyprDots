@@ -1,0 +1,175 @@
+/**
+ *
+ * Modified by : Saifullah Balghari
+ * Original : Aditya Shakya (adi1090x)
+ *
+ **/
+
+// Color theme
+@import "~/.config/rofi/colors/wal.rasi"
+
+// Configurations
+configuration {
+	modi:                       "drun,filebrowser,run,window";
+    show-icons:                 true;
+    display-drun:               "APPS";
+    display-run:                "RUN";
+    display-filebrowser:        "FILES";
+    display-window:             "WINDOW";
+	drun-display-format:        "{name}\n[<span weight='light' size='small'><i>({generic})</i></span>]";
+	window-format:              "Class : {c}\nWorkspace : {w}";
+}
+
+// Main window
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    enabled:                     true;
+    padding:                     10px;
+    border:                      2px solid;
+    border-radius:               30px;
+    cursor:                      "default";
+    border-color:                @border-color;
+    background-color:            rgba(0, 0, 0, 0.7);
+}
+
+// Main box
+mainbox {
+    enabled:                     true;
+    spacing:                     10px;
+    margin:                      0px;
+    padding:                     10px;
+    border-radius:               30px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "mode-switcher", "listview" ];
+}
+
+// Search bar
+inputbar {
+    enabled:                     true;
+    spacing:                     0px;
+    margin:                      0px 10%;
+    padding:                     0px 10px 10px 0px;
+    border:                      0px 0px 2px 0px;
+    border-radius:               0px;
+    border-color:                gray/20%;
+    background-color:            transparent;
+    children:                    [ "entry" ];
+}
+entry {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  #fff;
+    cursor:                      text;
+    placeholder:                 "Type to filter";
+    placeholder-color:           inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+// Mode-switcher
+mode-switcher{
+    enabled:                     true;
+    expand:                      false;
+    spacing:                     20px;
+    margin:                      0px 10%;
+    background-color:            transparent;
+    text-color:                  white;
+}
+button {
+    padding:                     6px;
+    border:                      1px solid;
+    border-radius:               100%;
+    border-color:                gray/50%;
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      pointer;
+}
+button selected {
+    background-color:            @active;
+    text-color:                  black;
+}
+
+// List-view
+listview {
+    enabled:                     true;
+    columns:                     3;
+    lines:                       4;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     10px;
+    margin:                      0px;
+    padding:                     20px 0px 0px 0px;
+    border:                      0px solid;
+    background-color:            transparent;
+    cursor:                      "default";
+}
+
+// List-view elements
+element {
+    enabled:                     true;
+    spacing:                     10px;
+    margin:                      0px;
+    padding:                     10px;
+    border:                      1px solid;
+    border-radius:               15px;
+    border-color:                gray/50%;
+    background-color:            transparent;
+    text-color:                  white;
+    cursor:                      pointer;
+}
+element.normal.normal {
+    background-color: gray/20%;
+    text-color: white;
+}
+element.alternate.normal {
+    background-color: gray/20%;
+    text-color: white;
+}
+element normal.active {
+    background-color:            @active;
+    text-color:                  inherit;
+}
+element selected.normal {
+    background-color:            @selected;
+    text-color:                #000000;
+}
+element selected.active {
+    background-color:            @active;
+    text-color:                  inherit;
+}
+element-icon {
+    background-color:            transparent;
+    size:                        42px;
+    cursor:                      inherit;
+}
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+// Others
+error-message {
+    padding:                     20px;
+    background-color:            transparent;
+    text-color:                  black;
+}
+textbox {
+    padding:                     20px;
+    border-radius:               12px;
+    background-color:            white/30%;
+    text-color:                  black;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}

@@ -1,0 +1,247 @@
+/* PyWal Colors */
+@import "../../../.cache/wal/colors-waybar.css";
+
+/* General  */
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  font-family: "Hack Nerd Font", "Font Awesome 6 Free",
+    "JetBrainsMono Nerd Font";
+  font-weight: bold;
+  font-size: 12px;
+  min-height: 14px;
+  background: transparent;
+}
+tooltip {
+  background: alpha(@background, 0.8);
+  color: @foreground;
+}
+window#waybar.empty #window {
+  background-color: transparent;
+  border: 0px;
+}
+#custom-apps,
+#taskbar,
+#window,
+#workspaces,
+#custom-mediaplayer,
+#battery,
+#pulseaudio,
+#network,
+#clock,
+#custom-exit,
+#custom-notification,
+#custom-hypridle,
+#bluetooth,
+#cpu,
+#memory,
+#tray,
+#temperature,
+#disk,
+#custom-window-name,
+#custom-hyprshade,
+#custom-notifications,
+#backlight {
+  margin: 2px 3px;
+  padding: 0px 10px 0px 10px;
+}
+#backlight,
+#bluetooth,
+#custom-hyprshade,
+#custom-mediaplayer,
+#custom-hypridle,
+#custom-apps,
+#taskbar,
+#group-sysinfo,
+#window,
+#workspaces,
+#tray,
+#battery,
+#custom-notifications,
+#pulseaudio,
+#network,
+#clock,
+#custom-exit {
+  background: alpha(@background, 0.5);
+  border: 1px solid @color11;
+  border-radius: 8px;
+}
+
+/* Taskbar */
+#taskbar {
+  font-weight: normal;
+  font-style: normal;
+  padding: 0px 0px 0px 0px;
+}
+#taskbar button {
+  margin: 0px 0px;
+  border-radius: 6px;
+  padding: 0px 5px 0px 5px;
+}
+#taskbar button.active {
+  background-color: alpha(@color11, 0.6);
+}
+#taskbar button:hover {
+  background-color: alpha(@color11, 0.3);
+}
+#taskbar.empty {
+  background: transparent;
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Setting colours  */
+#bluetooth,
+#cpu {
+  color: #68b0d6;
+}
+#custom-hyprshade,
+#memory {
+  color: #a6da95;
+}
+#temperature {
+  color: #8aadf4;
+}
+#disk {
+  color: #68b0d6;
+}
+#backlight {
+  color: #eed49f;
+}
+#pulseaudio {
+  color: #91d7e3;
+}
+#network {
+  color: #c6a0f6;
+}
+#custom-dot,
+#custom-mediaplayer,
+#custom-window-name,
+#window,
+#custom-apps,
+#clock,
+#custom-exit {
+  color: @foreground;
+}
+
+/* Battery  */
+#battery {
+  color: #a6da95;
+}
+#battery.charging,
+#battery.plugged {
+  color: #26a65b;
+}
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+#battery.critical:not(.charging) {
+  color: #f53c3c;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Workspaces  */
+#workspaces {
+  padding: 0px 2px 0px 2px;
+  border-radius: 19px;
+}
+#workspaces button {
+  box-shadow: none;
+  text-shadow: none;
+  padding: 0px;
+  border-radius: 9px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-left: 0px;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-right: 0px;
+  color: @foreground;
+  transition: all 0.1s linear;
+  /* animation: ws_normal 20s ease-in-out 1; */
+}
+#workspaces button.active {
+  background: @color11;
+  color: @fff;
+  margin-left: 2px;
+  padding-left: 9px;
+  padding-right: 9px;
+  margin-right: 2px;
+  transition: all 0.1s linear;
+  /* animation: ws_active 20s ease-in-out 1;
+  transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
+}
+#workspaces button:hover {
+  background: @color12;
+  color: @color0;
+  /* animation: ws_hover 20s ease-in-out 1;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
+}
+#workspaces button.focused {
+  background-color: #64727d;
+  box-shadow: inset 0 -3px #ffffff;
+}
+#workspaces button.urgent {
+  background-color: #eb4d4b;
+}
+
+/* System info drawers*/
+#cpu,
+#memory,
+#temperature,
+#disk {
+  padding: 0px 10px 0px 10px;
+}
+
+/* Makes the borders round */
+#clock,
+#backlight,
+#custom-hyprshade {
+  border-radius: 8px 0px 0px 8px;
+  margin: 2px 0px;
+}
+#bluetooth,
+#custom-mediaplayer,
+#battery,
+#custom-notifications,
+#pulseaudio {
+  border-radius: 0px;
+  margin: 2px 0px;
+}
+#custom-hypridle,
+#custom-exit,
+#network {
+  margin: 2px 0px;
+  border-radius: 0px 8px 8px 0px;
+}
+
+/* App-menu */
+#custom-apps {
+  margin: 2px 0px;
+}
+
+/* Hide the empty */
+#bluetooth.empty,
+#custom-mediaplayer.empty,
+#custom-hypridle.empty,
+#custom-notifications.empty,
+#pulseaudio.empty {
+  border: 0px;
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px 0px;
+}
+
+/* Adjusts the dot */
+#custom-dot{
+  padding: 0px 8px 0px 0px;
+}

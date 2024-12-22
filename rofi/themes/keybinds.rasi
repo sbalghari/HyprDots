@@ -1,13 +1,14 @@
+
+
 @import "~/.config/rofi/themes/dmenu.rasi"
 
+// Makes the keybindings dmenu larger
 window {
     width:                       600px;
 }
-
 listview {
     lines:                       10;
 }
-
 element {
     padding:                     16px;
 }

@@ -1,10 +1,10 @@
 
 @import "~/.config/rofi/themes/dmenu.rasi"
 
+// Search-bar for the emojis
 inputbar {
     children:                    [ "textbox-prompt-colon", "entry"];
 }
-
 entry {
   enabled:                     true;
   padding:                     10px;

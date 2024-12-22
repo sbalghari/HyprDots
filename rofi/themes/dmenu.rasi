@@ -1,11 +1,18 @@
+/**
+ *
+ * Modified by : Saifullah Balghari
+ * Original : Aditya Shakya (adi1090x)
+ *
+ **/
+
 // Color theme
 @import "~/.config/rofi/colors/wal.rasi"
-@import "~/.config/rofi/config.rasi"
 
 configuration {
     show-icons:                 false;
 }
 
+// Main window
 window {
     location:                    center; // north east
     anchor:                      center; // north east
@@ -16,13 +23,14 @@ window {
     enabled:                     true;
     margin:                      0px;
     padding:                     5px;
-    border:                      1px solid;
+    border:                      2px solid;
     border-radius:               30px;
     border-color:                @border-color;
     cursor:                      "default";
-    background-color:            rgba(0, 0, 0, 0.5);
+    background-color:            rgba(0, 0, 0, 0.7);
 }
 
+// Main box
 mainbox {
     enabled:                     true;
     spacing:                     10px;
@@ -33,6 +41,7 @@ mainbox {
     children:                    [ "inputbar", "message", "listview" ];
 }
 
+// Top bar with title or search bar and an icon
 inputbar {
     enabled:                     true;
     spacing:                     10px;
@@ -45,7 +54,6 @@ inputbar {
     text-color:                  @foreground;
     children:                    [ "textbox-prompt-colon", "prompt"];
 }
-
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
@@ -62,6 +70,7 @@ prompt {
     text-color:                  @background;
 }
 
+// Message
 message {
     enabled:                     true;
     margin:                      0px;
@@ -72,16 +81,8 @@ message {
     background-color:            @background-alt;
     text-color:                  #fff;
 }
-textbox {
-    background-color:            inherit;
-    text-color:                  inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.0;
-    placeholder-color:           @foreground;
-    blink:                       true;
-    markup:                      true;
-}
 
+// List-view
 listview {
     enabled:                     true;
     columns:                     1;
@@ -93,10 +94,9 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-
+    padding:                     10px 0px 0px 0px;
     spacing:                     10px;
     margin:                      0px;
-    padding:                     0px;
     border:                      0px solid;
     border-radius:               0px;
     border-color:                @selected;
@@ -104,6 +104,7 @@ listview {
     text-color:                  #ffffff;
 }
 
+// List-view elements
 element {
     enabled:                     true;
     spacing:                     0px;
@@ -125,4 +126,23 @@ element-text {
 element selected.normal {
     background-color:            var(selected);
     text-color:                  var(background);
+}
+element.normal.normal {
+    background-color: gray/20%;
+    text-color: white;
+}
+element.alternate.normal {
+    background-color: gray/20%;
+    text-color: white;
+}
+
+// Others
+textbox {
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+    placeholder-color:           @foreground;
+    blink:                       true;
+    markup:                      true;
 }
