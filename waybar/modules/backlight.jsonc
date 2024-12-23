@@ -1,9 +1,0 @@
-{
-  "backlight": {
-    "format": "{icon}",
-    "format-alt": "{icon} {percent}",
-    "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"],
-    "scroll-step": 5,
-    "tooltip-format": ""
-  }
-}

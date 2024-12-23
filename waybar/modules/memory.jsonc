@@ -1,9 +1,0 @@
-{
-  "memory": {
-    "interval": 5,
-    "format": " {}% ",
-    "format-alt": " {used:0.1f}G",
-    "max-length": 10,
-    "on-click-right": "htop"
-  }
-}

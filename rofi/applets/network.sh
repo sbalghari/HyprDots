@@ -24,7 +24,6 @@ toggle_wifi() {
     elif nmcli radio wifi | grep -q "disabled"; then
         enable_wifi
     fi
-
 }
 
 # Functions

@@ -1,7 +1,0 @@
-connect.dial_devices="[]"
-audio.play_bitrate_non_metered_migrated=true
-audio.equalizer_v2=true
-ui.track_notifications_enabled=false
-audio.play_bitrate_non_metered_enumeration=3
-audio.play_bitrate_enumeration=3
-app.browser.zoom-level=-150

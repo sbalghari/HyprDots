@@ -1,7 +1,0 @@
-{
-  "custom/exit": {
-    "format": "",
-    "on-click": "~/.config/rofi/applets/powermenu.sh",
-    "tooltip-format": "Power Menu"
-  }
-}

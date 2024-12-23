@@ -35,9 +35,7 @@ run_rofi() {
 	echo -e "$option_1\n$option_2\n$option_3\n$option_4\n$option_5" | rofi_cmd
 }
 
-
-time=$(date +%Y-%m-%d-%H-%M-%S)
-dir="$(xdg-user-dir PICTURES)/Screenshots"
+dir="$HOME/Pictures/Screenshots"
 
 if [[ ! -d "$dir" ]]; then
 	mkdir -p "$dir"

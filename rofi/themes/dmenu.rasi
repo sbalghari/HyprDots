@@ -24,7 +24,7 @@ window {
     margin:                      0px;
     padding:                     5px;
     border:                      1px solid;
-    border-radius:               12px;
+    border-radius:               30px;
     border-color:                @border-color;
     cursor:                      "default";
     background-color:            rgba(0, 0, 0, 0.7);

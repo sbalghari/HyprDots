@@ -133,13 +133,13 @@ class PlayerManager:
         ):
             track_info = "Advertisement"
         elif artist is not None and title is not None:
-            track_info = ""
+            track_info = "  " + title
         else:
-            track_info = ""
+            track_info = "  " + player_name
 
         if track_info:
             if player.props.status != "Playing":
-                track_info = ""
+                track_info = "  " + title
         # only print output if no other player is playing
         current_playing = self.get_first_playing_player()
         if (

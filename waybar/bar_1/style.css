@@ -9,23 +9,21 @@
   padding: 0px;
   margin: 0px;
   border: none;
-  font-family: "Hack Nerd Font", "Font Awesome 6 Free",
-    "JetBrainsMono Nerd Font";
+  font-family: "JetBrainsMono Nerd Font", "Hack Nerd Font";
   font-weight: bold;
   font-size: 12px;
-  min-height: 14px;
+  min-height: 12px;
   background: transparent;
 }
 tooltip {
-  background: alpha(@base, 0.8);
+  background: alpha(@base, 0.7);
   color: @foreground;
 }
-window#waybar.empty #window {
-  background-color: transparent;
-  border: 0px;
-}
 #custom-apps,
-#taskbar,
+#custom-clipboard,
+#custom-screenshot,
+#custom-colorpicker,
+#custom-wallpapers,
 #window,
 #workspaces,
 #custom-mediaplayer,
@@ -34,81 +32,26 @@ window#waybar.empty #window {
 #network,
 #clock,
 #custom-exit,
-#custom-notification,
 #custom-hypridle,
 #bluetooth,
 #cpu,
 #memory,
-#tray,
 #temperature,
 #disk,
-#custom-window-name,
 #custom-hyprshade,
 #custom-notifications,
 #backlight {
-  margin: 2px 3px;
-  padding: 0px 10px 0px 10px;
-}
-#backlight,
-#bluetooth,
-#custom-hyprshade,
-#custom-mediaplayer,
-#custom-hypridle,
-#custom-apps,
-#taskbar,
-#group-sysinfo,
-#window,
-#workspaces,
-#tray,
-#battery,
-#custom-notifications,
-#pulseaudio,
-#network,
-#clock,
-#custom-exit {
+  margin: 0px 2px;
+  padding: 2px 10px 2px 10px;
   background: alpha(@base, 0.7);
   border: 1px solid @color11;
-  border-radius: 8px;
-}
-
-/* Taskbar */
-#taskbar {
-  font-weight: normal;
-  font-style: normal;
-  padding: 0px 0px 0px 0px;
-}
-#taskbar button {
-  margin: 0px 4px;
-  border-radius: 10px;
-  padding: 0px 2px 0px 0px;
-}
-#taskbar button.active {
-  background-color: alpha(@color11, 0.2);
-}
-#taskbar button:hover {
-  background-color: alpha(@color11, 0.1);
-}
-#taskbar.empty {
-  background: transparent;
-  border: 0px;
-  padding: 0px;
-  margin: 0px;
+  border-radius: 5px;
 }
 
 /* Setting colours  */
+#custom-mediaplayer,
 #bluetooth,
 #network {
-  color: @blue;
-}
-#battery,
-#memory {
-  color: @teal;
-}
-#temperature {
-  color: @rosewater;
-}
-#custom-mediaplayer,
-#disk {
   color: @mauve;
 }
 #custom-hyprshade,
@@ -116,23 +59,34 @@ window#waybar.empty #window {
   color: @yellow;
 }
 #pulseaudio {
-  color: @lavender;
+  color: @blue;
 }
 #window,
-#cpu {
+#battery {
   color: @green;
 }
+#cpu,
+#memory,
+#temperature,
+#disk,
+#custom-clipboard,
+#custom-screenshot,
+#custom-colorpicker,
+#custom-wallpapers,
+#custom-notification,
+#custom-sysinfo,
+#custom-tools,
 #custom-dot,
 #custom-apps,
 #clock,
 #custom-exit {
-  color: @foreground;
+  color: @text;
 }
 
 /* Battery  */
 #battery.charging,
 #battery.plugged {
-  color: #28d16e;
+  color: #3fe268;
 }
 @keyframes blink {
   to {
@@ -151,40 +105,29 @@ window#waybar.empty #window {
 
 /* Workspaces  */
 #workspaces {
-  padding: 0px 2px 0px 2px;
-  border-radius: 19px;
+  padding: 0px;
+  border-radius: 5px;
 }
 #workspaces button {
+  font-family: "Times New Roman 12", "Hack Nerd Font", "JetBrainsMono Nerd Font";
   box-shadow: none;
   text-shadow: none;
-  padding: 0px;
-  border-radius: 9px;
-  margin-top: 3px;
-  margin-bottom: 3px;
-  margin-left: 0px;
-  padding-left: 3px;
-  padding-right: 3px;
-  margin-right: 0px;
+  border-radius: 0px;
+  padding-left: 2px;
+  padding-right: 2px;
   color: @foreground;
   transition: all 0.1s linear;
-  /* animation: ws_normal 20s ease-in-out 1; */
 }
 #workspaces button.active {
   background: @color11;
-  color: @fff;
-  margin-left: 2px;
-  padding-left: 9px;
-  padding-right: 9px;
-  margin-right: 2px;
+  color: @background;
+  padding-left: 8px;
+  padding-right: 8px;
   transition: all 0.1s linear;
-  /* animation: ws_active 20s ease-in-out 1;
-  transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
 }
 #workspaces button:hover {
   background: @color12;
   color: @color0;
-  /* animation: ws_hover 20s ease-in-out 1;
-  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
 }
 #workspaces button.focused {
   background-color: #64727d;
@@ -194,7 +137,19 @@ window#waybar.empty #window {
   background-color: @red;
 }
 
-/* System info drawers*/
+/* Drawers */
+#custom-sysinfo {
+  padding: 0px 5px 0px 5px;
+  font-size: 15px;
+  font-weight: bolder;
+}
+#custom-tools {
+  padding: 0px 10px 0px 0px;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+/* System info drawer*/
 #cpu,
 #memory,
 #temperature,
@@ -202,37 +157,44 @@ window#waybar.empty #window {
   padding: 0px 10px 0px 10px;
 }
 
-/* borders radius */
-#custom-apps,
-#taskbar,
-#window{
-  border-radius: 12px 0px 12px 0px;
-  margin: 2px 2px;
+/* Tools drawer*/
+#custom-clipboard,
+#custom-colorpicker,
+#custom-screenshot,
+#custom-wallpapers {
+  padding: 0px 14px 0px 10px;
 }
 
-
+/* borders radius */
+#custom-sysinfo,
+#custom-tools,
+#custom-mediaplayer,
+#window {
+  border-radius: 5px;
+  margin: 0px 2px;
+}
 #clock,
 #backlight,
 #custom-hyprshade {
-  border-radius: 0px 0px 0px 12px;
-  margin: 2px 0px;
+  border-radius: 5px 0px 0px 5px;
+  margin: 0px 0px;
 }
 #bluetooth,
-#custom-mediaplayer,
 #battery,
 #custom-notifications,
 #pulseaudio {
   border-radius: 0px;
-  margin: 2px 0px;
+  margin: 0px 0px;
 }
 #custom-hypridle,
 #custom-exit,
 #network {
-  margin: 2px 0px;
-  border-radius: 0px 12px 0px 0px;
+  margin: 0px;
+  border-radius: 0px 5px 5px 0px;
 }
 
-/* Hide the empty */
+/* Hides the empty */
+window#waybar.empty #window,
 #bluetooth.empty,
 #custom-mediaplayer.empty,
 #custom-hypridle.empty,
@@ -241,10 +203,11 @@ window#waybar.empty #window {
   border: 0px;
   background-color: transparent;
   padding: 0px;
-  margin: 0px 0px;
+  margin: 0px;
 }
 
-/* Adjusts the dot */
-#custom-dot{
-  padding: 0px 8px 0px 0px;
+/* Adjustments */
+#custom-dot {
+  padding: 0px 6px 0px 0px;
+  margin: 0px 4px;
 }

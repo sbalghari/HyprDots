@@ -1,8 +1,0 @@
-{
-  "cpu": {
-    "interval": 5,
-    "format": " {usage}% ",
-    "max-length": 10,
-    "on-click": "htop"
-  }
-}

@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# File where clipboard history is stored
-HISTORY_FILE="$HOME/.cache/wl-clipboard-history"
-
-SELECTION=$(tac "$HISTORY_FILE" | rofi -dmenu -p "Clipboard History")
-
-# Copy the selection back to the clipboard
-[ -n "$SELECTION" ] && echo -n "$SELECTION" | wl-copy
