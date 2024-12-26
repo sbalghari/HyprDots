@@ -79,16 +79,16 @@ mouse_right_click = close_all
 per_monitor_dpi = false
 
 [urgency_low]
-background = "#0a0a11"
+background = "#0f1018"
 foreground = "#888888"
-frame_color = "#73738A"
+frame_color = "#837D83"
 
 [urgency_normal]
-background = "#0a0a11"
+background = "#0f1018"
 foreground = "#ffffff"
-frame_color = "#73738A"
+frame_color = "#837D83"
 
 [urgency_critical]
-background = "#0a0a11"
+background = "#0f1018"
 foreground = "#ffffff"
-frame_color = "#73738A"
+frame_color = "#837D83"

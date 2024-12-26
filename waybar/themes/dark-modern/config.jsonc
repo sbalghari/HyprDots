@@ -1,10 +1,10 @@
 // By:  Saifullah Balghari
 {
   "layer": "top",
-  "margin-top": 5,
-  "margin-left": 5,
+  "margin-top": 10,
+  "margin-left": 10,
   "margin-bottom": 0,
-  "margin-right": 5, 
+  "margin-right": 10, 
   "height": 18,
   "output": "eDP-1",
   "exclusive": true,
@@ -16,6 +16,7 @@
   ],
   "modules-left": [
     "custom/apps",
+    "custom/settings",
     "group/sysinfo",
     "custom/empty",
     "group/tools",

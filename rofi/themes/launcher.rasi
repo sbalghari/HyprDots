@@ -29,10 +29,10 @@ window {
     enabled:                     true;
     padding:                     10px;
     border:                      1px solid;
-    border-radius:               12px;
+    border-radius:               5px;
     cursor:                      "default";
     border-color:                @border-color;
-    background-color:            rgba(0, 0, 0, 0.7);
+    background-color:            rgba(30, 30, 46, 0.5);
 }
 
 // Main box

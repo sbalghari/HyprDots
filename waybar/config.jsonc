@@ -1,5 +1,5 @@
 [
   {
-    "include": ["~/.config/waybar/bar_1/config.jsonc"]
+    "include": ["~/.config/waybar/themes/dark-modern/config.jsonc"]
   }
 ]

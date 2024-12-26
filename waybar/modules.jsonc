@@ -9,6 +9,13 @@
     "on-click-right": "~/.config/rofi/applets/keybindings.sh"
   },
 
+  // Settings
+  "custom/settings": {
+    "format": "",
+    "tooltip-format": "Settings",
+    "on-click": "",
+  },
+
   // Tools
   "custom/clipboard": {
     "format": "",
@@ -233,19 +240,24 @@
     "icon": false
   },
   "custom/dot": {
-    "format": ""
+    "format": "",
+    "tooltip": false
   },
   "custom/separator": {
-    "format": "󰿟"
+    "format": "󰿟",
+    "tooltip": false
   },
   "custom/sysinfo": {
-    "format": ""
+    "format": "",
+    "tooltip-format": "System usage"
   },
   "custom/tools": {
-    "format": ""
+    "format": "",
+    "tooltip-format": "Tools menu"
   },
   "custom/empty": {
-    "format": " "
+    "format": " ",
+    "tooltip": false
   },
 
   // Groups

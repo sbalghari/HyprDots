@@ -22,12 +22,12 @@ window {
     y-offset:                    0px;   // 42
     enabled:                     true;
     margin:                      0px;
-    padding:                     5px;
+    padding:                     10px;
     border:                      1px solid;
-    border-radius:               30px;
+    border-radius:               5px;
     border-color:                @border-color;
     cursor:                      "default";
-    background-color:            rgba(0, 0, 0, 0.7);
+    background-color:           rgba(30, 30, 46, 0.5);
 }
 
 // Main box
@@ -36,7 +36,7 @@ mainbox {
     spacing:                     10px;
     margin:                      0px;
     padding:                     10px;
-    border-radius:               30px;
+    border-radius:               5px;
     background-color:            transparent;
     children:                    [ "inputbar", "message", "listview" ];
 }
