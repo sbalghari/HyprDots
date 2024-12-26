@@ -12,11 +12,11 @@ win_width='400px'
 # Theme
 theme="$HOME/.config/rofi/themes/dmenu.rasi"
 
-option_1=" Capture Desktop"
-option_2=" Capture Area"
-option_3=" Capture Window"
-option_4=" Capture in 5s"
-option_5=" Capture in 10s"
+option_1="  Capture Desktop"
+option_2=" 󰩭 Capture Area"
+option_3="  Capture Window"
+option_4=" 󱎫 Capture in 5s"
+option_5=" 󱎫 Capture in 10s"
 
 # Rofi CMD
 rofi_cmd() {

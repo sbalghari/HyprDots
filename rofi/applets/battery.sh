@@ -31,7 +31,7 @@ list_row='3'
 win_width='400px'
 
 option_1="  Percentage: ${percentage}%"
-option_2=" Toggle Power Saver (${current_profile^})"
+option_2="  Toggle Power Saver (${current_profile^})"
 option_3="󱊦  Enable Performance Mode"
 
 # Rofi CMD

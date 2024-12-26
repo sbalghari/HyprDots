@@ -32,7 +32,7 @@ window {
     border-radius:               5px;
     cursor:                      "default";
     border-color:                @border-color;
-    background-color:            rgba(30, 30, 46, 0.5);
+    background-color:            @background-color;
 }
 
 // Main box

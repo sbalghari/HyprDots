@@ -1,17 +1,21 @@
-/**
+/** 
+ *
+ * Catpuccin color-scheme with py-wal border color
  *
  * By : Saifullah Balghari
- *
+ *  
  **/
 
 // Pywal colors
 @theme "~/.cache/wal/colors-rofi-dark.rasi"
 
 * {
-    background-alt:       transparent;
-    selected:           rgba(255, 255, 255, 0.7);
-    active:             rgba(100, 230, 117, 0.8);
-    urgent:             rgba(250, 110, 110, 0.8);
-    border-color:         @selected-urgent-background;
+    background-color:               rgba(30, 30, 46, 0.7);
+    background-color-elements:      rgba(30, 30, 46, 0.3);
+    selected:                       rgba(255, 255, 255, 0.7);
+    active:                         rgba(100, 230, 117, 0.8);
+    urgent:                         rgba(250, 110, 110, 0.8);
+    border-color:                     @selected-urgent-background;
+    text-color:                     #cdd6f4;
 }
  

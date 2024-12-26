@@ -13,7 +13,7 @@ elif nmcli radio wifi | grep -q "disabled"; then
 fi
 
 # Define options
-OPTIONS="${toggle_icon}  Toggle Wi-fi\n直 Connect to Network\n  View IP Address\n  Exit"
+OPTIONS="${toggle_icon}  Toggle Wi-fi\n  Connect to Network\n  View IP Address\n  Exit"
 
 # Rofi menu
 CHOICE=$(echo -e "$OPTIONS" | rofi -dmenu -l 4 -i -theme-str 'textbox-prompt-colon {str: " ";}' -p "Network Settings" -theme "$theme")
@@ -87,7 +87,7 @@ case "$CHOICE" in
 "${toggle_icon}  Toggle Wi-fi")
     toggle_wifi
     ;;
-"直 Connect to Network")
+"  Connect to Network")
     scan_and_connect
     ;;
 "  View IP Address")
