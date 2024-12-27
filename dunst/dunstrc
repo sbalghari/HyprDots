@@ -21,12 +21,11 @@ progress_bar_max_width = 300
 progress_bar_corner_radius = 5
 indicate_hidden = yes
 icon_corner_radius = 0
-transparency = 50
-separator_height = 2
+separator_height = 1
 padding = 8
 horizontal_padding = 8
 text_icon_padding = 0
-frame_width = 2
+frame_width = 1
 gap_size = 0
 separator_color = frame
 sort = yes
@@ -45,7 +44,7 @@ show_indicators = yes
 
 # Icons
 enable_recursive_icon_lookup = true
-icon_theme = "Papirus-Dark,Adwaita"
+icon_theme = "Reversal-Dark, Papirus-Dark, Adwaita"
 icon_position = left
 min_icon_size = 32
 max_icon_size = 128
@@ -61,7 +60,7 @@ browser = /usr/bin/xdg-open
 always_run_script = true
 title = Dunst
 class = Dunst
-corner_radius = 10
+corner_radius = 5
 ignore_dbusclose = false
 
 # Wayland
@@ -79,16 +78,16 @@ mouse_right_click = close_all
 per_monitor_dpi = false
 
 [urgency_low]
-background = "#0c061f"
+background = "#1e1e2eaa"
 foreground = "#888888"
 frame_color = "#594762"
 
 [urgency_normal]
-background = "#0c061f"
-foreground = "#ffffff"
+background = "#1e1e2eaa"
+foreground = "#cdd6f4"
 frame_color = "#594762"
 
 [urgency_critical]
-background = "#0c061f"
-foreground = "#ffffff"
+background = "#f38ba8aa"
+foreground = "#11111b"
 frame_color = "#594762"
