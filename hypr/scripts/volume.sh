@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# By:  Saifullah Balghari
-
 down() {
 pamixer -d 5
 volume=$(pamixer --get-volume)

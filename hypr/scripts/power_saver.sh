@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# By:  Saifullah Balghari
-
 # Note: This script is used by Udev rules
 
 # If the battery is charging
@@ -11,13 +9,13 @@ if [ "$1" == "plugged" ]; then
     powerprofilesctl set balanced
 
     # Notify
-    dunstify "Plugged!" "Balanced mode is enabled, press Super+Ctrl+M to toggle performance mode."
+    notify-send "Plugged!" "Balanced mode is enabled, press Super+SHIFT+M to toggle performance mode."
 elif [ "$1" == "unplugged" ]; then
     # Enable power-saver and lower brightness th 50%
     brightnessctl set 50%
     powerprofilesctl set power-saver
 
     # Notify
-    dunstify "Unplugged!" "Power-saver is enabled to improve battery life." 
+    notify-send "Unplugged!" "Power-saver is enabled to improve battery life." 
 fi
 

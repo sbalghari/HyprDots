@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Modified by:  Saifullah Balghari
+# Original:     Stephen Raabe (ML4W)
+
 # Define thresholds for color indicators
 threshhold_none=0
 threshhold_green=1

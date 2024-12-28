@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# By:  Saifullah Balghari
-
 # Paths
 DUNST_CONFIG="$HOME/.config/dunst/dunstrc"
 DUNST_BACKUP="$DUNST_CONFIG.backup"

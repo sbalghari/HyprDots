@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# By:  Saifullah Balghari
-
 # Paths
 WAL_CSS="$HOME/.cache/wal/colors.css"
 COLORS_CONF="$HOME/.config/hypr/configs/colors.conf"

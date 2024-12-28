@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# By:  Saifullah Balghari
-
 down() {
 light -U 5
 brightness=$(light -G)

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Modified by:  Saifullah Balghari
+# Original:     Stephan Raabe (ML4W)
+
 # Dependencies check
 dependencies=("figlet" "gum" "notify-send")
 for dep in "${dependencies[@]}"; do
@@ -10,12 +13,6 @@ for dep in "${dependencies[@]}"; do
     fi
 done
 
-# Arch platform check
-if [[ ! -f /etc/arch-release ]]; then
-    echo " ERROR - Platform not supported. This script only works on Arch-based systems."
-    exit 1
-fi
-
 # AUR helper detection
 aur_helper=$(command -v yay || command -v paru || echo "")
 if [[ -z "$aur_helper" ]]; then
@@ -24,7 +21,7 @@ if [[ -z "$aur_helper" ]]; then
 fi
 
 # Title
-sleep 1
+sleep 0.4
 clear
 figlet -f smslant "Updates"
 echo

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# By:  Saifullah Balghari
-
 path="$1"
 
 # Function to blur an image using ImageMagick
