@@ -28,7 +28,7 @@ fi
 # Calculate updates
 aur_updates=$(checkupdates-with-aur 2>/dev/null | wc -l)
 flatpak_updates=$(flatpak remote-ls --updates 2>/dev/null | wc -l)
-updates=34
+updates=$((aur_updates + flatpak_updates))
 
 # Determine CSS class
 css_class="none"
