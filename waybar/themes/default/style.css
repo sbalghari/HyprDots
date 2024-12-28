@@ -2,11 +2,10 @@
 
 /* 
   ================================================================
-  => Colors
+  => Pywal Colors
   ================================================================
 */
 @import "../../../../.cache/wal/colors-waybar.css";
-@import "./colors.css";
 
 /* 
   ================================================================
@@ -105,7 +104,7 @@ tooltip label {
 #custom-screenshot,
 #custom-colorpicker,
 #custom-wallpapers,
-#custom-notification,
+#custom-notifications,
 #custom-sysinfo,
 #custom-tools,
 #custom-extra,
