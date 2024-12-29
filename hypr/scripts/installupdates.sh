@@ -66,7 +66,7 @@ fi
 # System updates
 $aur_helper
 if [[ $(_isInstalled "flatpak") == "0" ]]; then
-    flatpak upgrade
+    flatpak update
 fi
 
 # Cleanup orphaned packages

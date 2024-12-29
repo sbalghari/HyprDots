@@ -11,7 +11,7 @@ bg_hex=$(grep -oP '(?<=--color0: )#[0-9a-fA-F]+' "$WAL_CSS")
 # ARGB converting function
 hex_to_argb() {
     local hex="$1"
-    local alpha="ee"
+    local alpha="b3"
     local rr="${hex:1:2}"
     local gg="${hex:3:2}"
     local bb="${hex:5:2}"

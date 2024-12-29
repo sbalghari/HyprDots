@@ -11,10 +11,12 @@ wal -i "$1"
 echo "Generated pywal colors"
 
 # Reload with the new colors
-echo "Reloading waybar, hyprland and dunst..."
+echo "Reloading waybar and swaync"
 pkill waybar
+pkill swaync 
+swaync &
 waybar &
-echo "Successfully reloaded waybar and dunst"
+echo "Successfully reloaded waybar and swaync"
 
 sleep 0.2
 echo "Running script..."
@@ -24,9 +26,9 @@ echo "Running script..."
 # This will store a blured version of the current wallpaper for hyprlock's background
 ~/.config/hypr/scripts/cache_wallpaper.sh "$1"
 
-# This will apply wal colors to dunst the notification daemon
-~/.config/hypr/scripts/update_dunst_color.sh
+# # This will apply wal colors to dunst the notification daemon
+# ~/.config/hypr/scripts/update_dunst_color.sh
 echo "Successfully ran the scripts"
 
-pkill dunst && dunst &
-hyprctl reload
+# pkill dunst && dunst &
+hyprctl reloadR
