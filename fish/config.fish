@@ -2,9 +2,6 @@
 # by Saifullah Balghari 
 # -----------------------------------------------------
 
-# Aliases
-alias update="sudo pacman -Syu"
-
 # Remove the fish greetings
 set -g fish_greeting
 
@@ -29,5 +26,6 @@ set -Ux GTK_CURSOR_THEME Bibata-Modern-Classic
 set -Ux XCURSOR_THEME Bibata-Modern-Classic
 set -Ux XCURSOR_SIZE 20
 set -x QT_QPA_PLATFORMTHEME qt5ct
-# set -x QT_STYLE_OVERRIDE kvantum
+set -x QT_QPA_PLATFORMTHEME qt6ct
+set -x QT_STYLE_OVERRIDE kvantum
 set -x QT_QPA_PLATFORM wayland
