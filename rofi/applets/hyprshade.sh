@@ -21,7 +21,7 @@ if [[ "$1" == "rofi" ]]; then
             notify-send "Hyprshade deactivated"
             echo ":: hyprshade turned off"            
         else
-            dunstify "Changing Hyprshade to $choice" "Shader applied successfully"
+            notify-send "Changing Hyprshade to $choice" "Shader applied successfully"
         fi
     fi
 else

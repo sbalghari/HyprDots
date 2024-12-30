@@ -42,7 +42,7 @@ if [[ ! -d "$dir" ]]; then
 fi
 
 notify_view() {
-	dunstify -u low --replace=699 "Screenshot Saved at $dir/$file"
+	notify-send -u low --replace=699 "Screenshot Saved at $dir/$file"
 }
 
 shotnow() {
@@ -61,13 +61,13 @@ shotwin() {
 }
 
 shot5() {
-	dunstify -t 1000 --replace=699 "Taking shot in: 5 seconds"
+	notify-send -t 1000 "Taking shot in: 5 seconds"
 	sleep 5
 	shotnow
 }
 
 shot10() {
-	dunstify -t 1000 --replace=699 "Taking shot in: 10 seconds"
+	notify-send -t 1000 "Taking shot in: 10 seconds"
 	sleep 10
 	shotnow
 }

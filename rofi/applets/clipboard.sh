@@ -35,7 +35,7 @@ copy_to_clipboard() {
     selected="$1"
     if [[ -n "$selected" ]]; then
         echo -n "$selected" | wl-copy
-        dunstify -u low "Clipboard" "Copied to clipboard: $selected"
+        notify-send -u low "Clipboard" "Copied to clipboard: $selected"
     fi
 }
 
