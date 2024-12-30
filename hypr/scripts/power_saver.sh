@@ -9,13 +9,13 @@ if [ "$1" == "plugged" ]; then
     powerprofilesctl set balanced
 
     # Notify
-    notify-send "Plugged!" "Balanced mode is enabled, press Super+SHIFT+M to toggle performance mode."
+    notify-send -u critical  "Plugged!" "Balanced mode is enabled, press Super+SHIFT+M to toggle performance mode."
 elif [ "$1" == "unplugged" ]; then
     # Enable power-saver and lower brightness th 50%
     brightnessctl set 50%
     powerprofilesctl set power-saver
 
     # Notify
-    notify-send "Unplugged!" "Power-saver is enabled to improve battery life." 
+    notify-send -u critical  "Unplugged!" "Power-saver is enabled to improve battery life." 
 fi
 

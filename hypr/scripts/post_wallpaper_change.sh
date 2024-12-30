@@ -26,9 +26,6 @@ echo "Running script..."
 # This will store a blured version of the current wallpaper for hyprlock's background
 ~/.config/hypr/scripts/cache_wallpaper.sh "$1"
 
-# # This will apply wal colors to dunst the notification daemon
-# ~/.config/hypr/scripts/update_dunst_color.sh
 echo "Successfully ran the scripts"
 
-# pkill dunst && dunst &
 hyprctl reloadR
