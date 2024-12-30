@@ -6,10 +6,10 @@
 */
 {
   "layer": "top",
-  "margin-top": 10,
-  "margin-left": 10,
+  "margin-top": 5,
+  "margin-left": 5,
   "margin-bottom": 0,
-  "margin-right": 10,
+  "margin-right": 5,
   "height": 15,
   "output": "eDP-1",
   "exclusive": true,
@@ -20,10 +20,11 @@
   "modules-left": [
     "custom/apps",
     //"wlr/taskbar",
-    "custom/settings",
+    //"custom/settings",
     "group/sysinfo",
     "group/tools",
     "hyprland/window",
+    "custom/empty",
     "custom/mediaplayer"
   ],
   "modules-center": ["hyprland/workspaces"],
@@ -35,8 +36,8 @@
     "pulseaudio",
     "network",
     "custom/dot",
-    //"tray",
-    //"custom/dot",
+    // "tray",
+    // "custom/dot",
     "clock",
     "custom/notifications",
     "custom/exit"

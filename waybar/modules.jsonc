@@ -164,7 +164,7 @@
 
   // Brightness
   "backlight": {
-    "format": "{icon} {percent}",
+    "format": "{icon} {percent}%",
     "format-alt": "{icon}",
     "format-icons": [
       "",
@@ -256,30 +256,8 @@
 
   // Notifications
   "custom/notifications": {
-    "format": "{icon}",
-    "rotate": 0,
-    "format-icons": {
-      "email-notification": "<span foreground='white'><sup></sup></span>",
-      "chat-notification": "󱋊<span foreground='white'><sup></sup></span>",
-      "warning-notification": "󱨪<span foreground='yellow'><sup></sup></span>",
-      "error-notification": "󱨪<span foreground='red'><sup></sup></span>",
-      "network-notification": "󱂇<span foreground='white'><sup></sup></span>",
-      "battery-notification": "󰁺<span foreground='white'><sup></sup></span>",
-      "update-notification": "󰚰<span foreground='white'><sup></sup></span>",
-      "music-notification": "󰝚<span foreground='white'><sup></sup></span>",
-      "volume-notification": "󰕿<span foreground='white'><sup></sup></span>",
-      "notification": "<span foreground='white'><sup></sup></span>",
-      "none": ""
-    },
-    "return-type": "json",
-    "exec-if": "which dunstctl",
-    "exec": "~/.config/hypr/scripts/notifications.py",
-    "on-click": "sleep 0.1 && dunstctl history-pop",
-    "on-click-middle": "dunstctl history-clear",
-    "on-click-right": "dunstctl close-all",
-    "interval": 1,
-    "tooltip": true,
-    "escape": true
+    "format": "",
+    "on-click": "sleep 0.1 && swaync-client -t"
   },
 
   // Power-menu
@@ -338,6 +316,7 @@
       "custom/screenshot",
       "custom/separator-left",
       "custom/colorpicker",
+      "custom/dot"
     ]
   },
   "group/sysinfo": {
@@ -356,7 +335,8 @@
       "custom/separator-left",
       "temperature",
       "custom/separator-left",
-      "disk"
+      "disk",
+      "custom/dot"
     ]
   },
   "group/extra": {
@@ -368,13 +348,13 @@
     },
     "modules": [
       "custom/extra",
-      "idle_inhibitor",
-      "custom/separator-right",
+      // "idle_inhibitor",
+      // "custom/separator-right",
       "hyprland/language",
       "custom/separator-right",
       "custom/hyprshade",
       "custom/separator-right",
-      "custom/hypridle",
+      "custom/hypridle"
     ]
   }
 }

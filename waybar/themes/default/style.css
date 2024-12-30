@@ -23,7 +23,7 @@
   border: none;
   font-family: "JetBrainsMono Nerd Font", "Hack Nerd Font";
   font-weight: bold;
-  font-size: 13px;
+  font-size: 12px;
   min-height: 15px;
   background: transparent;
 }
@@ -73,11 +73,10 @@ tooltip label {
 #clock,
 #custom-notifications,
 #custom-exit {
-  margin-left: 2px;
-  margin-right: 2px;
-  padding: 2px 8px 2px 8px;
-  background: alpha(@base, 0.7);
-  border: 1px solid @color11;
+  margin: 2px 2px;
+  padding: 2px 10px 2px 10px;
+  background: alpha(@base, 0.63);
+  border: 1px solid alpha(@color11, 0.63);
   border-radius: 5px;
 }
 
@@ -161,7 +160,7 @@ tooltip label {
 #custom-settings {
   font-size: 15px;
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 5px;
   margin: 0px;
   font-weight: bolder;
   background: transparent;
@@ -175,8 +174,8 @@ tooltip label {
 */
 #custom-sysinfo {
   font-size: 15px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 10px;
+  padding-right: 6px;
   margin: 0px;
   font-weight: bolder;
   background: transparent;
@@ -196,8 +195,8 @@ tooltip label {
 */
 #custom-tools {
   font-size: 15px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 6px;
+  padding-right: 8px;
   margin: 0px;
   font-weight: bolder;
   background: transparent;
@@ -217,7 +216,7 @@ tooltip label {
 */
 #workspaces {
   padding: 0px;
-  background-color: @color11;
+  background-color: alpha(@color11, 0.73);
   border-radius: 5px;
 }
 #workspaces button {
@@ -230,7 +229,7 @@ tooltip label {
   transition: all 0.1s linear;
 }
 #workspaces button.active {
-  background: alpha(@base, 0.7);
+  background: alpha(@base, 0.63);
   color: @text;
   min-width: 30px;
   transition: all 0.1s linear;
@@ -251,7 +250,7 @@ tooltip label {
   font-size: 15px;
   padding-left: 5px;
   padding-right: 10px;
-  margin: 0px;
+  margin: 2px 0px;
   font-weight: bolder;
   background: transparent;
   border: 0px;
@@ -352,7 +351,7 @@ tooltip label {
 #custom-mediaplayer,
 #window {
   border-radius: 5px;
-  margin: 0px 2px;
+  margin: 2px 2px;
 }
 #clock,
 #backlight {
@@ -362,7 +361,7 @@ tooltip label {
 #battery,
 #custom-notifications {
   border-radius: 0px;
-  margin: 0px -1px;
+  margin: 2px -1px;
 }
 #pulseaudio{
   border-radius: 0px;
@@ -399,7 +398,7 @@ window#waybar.empty #window,
 #custom-separator-right,
 #custom-separator-left {
   font-weight: bold;
-  padding-top: 2px;
+  padding-top: 0px;
   color: @color11;
   font-size: 15px;
 }
@@ -410,5 +409,5 @@ window#waybar.empty #window,
 */
 #custom-dot {
   padding: 0px 6px 0px 0px;
-  margin: 0px 4px;
+  margin: 2px 4px;
 }
