@@ -223,7 +223,7 @@
       "car": "",
       "default": ["", "", ""]
     },
-    "on-click-right": "~/.config/rofi/applets/volume.sh"
+    "on-click-right": "pavucontrol"
   },
 
   // Network settings
@@ -263,7 +263,7 @@
   // Power-menu
   "custom/exit": {
     "format": "",
-    "on-click": "~/.config/rofi/applets/powermenu.sh",
+    "on-click": "wlogout",
     "tooltip-format": "Power Menu"
   },
 
