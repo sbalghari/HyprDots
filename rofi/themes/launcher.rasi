@@ -5,8 +5,7 @@
  *
  **/
 
-// Color theme
-@import "~/.config/rofi/colors/wal.rasi"
+@import "~/.config/rofi/theme.rasi"
 
 // Configurations
 configuration {
@@ -61,7 +60,7 @@ inputbar {
 entry {
     enabled:                     true;
     background-color:            transparent;
-    text-color:                  #fff;
+    text-color:                  @text-color;
     cursor:                      text;
     placeholder:                 "Type to filter";
     placeholder-color:           inherit;
@@ -76,7 +75,7 @@ mode-switcher{
     spacing:                     20px;
     margin:                      0px 10%;
     background-color:            transparent;
-    text-color:                  white;
+    text-color:                  @text-color;
 }
 button {
     padding:                     6px;
@@ -89,7 +88,7 @@ button {
 }
 button selected {
     background-color:            @active;
-    text-color:                  black;
+    text-color:                  inherit;
 }
 
 // List-view
@@ -121,26 +120,26 @@ element {
     padding:                     10px;
     border:                      1px solid;
     border-radius:               15px;
-    border-color:                gray/50%;
+    border-color:                @border-color;
     background-color:            transparent;
-    text-color:                  white;
+    text-color:                  @text-color;
     cursor:                      pointer;
 }
 element.normal.normal {
-    background-color: gray/20%;
-    text-color: white;
+    background-color: transparent;
+    text-color: @text-color;
 }
 element.alternate.normal {
-    background-color: gray/20%;
-    text-color: white;
+    background-color: transparent;
+    text-color: @text-color;
 }
 element normal.active {
     background-color:            @active;
     text-color:                  inherit;
 }
 element selected.normal {
-    background-color:            @selected;
-    text-color:                #000000;
+    background-color:            @background-color-elements;
+    text-color:                @text-color;
 }
 element selected.active {
     background-color:            @active;
@@ -161,15 +160,15 @@ element-text {
 
 // Others
 error-message {
-    padding:                     20px;
+    padding:                     10px;
     background-color:            transparent;
-    text-color:                  black;
+    text-color:                  @text-color;
 }
 textbox {
-    padding:                     20px;
+    padding:                     10px;
     border-radius:               12px;
-    background-color:            white/30%;
-    text-color:                  black;
+    background-color:            transparent;
+    text-color:                  @text-color;
     vertical-align:              0.5;
     horizontal-align:            0.0;
 }

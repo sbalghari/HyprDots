@@ -5,8 +5,8 @@
  *
  **/
 
-// Color theme
-@import "~/.config/rofi/colors/wal.rasi"
+
+@import "~/.config/rofi/theme.rasi"
 
 configuration {
     show-icons:                 false;
@@ -27,7 +27,7 @@ window {
     border-radius:               5px;
     border-color:                @border-color;
     cursor:                      "default";
-    background-color:           @background-color;
+    background-color:            @background-color;
 }
 
 // Main box
@@ -61,14 +61,14 @@ textbox-prompt-colon {
     padding:                     10px 14px;
     border-radius:               100%;
     background-color:            @urgent;
-    text-color:                  @background;
+    text-color:                  rgb(35, 35, 46);
 }
 prompt {
     enabled:                     true;
     padding:                     10px;
     border-radius:               100%;
     background-color:            @active;
-    text-color:                  @background;
+    text-color:                  rgb(35, 35, 46);
 }
 
 // Message
@@ -119,25 +119,25 @@ element {
 }
 element-text {
     background-color:            transparent;
-    text-color:                  inherit;
+    text-color:                  @text-color;
     cursor:                      inherit;
     vertical-align:              0.5;
     horizontal-align:            0.0;
 }
 element selected.normal {
-    background-color:            var(selected);
-    text-color:                  var(background);
+    background-color:            @background-color-elements;
+    text-color:                  #000000;
 }
 element.normal.normal,
 element.alternate.normal {
-    background-color: @background-color-elements;
+    background-color: transparent;
     text-color: @text-color;
 }
 
 // Others
 textbox {
     background-color:            inherit;
-    text-color:                  inherit;
+    text-color:                  @text-color;
     vertical-align:              0.5;
     horizontal-align:            0.0;
     placeholder-color:           @foreground;
