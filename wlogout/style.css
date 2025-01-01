@@ -5,7 +5,7 @@ window {
   font-family: JetBrainMono Nerd Font;
   font-size: 15px;
   color: @color15;
-  background-color: alpha(@color0, 0.9);
+  background-color: alpha(@color0, 0.5);
 }
 
 button {
@@ -18,7 +18,6 @@ button {
 }
 
 button:focus {
-  background-size: 30%;
   border: 0px;
 }
 
@@ -38,47 +37,41 @@ button span {
 #lock {
   background-image: image(url("./icons/lock.png"));
 }
-#lock:hover,
-#lock:focus {
+#lock:hover {
   background-image: image(url("./icons/lock-hover.png"));
 }
 
 #logout {
   background-image: image(url("./icons/logout.png"));
 }
-#logout:hover,
-#logout:focus {
+#logout:hover {
   background-image: image(url("./icons/logout-hover.png"));
 }
 
 #suspend {
   background-image: image(url("./icons/sleep.png"));
 }
-#suspend:hover,
-#suspend:focus {
+#suspend:hover{
   background-image: image(url("./icons/sleep-hover.png"));
 }
 
 #shutdown {
   background-image: image(url("./icons/power.png"));
 }
-#shutdown:hover,
-#shutdown:focus {
+#shutdown:hover{
   background-image: image(url("./icons/power-hover.png"));
 }
 
 #reboot {
   background-image: image(url("./icons/restart.png"));
 }
-#reboot:hover,
-#reboot:focus {
+#reboot:hover {
   background-image: image(url("./icons/restart-hover.png"));
 }
 
 #hibernate {
   background-image: image(url("./icons/hibernate.png"));
 }
-#hibernate:hover,
-#hibernate:focus {
+#hibernate:hover{
   background-image: image(url("./icons/hibernate-hover.png"));
 }
