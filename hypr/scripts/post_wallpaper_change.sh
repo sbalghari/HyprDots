@@ -5,6 +5,8 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
+sleep 1
+
 # Generate pywal colors from the wallpaper
 echo "Generating pywal colors..."
 wal -i "$1"
