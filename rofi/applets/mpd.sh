@@ -3,7 +3,7 @@
 # Modified by:  Saifullah Balghari
 # Original:     Aditya Shakya (adi1090x)
 
-theme=~/.config/rofi/themes/dmenu.rasi
+theme=~/.config/rofi/themes/mpd.rasi
 
 status="$(playerctl status 2>/dev/null)"
 if [[ -z "$status" ]]; then
@@ -14,19 +14,19 @@ else
     mesg="$(playerctl metadata title)"
 fi
 
-list_col='1'
-list_row='6'
+list_col='6'
+list_row='1'
 
 if [[ ${status} == "Playing" ]]; then
-    option_1="  Pause"
+    option_1=""
 else
-    option_1="  Play"
+    option_1=""
 fi
-option_2="  Stop"
-option_3="󰙣  Previous"
-option_4="󰙡  Next"
-option_5="  Loop"
-option_6="  Shuffle"
+option_2=""
+option_3="󰙣"
+option_4="󰙡"
+option_5=""
+option_6=""
 
 # Toggle Actions
 active=''

@@ -9,14 +9,14 @@
 
 // Configurations
 configuration {
-	modi:                       "drun,filebrowser,run,window";
+	modi:                       "drun,run,filebrowser,window";
     show-icons:                 true;
     display-drun:               "APPS";
     display-run:                "RUN";
     display-filebrowser:        "FILES";
     display-window:             "WINDOW";
-	drun-display-format:        "{name}\n[<span weight='light' size='small'><i>({generic})</i></span>]";
-	window-format:              "Class : {c}\nWorkspace : {w}";
+	drun-display-format:        "{name}";
+	window-format:              "{w} · {c} · {t}";
 }
 
 // Main window
@@ -25,8 +25,10 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
+    x-offset:                    0px;
+    y-offset:                    0px;
+    padding:                     0px;
     enabled:                     true;
-    padding:                     10px;
     border:                      1px solid;
     border-radius:               5px;
     cursor:                      "default";
@@ -37,52 +39,63 @@ window {
 // Main box
 mainbox {
     enabled:                     true;
-    spacing:                     10px;
-    margin:                      0px;
-    padding:                     10px;
-    border-radius:               30px;
+    spacing:                     0px;
     background-color:            transparent;
-    children:                    [ "inputbar", "mode-switcher", "listview" ];
+    border-radius:               5px;
+    orientation:                 horizontal;
+    children:                    [ "imagebox", "listview" ];
+}
+
+imagebox {
+    padding:                     20px;
+    background-color:            transparent;
+    background-image:            url("~/.cache/hyprland/wallpapers/blurred_wallpaper.jpg", height);
+    orientation:                 vertical;
+    children:                    [ "inputbar", "dummy", "mode-switcher" ];
+}
+
+dummy {
+    background-color:            transparent;
 }
 
 // Search bar
 inputbar {
     enabled:                     true;
-    spacing:                     0px;
-    margin:                      0px 10%;
-    padding:                     0px 10px 10px 0px;
+    spacing:                     10px;
+    padding:                     8px;
+    border-radius:               5px;
     border:                      0px 0px 2px 0px;
-    border-radius:               0px;
-    border-color:                gray/20%;
+    border-color:                @border-color;
+    background-color:            @background-color-elements;
+    children:                    [ "textbox-prompt-colon", "entry" ];
+}
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    str:                         " ";
     background-color:            transparent;
-    children:                    [ "entry" ];
+    text-color:                  inherit;
 }
 entry {
     enabled:                     true;
     background-color:            transparent;
-    text-color:                  @text-color;
+    text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Type to filter";
+    placeholder:                 "Search";
     placeholder-color:           inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.5;
 }
 
 // Mode-switcher
 mode-switcher{
     enabled:                     true;
-    expand:                      false;
-    spacing:                     20px;
-    margin:                      0px 10%;
+    spacing:                     10px;
     background-color:            transparent;
     text-color:                  @text-color;
 }
 button {
-    padding:                     6px;
-    border:                      1px solid;
-    border-radius:               100%;
-    border-color:                gray/50%;
-    background-color:            transparent;
+    padding:                     8px;
+    border-radius:               10px;
+    background-color:            @background-color-elements;
     text-color:                  inherit;
     cursor:                      pointer;
 }
@@ -94,20 +107,16 @@ button selected {
 // List-view
 listview {
     enabled:                     true;
-    columns:                     3;
-    lines:                       4;
+    lines:                       8;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
-    layout:                      vertical;
     reverse:                     false;
     fixed-height:                true;
-    fixed-columns:               true;
-    
-    spacing:                     10px;
-    margin:                      0px;
-    padding:                     20px 0px 0px 0px;
     border:                      0px solid;
+    fixed-columns:               true;
+    padding:                     10px;
+    spacing:                     5px;
     background-color:            transparent;
     cursor:                      "default";
 }
@@ -116,11 +125,8 @@ listview {
 element {
     enabled:                     true;
     spacing:                     10px;
-    margin:                      0px;
     padding:                     10px;
-    border:                      1px solid;
-    border-radius:               15px;
-    border-color:                @border-color;
+    border-radius:               10px;
     background-color:            transparent;
     text-color:                  @text-color;
     cursor:                      pointer;
@@ -139,7 +145,7 @@ element normal.active {
 }
 element selected.normal {
     background-color:            @background-color-elements;
-    text-color:                @text-color;
+    text-color:                  @text-color;
 }
 element selected.active {
     background-color:            @active;
@@ -147,7 +153,7 @@ element selected.active {
 }
 element-icon {
     background-color:            transparent;
-    size:                        42px;
+    size:                        32px;
     cursor:                      inherit;
 }
 element-text {
@@ -158,17 +164,21 @@ element-text {
     horizontal-align:            0.0;
 }
 
-// Others
-error-message {
-    padding:                     10px;
+// Message
+message {
     background-color:            transparent;
-    text-color:                  @text-color;
+    border:                      0px solid;
 }
 textbox {
     padding:                     10px;
     border-radius:               12px;
-    background-color:            transparent;
+    background-color:            @background-color-elements;
     text-color:                  @text-color;
     vertical-align:              0.5;
     horizontal-align:            0.0;
+}
+error-message {
+    padding:                     10px;
+    background-color:            transparent;
+    text-color:                  @text-color;
 }

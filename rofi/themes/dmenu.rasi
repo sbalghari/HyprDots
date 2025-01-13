@@ -33,9 +33,9 @@ window {
 // Main box
 mainbox {
     enabled:                     true;
-    spacing:                     10px;
+    spacing:                     5px;
     margin:                      0px;
-    padding:                     10px;
+    padding:                     5px;
     border-radius:               5px;
     background-color:            transparent;
     background-alt:              transparent;
@@ -96,7 +96,7 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     padding:                     10px 0px 0px 0px;
-    spacing:                     10px;
+    spacing:                     5px;
     margin:                      0px;
     border:                      0px solid;
     border-radius:               0px;
@@ -112,7 +112,7 @@ element {
     margin:                      0px;
     padding:                     10px;
     border:                      0px solid;
-    border-radius:               100%;
+    border-radius:               5px;
     border-color:                @selected;
     background-color:            transparent;
     cursor:                      pointer;
@@ -126,7 +126,7 @@ element-text {
 }
 element selected.normal {
     background-color:            @background-color-elements;
-    text-color:                  #000000;
+    text-color:                #000000;
 }
 element.normal.normal,
 element.alternate.normal {

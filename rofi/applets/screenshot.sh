@@ -3,7 +3,7 @@
 # Modified by:  Saifullah Balghari
 # Original:     Aditya Shakya (adi1090x)
 
-mesg="Destination: $(xdg-user-dir PICTURES)/Screenshots"
+mesg="Destination: $HOME/Pictures/Screenshots"
 
 list_col='1'
 list_row='5'
