@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Modified by:  Saifullah Balghari
-# Original:     Stephen Raabe (ML4W)
-
 # Define thresholds for color indicators
 threshhold_none=0
 threshhold_green=1
@@ -11,7 +8,12 @@ threshhold_red=50
 
 # Detect platform
 if [[ -f /etc/arch-release ]]; then
-    aur_helper="yay"
+    # AUR helper detection
+    aur_helper=$(command -v yay || command -v paru || echo "")
+    if [[ -z "$aur_helper" ]]; then
+        echo " ERROR - No AUR helper found (yay or paru)."
+        exit 1
+    fi
 else
     echo '{"text": "Unsupported platform"}'
     exit 1

@@ -5,7 +5,7 @@ cache_file="$HOME/.cache/wl-clipboard-history"
 touch "$cache_file"
 
 max_entries=30
-max_length=150
+max_length=50
 
 while true; do
   # Get the current clipboard content

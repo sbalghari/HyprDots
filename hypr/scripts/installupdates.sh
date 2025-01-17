@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Modified by:  Saifullah Balghari
-# Original:     Stephan Raabe (ML4W)
-
 # Dependencies check
 dependencies=("figlet" "gum" "notify-send")
 for dep in "${dependencies[@]}"; do
@@ -64,10 +61,17 @@ else
 fi
 
 # System updates
+sudo pacman -Syu --noconfirm
+
+# AUR updates
 $aur_helper
+
+# Flatpak updates
 if [[ $(_isInstalled "flatpak") == "0" ]]; then
     flatpak update
 fi
+
+sudo pacman -Syyu --noconfirm
 
 # Cleanup orphaned packages
 if gum confirm "DO YOU WANT TO CLEAN UP UNUSED PACKAGES?"; then

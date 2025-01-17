@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Modified by:  Saifullah Balghari
-# Original:     Stephen Raabe (ML4W)
-
 SERVICE="hypridle"
 if [[ "$1" == "status" ]]; then
     sleep 1

@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-# Modified by:  Saifullah Balghari
-# Original:     Idk
-
 import gi
 
 gi.require_version("Playerctl", "2.0")
@@ -23,7 +20,6 @@ def signal_handler(sig, frame):
     logger.info("Received signal to stop, exiting")
     sys.stdout.write("\n")
     sys.stdout.flush()
-    # loop.quit()
     sys.exit(0)
 
 

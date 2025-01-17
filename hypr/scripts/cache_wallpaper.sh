@@ -6,7 +6,7 @@ path="$1"
 blur_image() {
     local input_image="$1"
     local output_image="$2"
-    magick "$input_image" -blur 0x10 "$output_image"
+    magick "$input_image" -blur 0x30 "$output_image"
 }
 
 # Function to store the blurred wallpaper in the cache directory
