@@ -1,0 +1,42 @@
+/* 
+  ================================================================
+  => Waybar theme: Dark
+  => By:  Saifullah Balghari
+  ================================================================
+*/
+{
+  "layer": "top",
+  "margin-top": 5,
+  "margin-left": 5,
+  "margin-bottom": 0,
+  "margin-right": 5,
+  "height": 15,
+  "output": "eDP-1",
+  "exclusive": true,
+  "passtrough": false,
+  "gtk-layer-shell": true,
+
+  "include": ["~/.config/waybar/modules.jsonc"],
+  "modules-left": [
+    "custom/apps",
+    "wlr/taskbar",
+    "custom/settings",
+    "group/sysinfo",
+    "group/tools",
+    "hyprland/window",
+    "custom/mediaplayer"
+  ],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": [
+    "group/extra",
+    "custom/updates",
+    "backlight",
+    "battery",
+    "pulseaudio",
+    "network",
+    "tray",
+    "clock",
+    "custom/notifications",
+    "custom/exit"
+  ]
+}

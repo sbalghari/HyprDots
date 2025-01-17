@@ -1,6 +1,6 @@
 /* 
   ================================================================
-  => Waybar theme: Default
+  => Waybar theme: Light
   => By:  Saifullah Balghari
   ================================================================
 */
@@ -19,12 +19,11 @@
   "include": ["~/.config/waybar/modules.jsonc"],
   "modules-left": [
     "custom/apps",
-    //"wlr/taskbar",
-    //"custom/settings",
+    "wlr/taskbar",
+    "custom/settings",
     "group/sysinfo",
     "group/tools",
     "hyprland/window",
-    "custom/empty",
     "custom/mediaplayer"
   ],
   "modules-center": ["hyprland/workspaces"],
@@ -35,9 +34,7 @@
     "battery",
     "pulseaudio",
     "network",
-    "custom/dot",
-    // "tray",
-    // "custom/dot",
+    "tray",
     "clock",
     "custom/notifications",
     "custom/exit"
