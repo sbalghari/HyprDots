@@ -7,7 +7,7 @@ list_row='5'
 win_width='400px'
 
 # Theme
-theme="$HOME/.config/rofi/themes/dmenu.rasi"
+theme="$HOME/.config/rofi/configs/dmenu.rasi"
 
 option_1="  Capture Desktop"
 option_2=" 󰩭 Capture Area"

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 config_file=~/.config/hypr/configs/keybindings.conf
-theme=~/.config/rofi/themes/keybinds.rasi
+theme=~/.config/rofi/configs/keybinds.rasi
 keybinds=""
 
 if [ ! -f "$config_file" ]; then

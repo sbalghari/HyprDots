@@ -1,6 +1,6 @@
 #!/bin/bash
 
-theme=~/.config/rofi/themes/dmenu.rasi
+theme=~/.config/rofi/configs/dmenu.rasi
 filter=~/.config/hypr/scripts/hyprshade_filter.sh
 
 if [[ "$1" == "rofi" ]]; then

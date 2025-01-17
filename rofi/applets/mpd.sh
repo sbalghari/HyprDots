@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-theme=~/.config/rofi/themes/mpd.rasi
+theme=~/.config/rofi/configs/mpd.rasi
 
 status="$(playerctl status 2>/dev/null)"
 if [[ -z "$status" ]]; then

@@ -4,7 +4,7 @@
 history_file="$HOME/.cache/wl-clipboard-history"
 
 # Theme
-theme="$HOME/.config/rofi/themes/dmenu.rasi"
+theme="$HOME/.config/rofi/configs/dmenu.rasi"
 
 title="Clipboard History"
 
