@@ -20,20 +20,11 @@
 */
 * {
   padding: 0px;
-  margin: 0px;
-  border: none;
   font-family: "JetBrainsMono Nerd Font", "Hack Nerd Font";
   font-weight: bold;
   font-size: 12px;
   min-height: 15px;
   background: transparent;
-}
-
-.modules-left > widget:first-child > #workspaces {
-  margin-left: 0;
-}
-.modules-right > widget:last-child > #workspaces {
-  margin-right: 0;
 }
 
 /* 
@@ -58,25 +49,25 @@ tooltip label {
 */
 #custom-apps,
 #taskbar,
+#custom-settings,
 #custom-sysinfo,
 #custom-tools,
-#custom-extra,
 #window,
 #custom-mediaplayer,
 #workspaces,
+#custom-extra,
 #custom-updates,
 #backlight,
 #battery,
 #pulseaudio,
-#custom-settings,
 #network,
 #tray,
 #clock,
 #custom-notifications,
 #custom-exit {
-  margin: 2px 2px;
-  padding: 2px 10px 2px 10px;
-  background: alpha(@base, 0.63);
+  margin: 2px 4px;
+  padding: 2px 8px 2px 8px;
+  background: alpha(@base, 0.83);
   border: 1px solid alpha(@color11, 0.63);
   border-radius: 5px;
 }
@@ -131,7 +122,7 @@ tooltip label {
 */
 #custom-apps {
   margin-left: 0px;
-  margin-right: 0px;
+  /* margin-right: 0px; */
 }
 
 /* 
@@ -145,12 +136,12 @@ tooltip label {
   font-style: normal;
   padding-right: 5px;
 }
-#taskbar button{
+#taskbar button {
   padding-left: 3px;
   padding-right: 3px;
 }
-#taskbar button.active{
-  background-color: alpha(@color11, 0.2);
+#taskbar button.active {
+  background-color: alpha(@color11, 0.4);
 }
 
 /* 
@@ -160,9 +151,8 @@ tooltip label {
 */
 #custom-settings {
   font-size: 15px;
-  padding-left: 10px;
-  padding-right: 5px;
-  margin: 0px;
+  padding-left: 6px;
+  padding-right: 3px;
   font-weight: bolder;
   background: transparent;
   border: 0px;
@@ -175,9 +165,8 @@ tooltip label {
 */
 #custom-sysinfo {
   font-size: 15px;
-  padding-left: 10px;
-  padding-right: 6px;
-  margin: 0px;
+  padding-left: 6px;
+  padding-right: 3px;
   font-weight: bolder;
   background: transparent;
   border: 0px;
@@ -196,9 +185,8 @@ tooltip label {
 */
 #custom-tools {
   font-size: 15px;
-  padding-left: 6px;
-  padding-right: 8px;
-  margin: 0px;
+  padding-left: 3px;
+  padding-right: 4px;
   font-weight: bolder;
   background: transparent;
   border: 0px;
@@ -262,11 +250,11 @@ tooltip label {
 #idle_inhibitor {
   padding: 0px 10px 0px 10px;
 }
-#idle_inhibitor.activated{
+#custom-hypridle.active {
   color: @red;
 }
 #custom-hypridle.notactive {
-  color: @red;
+  color: @text;
 }
 
 /* 
@@ -274,7 +262,7 @@ tooltip label {
   => Updates
   ================================================================
 */
-#custom-updates{
+#custom-updates {
   margin-right: 10px;
   margin-left: 0px;
 }
@@ -349,11 +337,6 @@ tooltip label {
   => Border Radius
   ================================================================
 */
-#custom-mediaplayer,
-#window {
-  border-radius: 5px;
-  margin: 2px 2px;
-}
 #clock,
 #backlight {
   border-radius: 5px 0px 0px 5px;
@@ -364,7 +347,7 @@ tooltip label {
   border-radius: 0px;
   margin: 2px -1px;
 }
-#pulseaudio{
+#pulseaudio {
   border-radius: 0px;
   margin-left: 0px;
   margin-right: -1px;
