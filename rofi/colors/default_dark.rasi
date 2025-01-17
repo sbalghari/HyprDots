@@ -1,11 +1,3 @@
-/** 
- *
- * Catpuccin color-scheme with py-wal border color
- *
- * By : Saifullah Balghari
- *  
- **/
-
 // Pywal colors
 @theme "~/.cache/wal/colors-rofi-dark.rasi"
 

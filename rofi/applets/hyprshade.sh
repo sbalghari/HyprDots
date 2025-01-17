@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Modified by:  Saifullah Balghari
-# Original:     Stephan Raabe (ML4W)
-
 theme=~/.config/rofi/themes/dmenu.rasi
 filter=~/.config/hypr/scripts/hyprshade_filter.sh
 

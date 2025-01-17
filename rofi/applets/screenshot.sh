@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Modified by:  Saifullah Balghari
-# Original:     Aditya Shakya (adi1090x)
-
 mesg="Destination: $HOME/Pictures/Screenshots"
 
 list_col='1'

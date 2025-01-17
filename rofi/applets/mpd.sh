@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Modified by:  Saifullah Balghari
-# Original:     Aditya Shakya (adi1090x)
-
 theme=~/.config/rofi/themes/mpd.rasi
 
 status="$(playerctl status 2>/dev/null)"

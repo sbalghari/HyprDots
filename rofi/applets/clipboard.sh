@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# By:  Saifullah Balghari
-
 # File containing clipboard history
 history_file="$HOME/.cache/wl-clipboard-history"
 
