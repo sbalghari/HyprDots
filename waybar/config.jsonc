@@ -1,5 +1,5 @@
 [
-{
-"include": ["~/.config/waybar/themes/dark/config.jsonc"]
-}
+  {
+    "include": ["~/.config/waybar/themes/light/config.jsonc"]
+  }
 ]

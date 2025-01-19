@@ -7,9 +7,9 @@
 {
   "layer": "top",
   "margin-top": 5,
-  "margin-left": 5,
-  "margin-bottom": 0,
-  "margin-right": 5,
+  "margin-left": 10,
+  "margin-bottom": -5,
+  "margin-right": 10,
   "height": 15,
   "output": "eDP-1",
   "exclusive": true,
@@ -19,14 +19,13 @@
   "include": ["~/.config/waybar/modules.jsonc"],
   "modules-left": [
     "custom/apps",
-    "wlr/taskbar",
+    "hyprland/workspaces",
     "custom/settings",
     "group/sysinfo",
     "group/tools",
-    "hyprland/window",
-    "custom/mediaplayer"
+    "wlr/taskbar"
   ],
-  "modules-center": ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window", "custom/mediaplayer"],
   "modules-right": [
     "group/extra",
     "custom/updates",

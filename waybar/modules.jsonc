@@ -4,7 +4,7 @@
 {
   // Application menu
   "custom/apps": {
-    "format": "󰣇 Apps",
+    "format": "",
     "on-click": "~/.config/rofi/launcher.sh",
     "tooltip-format": "Application menu\nLeft-click: Application Launcher\nRight-click: Display Keybinds",
     "on-click-right": "~/.config/rofi/applets/keybindings.sh"
@@ -14,6 +14,7 @@
   "wlr/taskbar": {
     "format": "{icon}",
     "icon-size": 15,
+    "spacing": 5,
     "tooltip-format": "{title}",
     "on-click": "activate",
     "on-click-middle": "close"
@@ -159,7 +160,7 @@
     "return-type": "json",
     "exec": "~/.config/hypr/scripts/updates.sh",
     "interval": 1,
-    "on-click": "kitty --class floating -e ~/.config/hypr/scripts/installupdates.sh",
+    "on-click": "kitty --class floating -e ~/.config/hypr/scripts/installupdates.sh"
   },
 
   // Brightness
@@ -207,35 +208,30 @@
   // Audio
   "pulseaudio": {
     "scroll-step": 5,
-    "format-alt": "{icon}",
-    "format": "{icon} {volume}%",
+    "format": "{icon} {volume}% {format_source}",
     "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " Muted",
-    "format-source": "{volume}% ",
-    "format-source-muted": " ",
+    "format-muted": "{format_source} ",
+    "format-source": "󰍬 {volume}%",
+    "format-source-muted": "󰍭 ",
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", ""]
+        "headphone": "󰋋",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
     },
     "on-click-right": "pavucontrol"
   },
 
   // Network settings
   "network": {
-    "format": "{ifname}",
-    "format-wifi": "󱤚 {signalStrength}%",
-    "format-ethernet": "  {ifname}",
+    "format-wifi": "󰖩 {signalStrength}%",
     "format-disconnected": "⚠ Disconnected",
     "tooltip-format": " {ifname} via {gwaddri}",
     "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
-    "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
-    "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
     "on-click": "~/.config/hypr/scripts/networkmanager.sh"
   },
@@ -247,9 +243,10 @@
     "show-passive-items": true
   },
 
-  // Clock
+  // Clockr
   "clock": {
-    "format": " <b>{:%I:%M %p}</b>",
+    // "format": "<b>{:%I:%M %p | %a.%d-%b}</b>",
+    "format": "<b>{:%I:%M %p}</b>",
     "format-alt": "<b>{:%a.%d,%b}</b>",
     "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
   },
@@ -304,11 +301,10 @@
     "drawer": {
       "transition-duration": 200,
       "transition-left-to-right": true,
-      "click-to-reveal": true
+      "click-to-reveal": false
     },
     "modules": [
       "custom/tools",
-      "custom/arrow-left",
       "custom/clipboard",
       "custom/separator-left",
       "custom/wallpapers",
@@ -316,7 +312,6 @@
       "custom/screenshot",
       "custom/separator-left",
       "custom/colorpicker",
-      "custom/dot"
     ]
   },
   "group/sysinfo": {
@@ -328,7 +323,6 @@
     },
     "modules": [
       "custom/sysinfo",
-      "custom/arrow-left",
       "cpu",
       "custom/separator-left",
       "memory",
@@ -336,7 +330,6 @@
       "temperature",
       "custom/separator-left",
       "disk",
-      "custom/dot"
     ]
   },
   "group/extra": {
@@ -344,7 +337,7 @@
     "drawer": {
       "transition-duration": 300,
       "transition-left-to-right": false,
-      "click-to-reveal": true
+      "click-to-reveal": false
     },
     "modules": [
       "custom/extra",
