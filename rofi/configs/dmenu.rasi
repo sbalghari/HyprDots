@@ -16,7 +16,7 @@ window {
     margin:                      0px;
     padding:                     10px;
     border:                      1px solid;
-    border-radius:               5px;
+    border-radius:               12px;
     border-color:                @border-color;
     cursor:                      "default";
     background-color:            @background-color;
@@ -28,7 +28,7 @@ mainbox {
     spacing:                     5px;
     margin:                      0px;
     padding:                     5px;
-    border-radius:               5px;
+    border-radius:               12px;
     background-color:            transparent;
     background-alt:              transparent;
     children:                    [ "inputbar", "message", "listview" ];
@@ -104,7 +104,7 @@ element {
     margin:                      0px;
     padding:                     10px;
     border:                      0px solid;
-    border-radius:               5px;
+    border-radius:               12px;
     border-color:                @selected;
     background-color:            transparent;
     cursor:                      pointer;

@@ -16,7 +16,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      1px solid;
-    border-radius:               5px;
+    border-radius:               12px;
     border-color:                @border-color;
     cursor:                      "default";
     background-color:            @background-color;
@@ -40,7 +40,7 @@ inputbar {
     background-color:            transparent;
     background-image:            url("~/.config/rofi/configs/assets/m.jpg", width);
     text-color:                  @text-color;
-    border-radius:               0px;
+    border-radius:               12px;
     children:                    [ "textbox-prompt-colon", "prompt"];
 }
 
@@ -52,14 +52,14 @@ textbox-prompt-colon {
     expand:                      false;
     str:                         "";
     padding:                     10px 13px;
-    border-radius:               5px;
+    border-radius:               12px;
     background-color:            @urgent;
     text-color:                  @background;
 }
 prompt {
     enabled:                     true;
     padding:                     10px;
-    border-radius:               5px;
+    border-radius:               12px;
     background-color:            @active;
     text-color:                  @background;
 }
@@ -99,7 +99,7 @@ element {
     enabled:                     true;
     padding:                     15px;
     background-color:            transparent;
-    border-radius:               100%;
+    border-radius:               12px;
     margin:                      10px;
     text-color:                  @text-color;
     cursor:                      pointer;

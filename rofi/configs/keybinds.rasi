@@ -1,4 +1,4 @@
-@import "~/.config/rofi/themes/dmenu.rasi"
+@import "~/.config/rofi/configs/dmenu.rasi"
 
 // Makes the keybindings dmenu larger
 window {
