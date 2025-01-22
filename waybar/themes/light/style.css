@@ -10,9 +10,8 @@
   => Colors
   ================================================================
 */
-@import "../../../../.cache/wal/colors-waybar.css";
-@import "./colors.css";
-
+@import "../../.cache/wal/colors-waybar.css";
+@import "./themes/light/colors.css";
 /* 
   ================================================================
   => General

@@ -10,8 +10,8 @@
   => Colors
   ================================================================
 */
-@import "../../../../.cache/wal/colors-waybar.css";
-@import "./colors.css";
+@import "../../.cache/wal/colors-waybar.css";
+@import "./themes/dark/colors.css";
 
 /* 
   ================================================================
@@ -374,7 +374,7 @@ tooltip label {
 #network {
   margin: 5px 4px;
   margin-left: 0px;
-  padding: 2px 8px 2px 8px;
+  padding: 2px 12px 2px 8px;
   color: @green;
   background: alpha(@base, 0.6);
   border: 1px solid alpha(@color11, 0.2);

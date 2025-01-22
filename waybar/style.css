@@ -1,1 +1,509 @@
-@import "../../.config/waybar/themes/light/style.css";
+/* 
+  ================================================================
+  => Waybar theme: Dark
+  => By:  Saifullah Balghari
+  ================================================================
+*/
+
+/* 
+  ================================================================
+  => Colors
+  ================================================================
+*/
+@import "../../.cache/wal/colors-waybar.css";
+@import "./themes/dark/colors.css";
+
+/* 
+  ================================================================
+  => General
+  ================================================================
+*/
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "JetBrainsMono Nerd Font", "Hack Nerd Font";
+  font-weight: bold;
+  font-size: 12px;
+  min-height: 15px;
+  background: transparent;
+}
+
+/* 
+  ================================================================
+  => Tooltip
+  ================================================================
+*/
+tooltip {
+  padding: 10px;
+  background-color: alpha(@base, 0.8);
+}
+tooltip label {
+  color: @text;
+}
+
+/* 
+  ================================================================
+  => App Menu
+  ================================================================
+*/
+#custom-apps {
+  margin: 5px 4px;
+  padding: 2px 8px 2px 8px;
+  border: 1px solid alpha(@base, 0.2);
+  border-radius: 12px;
+  margin-left: 0px;
+  padding-right: 13px;
+  font-size: 15px;
+  font-weight: bolder;
+  color: @text;
+  background: alpha(@color11, 0.8);
+}
+#custom-apps:hover {
+  background: alpha(@base, 0.9);
+  border: 1px solid alpha(@color11, 0.9);
+}
+
+/* 
+  ================================================================
+  => Workspaces
+  ================================================================
+*/
+#workspaces {
+  margin: 5px 4px;
+  padding: 2px 2px 2px 2px;
+  background: alpha(@base, 0.6);
+  border-radius: 12px;
+  border: 1px solid alpha(@color11, 0.4);
+  color: @text;
+}
+#workspaces button {
+  min-width: 20px;
+  box-shadow: none;
+  margin: 2px 3px;
+  text-shadow: none;
+  border-radius: 8px;
+  background: transparent;
+  color: alpha(@text, 0.5);
+  transition: all 0.1s linear;
+}
+#workspaces button.active {
+  min-width: 30px;
+  transition: all 0.1s linear;
+  color: @text;
+  background: alpha(@color11, 0.8);
+}
+#workspaces button:hover {
+  background: alpha(@base, 0.9);
+}
+#workspaces button.urgent {
+  background-color: @red;
+}
+
+/* 
+  ================================================================
+  => Settings shortcut
+  ================================================================
+*/
+#custom-settings {
+  margin: 6px 4px;
+  padding: 0px;
+  padding-right: 10px;
+  padding-left: 6px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bolder;
+  background: transparent;
+}
+#custom-settings:hover {
+  background: alpha(@color11, 0.6);
+}
+
+/* 
+  ================================================================
+  => System info drawer
+  ================================================================
+*/
+#custom-sysinfo {
+  margin: 6px 0px;
+  padding: 0px;
+  padding-right: 6px;
+  padding-left: 6px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bolder;
+  background: transparent;
+}
+#custom-sysinfo:hover {
+  background: alpha(@color11, 0.6);
+}
+#cpu,
+#memory,
+#temperature,
+#disk {
+  color: @text;
+  padding: 0px 10px 0px 10px;
+}
+
+/* 
+  ================================================================
+  => Tools drawer
+  ================================================================
+*/
+#custom-tools {
+  margin: 6px 4px;
+  padding: 0px;
+  padding-right: 4px;
+  padding-left: 4px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bolder;
+  background: transparent;
+}
+#custom-tools:hover {
+  background: alpha(@color11, 0.6);
+}
+#custom-clipboard,
+#custom-colorpicker,
+#custom-screenshot,
+#custom-wallpapers {
+  color: @text;
+  padding: 0px 14px 0px 10px;
+}
+
+/* 
+  ================================================================
+  => Taskbar
+  ================================================================
+*/
+#taskbar {
+  margin: 2px 4px;
+  padding: 4px 0px 4px 0px;
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  font-weight: bolder;
+}
+#taskbar button {
+  margin-right: 4px;
+  padding: 4px;
+  border-radius: 8px;
+}
+#taskbar button:hover {
+  background: alpha(@color11, 0.6);
+}
+#taskbar button.active {
+  background-color: alpha(@color11, 0.8);
+}
+
+/* 
+  ================================================================
+  => Active Window
+  ================================================================
+*/
+#window {
+  margin: 5px 4px;
+  padding: 2px 8px 2px 8px;
+  background: alpha(@base, 0.6);
+  border: 1px solid alpha(@color11, 0.2);
+  border-radius: 12px;
+  color: @blue;
+}
+#window:hover {
+  background: alpha(@base, 0.9);
+  border: 1px solid alpha(@color11, 0.8);
+}
+
+/* 
+  ================================================================
+  => MPD
+  ================================================================
+*/
+#custom-mediaplayer {
+  margin: 5px 4px;
+  padding: 2px 8px 2px 8px;
+  background: alpha(@base, 0.6);
+  border: 1px solid alpha(@color11, 0.2);
+  border-radius: 12px;
+  color: @mauve;
+}
+#custom-mediaplayer:hover {
+  background: alpha(@base, 0.9);
+  border: 1px solid alpha(@color11, 0.8);
+}
+
+/* 
+  ================================================================
+  => Extras drawer
+  ================================================================
+*/
+#custom-extra {
+  margin: 6px 4px;
+  padding: 0px;
+  padding-right: 8px;
+  padding-left: 6px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bolder;
+  background: transparent;
+}
+#custom-extra:hover {
+  background: alpha(@color11, 0.9);
+}
+#custom-hypridle,
+#custom-hypridle.notactive,
+#custom-hyprshade,
+#language,
+#idle_inhibitor {
+  color: @text;
+  padding: 0px 10px 0px 10px;
+}
+#custom-hypridle.active {
+  color: @red;
+}
+
+/* 
+  ================================================================
+  => Updates
+  ================================================================
+*/
+#custom-updates {
+  margin: 5px 4px;
+  margin-right: 10px;
+  margin-left: 0px;
+  padding: 2px 8px 2px 8px;
+  background: alpha(@base, 0.6);
+  border: 1px solid alpha(@color11, 0.2);
+  border-radius: 12px;
+}
+#custom-updates:hover {
+  background: alpha(@base, 0.9);
+  border: 1px solid alpha(@color11, 0.9);
+}
+#custom-updates.green {
+  color: @text;
+}
+#custom-updates.yellow {
+  color: @yellow;
+}
+#custom-updates.red {
+  color: @red;
+}
+
+/* 
+  ================================================================
+  => backlight (brightness)
+  ================================================================
+*/
+#backlight {
+  margin: 5px 4px;
+  margin-right: 0px;
+  padding: 2px 8px 2px 8px;
+  color: @yellow;
+  background: alpha(@base, 0.6);
+  border: 1px solid alpha(@color11, 0.2);
+  border-radius: 12px 0px 0px 12px;
+}
+#backlight:hover {
+  background: alpha(@base, 0.9);
+  border: 1px solid alpha(@color11, 0.9);
+}
+
+/* 
+  ================================================================
+  => Battery
+  ================================================================
+*/
+#battery {
+  margin: 5px 4px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 2px 8px 2px 8px;
+  color: @green;
+  background: alpha(@base, 0.6);
+  border: 1px solid alpha(@color11, 0.2);
+  border-radius: 0px;
+}
+#battery:hover {
+  background: alpha(@base, 0.9);
+  border: 1px solid alpha(@color11, 0.9);
+}
+#battery.charging,
+#battery.plugged {
+  color: #3fe268;
+}
+@keyframes blink {
+  to {
+    color: @base;
+    background-color: @red;
+  }
+}
+#battery.critical:not(.charging) {
+  color: @red;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* 
+  ================================================================
+  => Pulse Audio
+  ================================================================
+*/
+#pulseaudio {
+  margin: 5px 4px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 2px 8px 2px 8px;
+  color: @green;
+  background: alpha(@base, 0.6);
+  border: 1px solid alpha(@color11, 0.2);
+  border-radius: 0px;
+}
+#pulseaudio:hover {
+  background: alpha(@base, 0.9);
+  border: 1px solid alpha(@color11, 0.9);
+}
+
+/* 
+  ================================================================
+  => Network
+  ================================================================
+*/
+#network {
+  margin: 5px 4px;
+  margin-left: 0px;
+  padding: 2px 12px 2px 8px;
+  color: @green;
+  background: alpha(@base, 0.6);
+  border: 1px solid alpha(@color11, 0.2);
+  border-radius: 0px 12px 12px 0px;
+}
+#network:hover {
+  background: alpha(@base, 0.9);
+  border: 1px solid alpha(@color11, 0.9);
+}
+
+/* 
+  ================================================================
+  => Tray
+  ================================================================
+*/
+#tray {
+  margin: 5px 4px;
+  padding: 0px 5px 0px 5px;
+  background: alpha(@base, 0.6);
+  border: 1px solid alpha(@color11, 0.2);
+  border-radius: 12px;
+}
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+#tray menu {
+  border-radius: 5px;
+  background-color: alpha(@base, 0.7);
+  padding: 20px;
+  margin: 0px;
+}
+
+/* 
+  ================================================================
+  => Clock
+  ================================================================
+*/
+#clock {
+  margin: 5px 4px;
+  margin-right: 0px;
+  padding: 2px 8px 2px 8px;
+  color: @text;
+  background: alpha(@color11, 0.8);
+  border: 1px solid alpha(@base, 0.2);
+  border-radius: 12px 0px 0px 12px;
+}
+#clock:hover {
+  background: alpha(@base, 0.9);
+  border: 1px solid alpha(@color11, 0.9);
+}
+
+/* 
+  ================================================================
+  => Notifications
+  ================================================================
+*/
+#custom-notifications {
+  margin: 5px 4px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 2px 8px 2px 8px;
+  color: @text;
+  background: alpha(@color11, 0.8);
+  border: 1px solid alpha(@base, 0.2);
+  border-radius: 0px;
+}
+#custom-notifications:hover {
+  background: alpha(@base, 0.9);
+  border: 1px solid alpha(@color11, 0.9);
+}
+
+/* 
+  ================================================================
+  => Power Menu
+  ================================================================
+*/
+#custom-exit {
+  margin: 5px 4px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 2px 12px 2px 8px;
+  color: @text;
+  background: alpha(@color11, 0.8);
+  border: 1px solid alpha(@base, 0.2);
+  border-radius: 0px 12px 12px 0px;
+}
+#custom-exit:hover {
+  background: alpha(@base, 0.9);
+  border: 1px solid alpha(@color11, 0.9);
+}
+
+/* 
+  ================================================================
+  => Hide empty modules
+  ================================================================
+*/
+window#waybar.empty #window,
+#custom-updates.none,
+#taskbar.empty,
+#tray.empty,
+#custom-mediaplayer.empty {
+  border: 0px;
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* 
+  ================================================================
+  => Separators
+  ================================================================
+*/
+#custom-separator-right,
+#custom-separator-left {
+  font-weight: bold;
+  padding-top: 0px;
+  color: @color11;
+  font-size: 15px;
+}
+
+/* 
+  ================================================================
+  => Others
+  ================================================================
+*/
+#custom-dot {
+  padding: 0px 6px 0px 0px;
+  margin: 5px 4px;
+}

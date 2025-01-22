@@ -23,7 +23,7 @@
     "custom/settings",
     "group/sysinfo",
     "group/tools",
-    "wlr/taskbar"
+    // "wlr/taskbar"
   ],
   "modules-center": ["hyprland/window", "custom/mediaplayer"],
   "modules-right": [
@@ -33,7 +33,7 @@
     "battery",
     "pulseaudio",
     "network",
-    "tray",
+    // "tray",
     "clock",
     "custom/notifications",
     "custom/exit"
