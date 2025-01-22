@@ -1,6 +1,6 @@
 /* 
  ============================================================
- => SwayNC theme: Dark
+ => SwayNC theme: Light
  => By: Saifullah Balghari
  ============================================================
 */
@@ -12,7 +12,7 @@
  ============================================================
 */
 @import "../../.cache/wal/colors-waybar.css";
-@import "./themes/dark/color.css";
+@import "./themes/light/color.css";
 
 /* 
  ============================================================
@@ -57,8 +57,8 @@
   border: none;
 }
 .notification {
-  border-radius: 12px;
-  border: 1px solid alpha(@color11, 0.13);
+  border-radius: 5px;
+  border: 1px solid alpha(@color11, 0.63);
   padding: 8px;
   transition: background 0.15s ease-in-out;
   background: alpha(@base, 0.8);
@@ -85,7 +85,7 @@
   background: transparent;
 }
 .notification-default-action {
-  border-radius: 12px;
+  border-radius: 5px;
 }
 .notification-default-action:not(:only-child) {
   border-bottom-left-radius: 0px;
@@ -201,9 +201,9 @@
 .control-center {
   padding: 6px;
   background: alpha(@base, 0.8);
-  border: 1px solid alpha(@color11, 0.13);
+  border: 1px solid alpha(@color11, 0.63);
   color: @text;
-  border-radius: 12px;
+  border-radius: 5px;
 }
 .control-center-list-placeholder {
   opacity: 0.5;
@@ -237,7 +237,7 @@
   background: transparent;
   border: 1px solid alpha(@text, 0.1);
   box-shadow: none;
-  border-radius: 12px;
+  border-radius: 5px;
 }
 .widget-title > button:hover {
   background: alpha(@mantle, 0.6);
@@ -271,7 +271,7 @@
   padding: 8px 42px 8px 42px;
   margin: 8px -6px;
   background-color: alpha(@mantle, 0.8);
-  border-radius: 12px;
+  border-radius: 5px;
   border: 1px solid alpha(@color11, 0.1);
   box-shadow: none;
 }
@@ -317,7 +317,7 @@
 .widget-buttons-grid > flowbox > flowboxchild > button {
   background: alpha(@mantle, 0.8);
   color: @text;
-  border-radius: 12px;
+  border-radius: 5px;
   border: 1px solid alpha(@color11, 0.1);
 }
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
@@ -334,7 +334,7 @@
   background-color: alpha(@mantle, 0.5);
   padding: 4px 16px;
   margin: 6px 8px;
-  border-radius: 12px;
+  border-radius: 5px;
   border: 1px solid alpha(@color11, 0.1);
 }
 .widget-volume > box > button {
@@ -347,6 +347,6 @@
   background-color: alpha(@mantle, 0.5);
   padding: 4px 16px;
   margin: 6px 8px;
-  border-radius: 12px;
+  border-radius: 5px;
   border: 1px solid alpha(@color11, 0.1);
 }
