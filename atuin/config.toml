@@ -3,7 +3,7 @@
 # -----------------------------------------------------
 
 # Database configuration
-db_path = "~/.config/history.db"
+db_path = "~/.config/atuin/history.db"
 
 # Date format: "us" (MM/DD/YYYY) or "uk" (DD/MM/YYYY)
 dialect = "us"
