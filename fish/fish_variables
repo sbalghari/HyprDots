@@ -2,7 +2,7 @@
 # VERSION: 3.0
 SETUVAR --export GTK_CURSOR_THEME:Bibata\x2dModern\x2dClassic
 SETUVAR --export XCURSOR_SIZE:20
-SETUVAR --export XCURSOR_THEME:Bibata\x2dModern\x2dClassicz
+SETUVAR --export XCURSOR_THEME:Bibata\x2dModern\x2dClassic
 SETUVAR __fish_initialized:3400
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr

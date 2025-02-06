@@ -1,12 +1,11 @@
-# Fish Configuration
-# by Saifullah Balghari 
-# -----------------------------------------------------
-
 # Remove the fish greetings
 set -g fish_greeting
 
-# Start neofetch
-neofetch
+# Start fastfetch
+fastfetch
+
+# Sets starship as the promt
+eval (starship init fish)
 
 # Start atuin
 atuin init fish | source
@@ -18,12 +17,9 @@ alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long li
 alias ld='eza -lhD --icons=auto' # long list dirs
 alias lt='eza --icons=auto --tree' # list folder as tree
 
-# Sets starship as the promt
-eval (starship init fish)
-
 # Variables
 set -Ux GTK_CURSOR_THEME Bibata-Modern-Classic
-set -Ux XCURSOR_THEME Bibata-Modern-Classicz
+set -Ux XCURSOR_THEME Bibata-Modern-Classic
 set -Ux XCURSOR_SIZE 20
 set -x QT_QPA_PLATFORMTHEME qt5ct
 set -x QT_QPA_PLATFORMTHEME qt6ct
