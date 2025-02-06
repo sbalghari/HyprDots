@@ -1,7 +1,3 @@
-# Cava Configuration
-# by Saifullah Balghari 
-# -----------------------------------------------------
-
 [general]
 framerate = 60
 bars = 0
