@@ -10,7 +10,7 @@
   => Colors
   ================================================================
 */
-@import "../../.cache/wal/colors-waybar.css";
+@import "../../.cache/wal/colors-waybar.css"; 
 @import "./themes/dark/colors.css";
 
 /* 
@@ -21,11 +21,12 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-family: "JetBrainsMono Nerd Font", "Hack Nerd Font";
+  font-family: "JetBrainsMono Nerd Font", "Font Awesome";
   font-weight: bold;
   font-size: 12px;
   min-height: 15px;
   background: transparent;
+  
 }
 
 /* 
@@ -34,8 +35,8 @@
   ================================================================
 */
 tooltip {
-  padding: 10px;
-  background-color: alpha(@base, 0.8);
+  padding: 2px;
+  background-color: alpha(@base, 0.98);
 }
 tooltip label {
   color: @text;
@@ -46,8 +47,8 @@ tooltip label {
   => App Menu
   ================================================================
 */
-#custom-apps {
-  margin: 5px 4px;
+#custom-menu {
+  margin: 7px 4px;
   padding: 2px 8px 2px 8px;
   border: 1px solid alpha(@base, 0.2);
   border-radius: 12px;
@@ -55,12 +56,13 @@ tooltip label {
   padding-right: 13px;
   font-size: 15px;
   font-weight: bolder;
-  color: @text;
-  background: alpha(@color11, 0.8);
+  color: @base;
+  background: alpha(@color11, 0.98);
 }
-#custom-apps:hover {
-  background: alpha(@base, 0.9);
-  border: 1px solid alpha(@color11, 0.9);
+#custom-menu:hover {
+  color: alpha(@color11, 0.98);
+  background: alpha(@base, 0.98);
+  border: 1px solid alpha(@color11, 0.98);
 }
 
 /* 
@@ -69,9 +71,9 @@ tooltip label {
   ================================================================
 */
 #workspaces {
-  margin: 5px 4px;
-  padding: 2px 2px 2px 2px;
-  background: alpha(@base, 0.6);
+  margin: 7px 4px;
+  padding: 0px;
+  background: alpha(@base, 0.85);
   border-radius: 12px;
   border: 1px solid alpha(@color11, 0.4);
   color: @text;
@@ -89,11 +91,12 @@ tooltip label {
 #workspaces button.active {
   min-width: 30px;
   transition: all 0.1s linear;
-  color: @text;
-  background: alpha(@color11, 0.8);
+  color: @base;
+  background: alpha(@color11, 0.98);
 }
 #workspaces button:hover {
-  background: alpha(@base, 0.9);
+  color: alpha(@color11, 0.98);
+  background: alpha(@base, 0.98);
 }
 #workspaces button.urgent {
   background-color: @red;
@@ -105,7 +108,7 @@ tooltip label {
   ================================================================
 */
 #custom-settings {
-  margin: 6px 4px;
+  margin: 8px 4px;
   padding: 0px;
   padding-right: 10px;
   padding-left: 6px;
@@ -124,7 +127,7 @@ tooltip label {
   ================================================================
 */
 #custom-sysinfo {
-  margin: 6px 0px;
+  margin: 8px 0px;
   padding: 0px;
   padding-right: 6px;
   padding-left: 6px;
@@ -144,31 +147,6 @@ tooltip label {
   padding: 0px 10px 0px 10px;
 }
 
-/* 
-  ================================================================
-  => Tools drawer
-  ================================================================
-*/
-#custom-tools {
-  margin: 6px 4px;
-  padding: 0px;
-  padding-right: 4px;
-  padding-left: 4px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: bolder;
-  background: transparent;
-}
-#custom-tools:hover {
-  background: alpha(@color11, 0.6);
-}
-#custom-clipboard,
-#custom-colorpicker,
-#custom-screenshot,
-#custom-wallpapers {
-  color: @text;
-  padding: 0px 14px 0px 10px;
-}
 
 /* 
   ================================================================
@@ -176,23 +154,23 @@ tooltip label {
   ================================================================
 */
 #taskbar {
-  margin: 2px 4px;
-  padding: 4px 0px 4px 0px;
+  margin: 8px 4px;
+  padding: 0px 0px 0px 0px;
   background: transparent;
   border: none;
   font-size: 15px;
   font-weight: bolder;
 }
 #taskbar button {
+  padding: 2px 4px;
   margin-right: 4px;
-  padding: 4px;
   border-radius: 8px;
 }
 #taskbar button:hover {
   background: alpha(@color11, 0.6);
 }
 #taskbar button.active {
-  background-color: alpha(@color11, 0.8);
+  background-color: alpha(@color11, 0.5);
 }
 
 /* 
@@ -201,15 +179,15 @@ tooltip label {
   ================================================================
 */
 #window {
-  margin: 5px 4px;
+  margin: 7px 4px;
   padding: 2px 8px 2px 8px;
-  background: alpha(@base, 0.6);
+  background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.2);
   border-radius: 12px;
-  color: @blue;
+  color: @text;
 }
 #window:hover {
-  background: alpha(@base, 0.9);
+  background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.8);
 }
 
@@ -219,15 +197,15 @@ tooltip label {
   ================================================================
 */
 #custom-mediaplayer {
-  margin: 5px 4px;
+  margin: 7px 4px;
   padding: 2px 8px 2px 8px;
-  background: alpha(@base, 0.6);
+  background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.2);
   border-radius: 12px;
-  color: @mauve;
+  color: @text;
 }
 #custom-mediaplayer:hover {
-  background: alpha(@base, 0.9);
+  background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.8);
 }
 
@@ -247,7 +225,7 @@ tooltip label {
   background: transparent;
 }
 #custom-extra:hover {
-  background: alpha(@color11, 0.9);
+  background: alpha(@color11, 0.85);
 }
 #custom-hypridle,
 #custom-hypridle.notactive,
@@ -267,16 +245,16 @@ tooltip label {
   ================================================================
 */
 #custom-updates {
-  margin: 5px 4px;
+  margin: 7px 4px;
   margin-right: 10px;
   margin-left: 0px;
   padding: 2px 8px 2px 8px;
-  background: alpha(@base, 0.6);
+  background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.2);
   border-radius: 12px;
 }
 #custom-updates:hover {
-  background: alpha(@base, 0.9);
+  background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.9);
 }
 #custom-updates.green {
@@ -295,16 +273,16 @@ tooltip label {
   ================================================================
 */
 #backlight {
-  margin: 5px 4px;
+  margin: 7px 4px;
   margin-right: 0px;
   padding: 2px 8px 2px 8px;
-  color: @yellow;
-  background: alpha(@base, 0.6);
+  color: @text;
+  background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.2);
   border-radius: 12px 0px 0px 12px;
 }
 #backlight:hover {
-  background: alpha(@base, 0.9);
+  background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.9);
 }
 
@@ -314,22 +292,22 @@ tooltip label {
   ================================================================
 */
 #battery {
-  margin: 5px 4px;
+  margin: 7px 4px;
   margin-left: 0px;
   margin-right: 0px;
   padding: 2px 8px 2px 8px;
-  color: @green;
-  background: alpha(@base, 0.6);
+  color: @text;
+  background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.2);
   border-radius: 0px;
 }
 #battery:hover {
-  background: alpha(@base, 0.9);
+  background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.9);
 }
 #battery.charging,
 #battery.plugged {
-  color: #3fe268;
+  color: @green;
 }
 @keyframes blink {
   to {
@@ -352,17 +330,17 @@ tooltip label {
   ================================================================
 */
 #pulseaudio {
-  margin: 5px 4px;
+  margin: 7px 4px;
   margin-left: 0px;
   margin-right: 0px;
   padding: 2px 8px 2px 8px;
-  color: @green;
-  background: alpha(@base, 0.6);
+  color: @text;
+  background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.2);
   border-radius: 0px;
 }
 #pulseaudio:hover {
-  background: alpha(@base, 0.9);
+  background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.9);
 }
 
@@ -372,16 +350,16 @@ tooltip label {
   ================================================================
 */
 #network {
-  margin: 5px 4px;
+  margin: 7px 4px;
   margin-left: 0px;
   padding: 2px 12px 2px 8px;
-  color: @green;
-  background: alpha(@base, 0.6);
+  color: @text;
+  background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.2);
   border-radius: 0px 12px 12px 0px;
 }
 #network:hover {
-  background: alpha(@base, 0.9);
+  background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.9);
 }
 
@@ -391,9 +369,9 @@ tooltip label {
   ================================================================
 */
 #tray {
-  margin: 5px 4px;
-  padding: 0px 5px 0px 5px;
-  background: alpha(@base, 0.6);
+  margin: 7px 4px;
+  padding: 2px 8px 2px 8px;
+  background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.2);
   border-radius: 12px;
 }
@@ -416,16 +394,17 @@ tooltip label {
   ================================================================
 */
 #clock {
-  margin: 5px 4px;
+  margin: 7px 4px;
   margin-right: 0px;
   padding: 2px 8px 2px 8px;
-  color: @text;
-  background: alpha(@color11, 0.8);
+  color: @base;
+  background: alpha(@color11, 0.85);
   border: 1px solid alpha(@base, 0.2);
   border-radius: 12px 0px 0px 12px;
 }
 #clock:hover {
-  background: alpha(@base, 0.9);
+  color: @text;
+  background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.9);
 }
 
@@ -435,17 +414,18 @@ tooltip label {
   ================================================================
 */
 #custom-notifications {
-  margin: 5px 4px;
+  margin: 7px 4px;
   margin-left: 0px;
   margin-right: 0px;
   padding: 2px 8px 2px 8px;
-  color: @text;
-  background: alpha(@color11, 0.8);
+  color: @base;
+  background: alpha(@color11, 0.85);
   border: 1px solid alpha(@base, 0.2);
   border-radius: 0px;
 }
 #custom-notifications:hover {
-  background: alpha(@base, 0.9);
+  color: @text;
+  background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.9);
 }
 
@@ -455,17 +435,18 @@ tooltip label {
   ================================================================
 */
 #custom-exit {
-  margin: 5px 4px;
+  margin: 7px 4px;
   margin-left: 0px;
   margin-right: 0px;
   padding: 2px 12px 2px 8px;
-  color: @text;
-  background: alpha(@color11, 0.8);
+  color: @base;
+  background: alpha(@color11, 0.85);
   border: 1px solid alpha(@base, 0.2);
   border-radius: 0px 12px 12px 0px;
 }
 #custom-exit:hover {
-  background: alpha(@base, 0.9);
+  color: @text;
+  background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.9);
 }
 
@@ -504,6 +485,6 @@ window#waybar.empty #window,
   ================================================================
 */
 #custom-dot {
-  padding: 0px 6px 0px 0px;
-  margin: 5px 4px;
+  padding: 2px 6px 2px 0px;
+  margin: 6px 4px;
 }

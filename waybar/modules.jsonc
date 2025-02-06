@@ -3,7 +3,7 @@
 
 {
   // Application menu
-  "custom/apps": {
+  "custom/menu": {
     "format": "",
     "on-click": "~/.config/rofi/launcher.sh",
     "tooltip-format": "Application menu\nLeft-click: Application Launcher\nRight-click: Display Keybinds",
@@ -13,7 +13,7 @@
   // Taskbar
   "wlr/taskbar": {
     "format": "{icon}",
-    "icon-size": 15,
+    "icon-size": 18,
     "spacing": 5,
     "tooltip-format": "{title}",
     "on-click": "activate",
@@ -85,7 +85,7 @@
   // Active window name
   "hyprland/window": {
     "format": "{0}",
-    "max-length": 25,
+    "max-length": 35,
     "rewrite": {
       "(.*)code": "󰨞 Visual Studio Code"
     },
@@ -159,7 +159,7 @@
     "escape": true,
     "return-type": "json",
     "exec": "~/.config/hypr/scripts/updates.sh",
-    "interval": 1,
+    "interval": 3600,
     "on-click": "kitty --class floating -e ~/.config/hypr/scripts/installupdates.sh"
   },
 
@@ -211,9 +211,9 @@
     "format": "{icon} {volume}% {format_source}",
     "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": "{format_source} ",
+    "format-muted": " {format_source}",
     "format-source": "󰍬 {volume}%",
-    "format-source-muted": "󰍭 ",
+    "format-source-muted": "󰍭",
     "format-icons": {
         "headphone": "󰋋",
         "hands-free": "",
@@ -239,7 +239,7 @@
   // System Tray
   "tray": {
     "icon-size": 15,
-    "spacing": 5,
+    "spacing": 8,
     "show-passive-items": true
   },
 

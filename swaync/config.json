@@ -6,10 +6,10 @@
   	"control-center-layer": "top",
   	"layer-shell": true,
  	"cssPriority": "application",
-    "control-center-margin-top": 5,
-    "control-center-margin-bottom": 5,
-    "control-center-margin-right": 5,
-    "control-center-margin-left": 5,
+    "control-center-margin-top": 10,
+    "control-center-margin-bottom": 10,
+    "control-center-margin-right": 10,
+    "control-center-margin-left": 10,
   	"notification-2fa-action": true,
   	"notification-inline-replies": false,
     "notification-icon-size": 52,
@@ -18,7 +18,7 @@
     "timeout": 6,
     "timeout-low": 3,
     "timeout-critical": 0,
-    "fit-to-screen": true,
+    "fit-to-screen": false,
     "control-center-width": 400,
     "control-center-height": 720,
     "notification-window-width": 400,
@@ -29,12 +29,8 @@
     "hide-on-action": true,
     "script-fail-notify": true,
     "widgets": [
-        "buttons-grid",
-    	"volume", 
-        "backlight",
         "title",
         "notifications",
-		"mpris",
         "dnd"
     ],
     "widget-config": {
@@ -49,40 +45,6 @@
         "label": {
             "max-lines": 1,
             "text": "Notification"
-        },
-        "mpris": {
-            "image-size": 32,
-            "image-radius": 0
-        },
-        "volume": {
-            "label": "󰕾"
-        },
-        "backlight": {
-            "label": "󰃟"
-        },
-        "buttons-grid": {
-            "actions": [
-                {
-                    "label": "󰐥",
-                    "command": "wlogout"
-                },
-                {
-                    "label": "󰌾",
-                    "command": "hyprlock"
-                },
-                {
-                    "label": "󰀝",
-                    "command": "bash -c $HOME/.config/hypr/scripts/toggle_airplane_mode.sh"
-                },
-                {
-                    "label": "󰝟",
-                    "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-                },
-                {
-                    "label": "󰂯",
-                    "command": "blueman-manager"
-                }
-            ]
         }
     }
 }

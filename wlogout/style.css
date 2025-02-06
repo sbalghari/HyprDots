@@ -5,7 +5,7 @@ window {
   font-family: JetBrainMono Nerd Font;
   font-size: 15px;
   color: @color15;
-  background-color: alpha(@color0, 0.5);
+  background-color: alpha(@color0, 0.9);
 }
 
 button {

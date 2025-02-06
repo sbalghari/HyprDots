@@ -33,7 +33,7 @@
 }
 .notification-row:focus,
 .notification-row:hover {
-  background: alpha(@base, 0.8);
+  background: alpha(@base, 0.98);
 }
 .notification-background {
   padding: 5px;
@@ -57,17 +57,18 @@
   border: none;
 }
 .notification {
+  margin: 5px;
   border-radius: 12px;
   border: 1px solid alpha(@color11, 0.13);
   padding: 8px;
   transition: background 0.15s ease-in-out;
-  background: alpha(@base, 0.8);
+  background: alpha(@base, 0.98);
 }
 .low {
-  background: alpha(@base, 0.6);
+  background: alpha(@base, 0.88);
 }
 .critical {
-  background: alpha(@red, 0.8);
+  background: alpha(@red, 0.98);
 }
 .notification-action,
 .notification-default-action {
@@ -200,8 +201,8 @@
 */
 .control-center {
   padding: 6px;
-  background: alpha(@base, 0.8);
-  border: 1px solid alpha(@color11, 0.13);
+  background: alpha(@base, 0.98);
+  border: 1px solid alpha(@color11, 0.63);
   color: @text;
   border-radius: 12px;
 }
@@ -227,6 +228,7 @@
   margin: 6px 6px;
   padding: 0px 4px;
   font-size: 15px;
+  font-weight: bolder;
 }
 .widget-title > button {
   font-size: 12px;
@@ -234,8 +236,8 @@
   text-shadow: none;
   margin: 2px 4px;
   padding: 0px 8px;
-  background: transparent;
-  border: 1px solid alpha(@text, 0.1);
+  background: @base;
+  border: 1px solid alpha(@color11, 0.5);
   box-shadow: none;
   border-radius: 12px;
 }
@@ -250,19 +252,21 @@
   margin: 2px 6px;
   padding: 0px 4px;
   font-size: 15px;
+  font-weight: bolder;
 }
 .widget-dnd > switch {
+  padding: 0px;
   font-size: initial;
   border-radius: 12px;
-  background: alpha(@text, 0.5);
-  border: 1px solid alpha(@color11, 0.6);
+  background: alpha(@mantle, 0.98);
+  border: 1px solid alpha(@color11, 0.5);
   box-shadow: none;
 }
 .widget-dnd > switch:checked {
   background: @mauve;
 }
 .widget-dnd > switch slider {
-  background: @base;
+  background: @text;
   border-radius: 12px;
 }
 
