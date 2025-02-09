@@ -1,3 +1,8 @@
+// atuin
 atuin/history.db
 atuin/history.db-shm
 atuin/history.db-wal
+
+// ags
+ags/node_modules/
+ags/@girs/
