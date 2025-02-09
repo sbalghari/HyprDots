@@ -159,7 +159,7 @@
     "escape": true,
     "return-type": "json",
     "exec": "~/.config/hypr/scripts/updates.sh",
-    "interval": 3600,
+    "interval": 60,
     "on-click": "kitty --class floating -e ~/.config/hypr/scripts/installupdates.sh"
   },
 
@@ -311,7 +311,7 @@
       "custom/separator-left",
       "custom/screenshot",
       "custom/separator-left",
-      "custom/colorpicker",
+      "custom/colorpicker"
     ]
   },
   "group/sysinfo": {
@@ -329,7 +329,7 @@
       "custom/separator-left",
       "temperature",
       "custom/separator-left",
-      "disk",
+      "disk"
     ]
   },
   "group/extra": {

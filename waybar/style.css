@@ -35,6 +35,7 @@
   ================================================================
 */
 tooltip {
+  padding: 2px;
   background-color: alpha(@base, 0.98);
 }
 tooltip label {
@@ -47,10 +48,9 @@ tooltip label {
   ================================================================
 */
 #custom-menu {
-  margin: 6px 4px;
+  margin: 7px 4px;
   padding: 2px 8px 2px 8px;
   border: 1px solid alpha(@base, 0.2);
-  border-radius: 12px;
   margin-left: 0px;
   padding-right: 13px;
   font-size: 15px;
@@ -70,10 +70,9 @@ tooltip label {
   ================================================================
 */
 #workspaces {
-  margin: 6px 4px;
-  padding: 2px;
+  margin: 7px 4px;
+  padding: 0px;
   background: alpha(@base, 0.85);
-  border-radius: 12px;
   border: 1px solid alpha(@color11, 0.4);
   color: @text;
 }
@@ -182,7 +181,6 @@ tooltip label {
   padding: 2px 8px 2px 8px;
   background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.2);
-  border-radius: 12px;
   color: @text;
 }
 #window:hover {
@@ -200,7 +198,6 @@ tooltip label {
   padding: 2px 8px 2px 8px;
   background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.2);
-  border-radius: 12px;
   color: @text;
 }
 #custom-mediaplayer:hover {
@@ -214,7 +211,7 @@ tooltip label {
   ================================================================
 */
 #custom-extra {
-  margin: 6px 4px;
+  margin: 7px 4px;
   padding: 0px;
   padding-right: 8px;
   padding-left: 6px;
@@ -278,7 +275,6 @@ tooltip label {
   color: @text;
   background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.2);
-  border-radius: 12px 0px 0px 12px;
 }
 #backlight:hover {
   background: alpha(@base, 0.85);
@@ -355,7 +351,6 @@ tooltip label {
   color: @text;
   background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.2);
-  border-radius: 0px 12px 12px 0px;
 }
 #network:hover {
   background: alpha(@base, 0.85);
@@ -372,7 +367,6 @@ tooltip label {
   padding: 2px 8px 2px 8px;
   background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.2);
-  border-radius: 12px;
 }
 #tray > .passive {
   -gtk-icon-effect: dim;
@@ -393,13 +387,12 @@ tooltip label {
   ================================================================
 */
 #clock {
-  margin: 6px 4px;
+  margin: 7px 4px;
   margin-right: 0px;
   padding: 2px 8px 2px 8px;
   color: @base;
   background: alpha(@color11, 0.85);
   border: 1px solid alpha(@base, 0.2);
-  border-radius: 12px 0px 0px 12px;
 }
 #clock:hover {
   color: @text;
@@ -413,7 +406,7 @@ tooltip label {
   ================================================================
 */
 #custom-notifications {
-  margin: 6px 4px;
+  margin: 7px 4px;
   margin-left: 0px;
   margin-right: 0px;
   padding: 2px 8px 2px 8px;
@@ -434,19 +427,43 @@ tooltip label {
   ================================================================
 */
 #custom-exit {
-  margin: 6px 4px;
+  margin: 7px 4px;
   margin-left: 0px;
   margin-right: 0px;
   padding: 2px 12px 2px 8px;
   color: @base;
   background: alpha(@color11, 0.85);
   border: 1px solid alpha(@base, 0.2);
-  border-radius: 0px 12px 12px 0px;
 }
 #custom-exit:hover {
   color: @text;
   background: alpha(@base, 0.85);
   border: 1px solid alpha(@color11, 0.9);
+}
+
+
+/* 
+  ================================================================
+  => Border radius
+  ================================================================
+*/
+#custom-menu,
+#workspaces,
+#window,
+#custom-mediaplayer,
+#custom-updates,
+#tray {
+  border-radius: 8px;
+}
+
+#backlight,
+#clock {
+  border-radius: 8px 0px 0px 8px;
+}
+
+#custom-exit,
+#network {
+  border-radius: 0px 8px 8px 0px;
 }
 
 /* 
