@@ -1,39 +1,50 @@
 /* 
- ============================================================
- => SwayNC theme: Light
- => By: Saifullah Balghari
- ============================================================
+  ============================================================
+  => SwayNC theme: Mocha (dark)
+  ============================================================
 */
 
-
 /* 
- ============================================================
- => Color Schemes
- ============================================================
+  ============================================================
+  => Colors
+  ============================================================
 */
 @import "../../.cache/wal/colors-waybar.css";
-@import "./themes/light/color.css";
+
+@define-color accent shade(alpha(@color11, 0.9), 1.25);
+@define-color background alpha(#1e1e2e, 0.9);
+@define-color background-alt alpha(#181825, 0.9);
+@define-color border alpha(@color11, 0.25);
+@define-color border-alt shade(alpha(@color11, 0.9), 1.25);
+@define-color text shade(#cdd6f4, 1.25);
+@define-color text-alt shade(#1e1e2e, 1.25);
+@define-color hover alpha(@color11, 0.5);
+@define-color red #f38ba8;
+@define-color green #a6e3a1;
+@define-color yellow #f9e2af;
+@define-color mauve #cba6f7;
 
 /* 
- ============================================================
- => General
- ============================================================
+  ============================================================
+  => General
+  ============================================================
 */
 * {
-  font-family: "JetBrains Mono Nerd Font";
+  font-family: "JetBrainsMono Nerd Font";
+  color: @text;
 }
 
 /* 
- ============================================================
- => Notification Popup
- ============================================================
+  ============================================================
+  => Notification Popup
+  ============================================================
 */
 .notification-row {
   outline: none;
 }
 .notification-row:focus,
 .notification-row:hover {
-  background: alpha(@base, 0.8);
+  background: @hover;
 }
 .notification-background {
   padding: 5px;
@@ -44,7 +55,7 @@
   text-shadow: none;
   font-size: 8px;
   padding: 0px;
-  border-radius: 100%;
+  border-radius: 6px;
   margin: 0;
   box-shadow: none;
   border: none;
@@ -52,22 +63,22 @@
 .close-button:hover {
   box-shadow: none;
   background: @red;
-  color: @base;
+  color: @text-alt;
   transition: background 0.15s ease-in-out;
   border: none;
 }
 .notification {
-  border-radius: 5px;
-  border: 1px solid alpha(@color11, 0.63);
+  border-radius: 6px;
+  border: 1px solid @border;
   padding: 8px;
   transition: background 0.15s ease-in-out;
-  background: alpha(@base, 0.8);
+  background: @background;
 }
 .low {
-  background: alpha(@base, 0.6);
+  background: alpha(@background, 0.75);
 }
 .critical {
-  background: alpha(@red, 0.8);
+  background: alpha(@red, 0.75);
 }
 .notification-action,
 .notification-default-action {
@@ -82,10 +93,10 @@
 .notification-action:hover,
 .notification-default-action:hover {
   -gtk-icon-effect: none;
-  background: transparent;
+  background: @hover;
 }
 .notification-default-action {
-  border-radius: 5px;
+  border-radius: 6px;
 }
 .notification-default-action:not(:only-child) {
   border-bottom-left-radius: 0px;
@@ -98,7 +109,7 @@
 }
 .image {
   -gtk-icon-effect: none;
-  border-radius: 100px;
+  border-radius: 6px;
   margin: 4px;
 }
 .app-icon {
@@ -132,44 +143,44 @@
 }
 .progressbar {
   margin-top: 4px;
-  color: @color11;
+  color: @accent;
 }
 .inline-reply {
   margin-top: 4px;
 }
 .inline-reply-entry {
-  background: alpha(@crest, 0.8);
+  background: @background;
   color: @text;
   caret-color: @text;
-  border: 1px solid alpha(@color11, 0.63);
-  border-radius: 5px;
+  border: 1px solid @border;
+  border-radius: 6px;
 }
 .inline-reply-button {
   margin-left: 4px;
-  background: alpha(@base, 0.8);
-  border: 1px solid alpha(@base, 0.8);
-  border-radius: 5px;
+  background: @background;
+  border: 1px solid @border;
+  border-radius: 6px;
   color: @text;
 }
 .inline-reply-button:disabled {
   background: initial;
   color: alpha(@text, 0.63);
-  border: 1px solid alpha(@base, 0.3);
+  border: 1px solid alpha(@background, 0.3);
   border-color: transparent;
 }
 .inline-reply-button:hover {
-  background: alpha(@base, 0.63);
+  background: @hover;
 }
 .notification-action {
-  border-top: 1px solid alpha(@color11, 0.63);
+  border-top: 1px solid @border;
   border-radius: 0px;
-  border-right: 1px solid alpha(@color11, 0.63);
+  border-right: 1px solid @border;
 }
 .notification-action:first-child {
-  border-bottom-left-radius: 12px;
+  border-bottom-left-radius: 6px;
 }
 .notification-action:last-child {
-  border-bottom-right-radius: 12px;
+  border-bottom-right-radius: 6px;
   border-right: none;
 }
 .notification-group-buttons,
@@ -190,20 +201,20 @@
 .notification-group.collapsed:hover
   .notification-row:not(:only-child)
   .notification {
-  background-color: alpha(@base, 0.83);
+  background-color: alpha(@background, 0.83);
 }
 
 /* 
- ============================================================
- => Control Center
- ============================================================
+  ============================================================
+  => Control Center
+  ============================================================
 */
 .control-center {
   padding: 6px;
-  background: alpha(@base, 0.8);
-  border: 1px solid alpha(@color11, 0.63);
+  background: @background;
+  border: 1px solid @border;
   color: @text;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 .control-center-list-placeholder {
   opacity: 0.5;
@@ -214,12 +225,6 @@
 .notification {
   box-shadow: none;
 }
-
-/* 
- ============================================================
- => Widgets
- ============================================================
-*/
 
 /* Notification widget */
 .widget-title {
@@ -235,13 +240,12 @@
   margin: 2px 4px;
   padding: 0px 8px;
   background: transparent;
-  border: 1px solid alpha(@text, 0.1);
+  border: 1px solid @border;
   box-shadow: none;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 .widget-title > button:hover {
-  background: alpha(@mantle, 0.6);
-  border: 1px solid alpha(@mantle, 0.6);
+  background: @hover;
 }
 
 /* DND widget */
@@ -253,33 +257,33 @@
 }
 .widget-dnd > switch {
   font-size: initial;
-  border-radius: 12px;
+  border-radius: 6px;
   background: alpha(@text, 0.5);
-  border: 1px solid alpha(@color11, 0.6);
+  border: 1px solid @border;
   box-shadow: none;
 }
 .widget-dnd > switch:checked {
-  background: @mauve;
+  background: @accent;
 }
 .widget-dnd > switch slider {
-  background: @base;
-  border-radius: 12px;
+  background: @background;
+  border-radius: 6px;
 }
 
 /* Media-player widget */
 .widget-mpris-player {
   padding: 8px 42px 8px 42px;
   margin: 8px -6px;
-  background-color: alpha(@mantle, 0.8);
-  border-radius: 5px;
-  border: 1px solid alpha(@color11, 0.1);
+  background-color: @background;
+  border-radius: 6px;
+  border: 1px solid @border;
   box-shadow: none;
 }
 .widget-mpris-player button:hover {
-  background: alpha(@mantle, 0.6);
+  background: @hover;
 }
 .widget-mpris-album-art {
-  border-radius: 5px;
+  border-radius: 6px;
   box-shadow: none;
 }
 .widget-mpris-title {
@@ -290,19 +294,11 @@
   font-size: 13px;
 }
 .widget-mpris-player > box > button {
-  background: alpha(@mantle, 0.6);
+  background: @background;
   color: @text;
 }
 .widget-mpris-player > box > button:hover {
-  background: alpha(@mantle, 0.6);
-}
-.widget-mpris > box > button {
-  background: transparent;
-  border: 1px;
-  color: @text;
-}
-.widget-mpris > box > button:disabled {
-  color: alpha(@text, 0.2);
+  background: @hover;
 }
 
 /* Control Buttons widget */
@@ -315,27 +311,26 @@
   background-color: transparent;
 }
 .widget-buttons-grid > flowbox > flowboxchild > button {
-  background: alpha(@mantle, 0.8);
+  background: @background;
   color: @text;
-  border-radius: 5px;
-  border: 1px solid alpha(@color11, 0.1);
+  border-radius: 6px;
+  border: 1px solid @border;
 }
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
-  background: alpha(@mantle, 0.9);
-  color: alpha(@color11, 0.6);
+  background: @hover;
 }
 .widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
-  background: alpha(@mantle, 0.5);
-  color: @text;
+  background: @accent;
+  color: @text-alt;
 }
 
 /* Volume widget */
 .widget-volume {
-  background-color: alpha(@mantle, 0.5);
+  background-color: @background;
   padding: 4px 16px;
   margin: 6px 8px;
-  border-radius: 5px;
-  border: 1px solid alpha(@color11, 0.1);
+  border-radius: 6px;
+  border: 1px solid @border;
 }
 .widget-volume > box > button {
   background: transparent;
@@ -344,9 +339,9 @@
 
 /* Backlight widget */
 .widget-backlight {
-  background-color: alpha(@mantle, 0.5);
+  background-color: @background;
   padding: 4px 16px;
   margin: 6px 8px;
-  border-radius: 5px;
-  border: 1px solid alpha(@color11, 0.1);
+  border-radius: 6px;
+  border: 1px solid @border;
 }

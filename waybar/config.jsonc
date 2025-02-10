@@ -1,16 +1,15 @@
 /* 
   ================================================================
-  => Waybar theme: Dark
-  => By:  Saifullah Balghari
+  => Waybar theme: Catppuccin-Mocha (dark)
   ================================================================
 */
 {
   "layer": "top",
-  "margin-top": 2,
+  "margin-top": 10,
   "margin-left": 10,
-  "margin-bottom": -8,
+  "margin-bottom": 0,
   "margin-right": 10,
-  "height": 18,
+  "height": 15,
   "output": "eDP-1",
   "exclusive": true,
   "passtrough": false,
@@ -19,20 +18,23 @@
   "include": ["~/.config/waybar/modules.jsonc"],
   "modules-left": [
     "custom/menu",
+    // "custom/dot",
     "hyprland/workspaces",
-    "custom/settings",
+    // "custom/dot",
     "group/sysinfo",
     "wlr/taskbar"
   ],
   "modules-center": ["hyprland/window", "custom/mediaplayer"],
   "modules-right": [
-    "group/extra",
+    // "group/extra",
     "custom/updates",
+    // "custom/dot",
     "backlight",
     "battery",
     "pulseaudio",
-    "network",
+    // "custom/dot",
     "tray",
+    // "custom/dot",
     "clock",
     "custom/notifications",
     "custom/exit"
