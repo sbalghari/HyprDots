@@ -1,0 +1,10 @@
+atuin/history.db
+atuin/history.db-shm
+atuin/history.db-wal
+
+gtk-3.0/waad/
+gtk-3.0/bookmarks
+
+gtk-4.0/assets
+gtk-4.0/gtk-dark.css
+gtk-4.0/gtk.css
