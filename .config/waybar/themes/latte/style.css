@@ -1,0 +1,519 @@
+/* 
+  ================================================================
+  => Waybar theme: Latte (light)
+  => By:  Saifullah Balghari
+  ================================================================
+*/
+
+/* 
+  ================================================================
+  => Colors
+  ================================================================
+*/
+@import "../../.cache/wal/colors-waybar.css";
+
+@define-color accent shade(alpha(@color11, 1), 0.95);
+@define-color background alpha(#eff1f5, 0.7);
+@define-color border alpha(@color11, 0.35);
+@define-color border-alt shade(alpha(@color11, 1), 0.95);
+@define-color text #19191c;
+@define-color text-alt #eff1f5;
+@define-color hover alpha(@color11, 0.5);
+@define-color green #40a02b;
+@define-color yellow #df8e1d;
+@define-color red #d20f39;
+
+/* 
+  ================================================================
+  => General
+  ================================================================
+*/
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "JetBrainsMono Nerd Font", "JetBrainsMono";
+  font-weight: bold;
+  font-size: 12px;
+  min-height: 15px;
+  background: transparent;
+}
+
+/* 
+  ================================================================
+  => Tooltip
+  ================================================================
+*/
+tooltip {
+  border: @border;
+  background-color: @background;
+}
+tooltip label {
+  color: @text;
+}
+
+/* 
+  ================================================================
+  => General layout
+  ================================================================
+*/
+/* Margin and border radius */
+#custom-menu,
+#workspaces,
+#window,
+#custom-mediaplayer,
+#custom-updates,
+#tray,
+#custom-settings,
+#custom-sysinfo,
+#backlight,
+#taskbar,
+#custom-extra,
+#battery,
+#pulseaudio,
+#clock,
+#custom-notifications,
+#custom-exit,
+#network {
+  margin: 0px 4px;
+  border-radius: 6px;
+}
+#window,
+#workspaces,
+#custom-mediaplayer,
+#custom-updates,
+#tray,
+#custom-settings,
+#backlight,
+#custom-sysinfo,
+#taskbar,
+#custom-extra,
+#battery,
+#pulseaudio,
+#network {
+  margin: 1px 4px;
+}
+
+/* Group */
+#backlight,
+#clock {
+  margin-right: 0px;
+  border-radius: 6px 0px 0px 6px;
+}
+#custom-notifications,
+#battery {
+  border-radius: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+#pulseaudio,
+#custom-exit {
+  margin-left: 0px;
+  border-radius: 0px 6px 6px 0px;
+}
+
+/* 
+  ================================================================
+  => App Menu
+  ================================================================
+*/
+#custom-menu {
+  padding: 2px 8px 2px 8px;
+  margin-left: 0px;
+  padding-right: 13px;
+  font-size: 15px;
+  font-weight: bolder;
+  color: @text-alt;
+  background: @accent;
+  border: 1px solid @accent;
+}
+#custom-menu:hover {
+  color: @accent;
+  background: @background;
+  border: 1px solid @border;
+}
+
+/* 
+  ================================================================
+  => Workspaces
+  ================================================================
+*/
+#workspaces {
+  padding: 1px;
+  background: @background;
+  border: 1px solid @border;
+}
+#workspaces button {
+  min-width: 18px;
+  box-shadow: none;
+  margin: 2px 3px;
+  text-shadow: none;
+  border-radius: 4px;
+  background: transparent;
+  color: @text;
+  transition: all 0.1s linear;
+}
+#workspaces button.active {
+  min-width: 26px;
+  transition: all 0.1s linear;
+  color: @text-alt;
+  background: @accent;
+}
+#workspaces button:hover {
+  color: @accent;
+  background: @text-alt;
+}
+#workspaces button.urgent {
+  background-color: @red;
+}
+
+/* 
+  ================================================================
+  => Settings shortcut
+  ================================================================
+*/
+#custom-settings {
+  padding: 0px;
+  padding-right: 10px;
+  padding-left: 6px;
+  font-size: 15px;
+  font-weight: bolder;
+  background: transparent;
+  color: @text;
+}
+#custom-settings:hover {
+  background: @hover;
+}
+
+/* 
+  ================================================================
+  => System info drawer
+  ================================================================
+*/
+#custom-sysinfo {
+  padding: 0px;
+  padding-right: 6px;
+  padding-left: 6px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bolder;
+  background: transparent;
+  color: @text;
+}
+#custom-sysinfo:hover {
+  background: @hover;
+}
+#cpu,
+#memory,
+#temperature,
+#disk {
+  color: @text;
+  padding: 0px 10px 0px 10px;
+}
+
+/* 
+  ================================================================
+  => Taskbar
+  ================================================================
+*/
+#taskbar {
+  padding: 0px;
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  font-weight: bolder;
+}
+#taskbar button {
+  padding: 2px 4px;
+  margin-right: 4px;
+  border-radius: 8px;
+  color: @text;
+}
+#taskbar button:hover {
+  background: @hover;
+}
+#taskbar button.active {
+  background-color: @hover;
+}
+
+/* 
+  ================================================================
+  => Active Window
+  ================================================================
+*/
+#window {
+  padding: 2px 8px 2px 8px;
+  background: @background;
+  border: 1px solid @border;
+  color: @text;
+}
+#window:hover {
+  background: @background;
+  border: 1px solid @border-alt;
+}
+
+/* 
+  ================================================================
+  => MPD
+  ================================================================
+*/
+#custom-mediaplayer {
+  padding: 2px 8px 2px 8px;
+  background: @background;
+  border: 1px solid @border;
+  color: @text;
+}
+#custom-mediaplayer:hover {
+  background: @background;
+  border: 1px solid @border-alt;
+}
+
+/* 
+  ================================================================
+  => Extras drawer
+  ================================================================
+*/
+#custom-extra {
+  padding: 0px;
+  padding-right: 8px;
+  padding-left: 6px;
+  font-size: 15px;
+  font-weight: bolder;
+  background: transparent;
+  color: @text;
+}
+#custom-extra:hover {
+  background: @hover;
+}
+#custom-hypridle,
+#custom-hypridle.notactive,
+#custom-hyprshade,
+#language,
+#idle_inhibitor {
+  color: @text;
+  padding: 0px 10px 0px 10px;
+}
+#custom-hypridle.active {
+  color: @red;
+}
+
+/* 
+  ================================================================
+  => Updates
+  ================================================================
+*/
+#custom-updates {
+  padding: 2px 8px 2px 8px;
+  background: @background;
+  border: 1px solid @border;
+}
+#custom-updates:hover {
+  background: @background;
+  border: 1px solid @border-alt;
+}
+#custom-updates.green {
+  color: @text;
+}
+#custom-updates.yellow {
+  color: @yellow;
+}
+#custom-updates.red {
+  color: @red;
+}
+
+/* 
+  ================================================================
+  => Backlight (brightness)
+  ================================================================
+*/
+#backlight {
+  padding: 2px 8px 2px 8px;
+  color: @text;
+  background: @background;
+  border: 1px solid @border;
+}
+#backlight:hover {
+  background: @background;
+  border: 1px solid @border-alt;
+}
+
+/* 
+  ================================================================
+  => Battery
+  ================================================================
+*/
+#battery {
+  padding: 2px 8px 2px 8px;
+  color: @text;
+  background: @background;
+  border: 1px solid @border;
+  border-radius: 0px;
+}
+#battery:hover {
+  background: @background;
+  border: 1px solid @border-alt;
+}
+#battery.charging,
+#battery.plugged {
+  color: @green;
+}
+@keyframes blink {
+  to {
+    color: @base;
+    background-color: @red;
+  }
+}
+#battery.critical:not(.charging) {
+  color: @red;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* 
+  ================================================================
+  => Pulse Audio
+  ================================================================
+*/
+#pulseaudio {
+  padding: 2px 12px 2px 8px;
+  color: @text;
+  background: @background;
+  border: 1px solid @border;
+}
+#pulseaudio:hover {
+  background: @background;
+  border: 1px solid @border-alt;
+}
+
+/* 
+  ================================================================
+  => Network
+  ================================================================
+*/
+#network {
+  padding: 2px 12px 2px 8px;
+  color: @text;
+  background: @background;
+  border: 1px solid @border;
+}
+#network:hover {
+  background: @background;
+  border: 1px solid @border-alt;
+}
+
+/* 
+  ================================================================
+  => Tray
+  ================================================================
+*/
+#tray {
+  padding: 2px 8px 2px 8px;
+  background: @background;
+  border: 1px solid @border;
+}
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+#tray menu {
+  border-radius: 8px;
+  color: @text;
+  background-color: @background;
+  padding: 4px;
+}
+
+/* 
+  ================================================================
+  => Clock
+  ================================================================
+*/
+#clock {
+  padding: 2px 8px 2px 8px;
+  color: @text-alt;
+  background: @accent;
+  border: 1px solid @accent;
+}
+#clock:hover {
+  color: @text;
+  background: @background;
+  border: 1px solid @border-alt;
+}
+
+/* 
+  ================================================================
+  => Notifications
+  ================================================================
+*/
+#custom-notifications {
+  padding: 2px 10px 2px 8px;
+  color: @text-alt;
+  background: @accent;
+  border: 1px solid @accent;
+  border-radius: 0px;
+}
+#custom-notifications:hover {
+  color: @text;
+  background: @background;
+  border: 1px solid @border-alt;
+}
+
+/* 
+  ================================================================
+  => Power Menu
+  ================================================================
+*/
+#custom-exit {
+  padding: 2px 12px 2px 8px;
+  color: @text-alt;
+  background: @accent;
+  border: 1px solid @accent;
+}
+#custom-exit:hover {
+  color: @text;
+  background: @background;
+  border: 1px solid @border-alt;
+}
+
+/* 
+  ================================================================
+  => Hide empty modules
+  ================================================================
+*/
+window#waybar.empty #window,
+#custom-updates.none,
+#taskbar.empty,
+#tray.empty,
+#custom-mediaplayer.empty {
+  border: 0px;
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* 
+  ================================================================
+  => Separators
+  ================================================================
+*/
+#custom-separator-right,
+#custom-separator-left {
+  font-weight: bold;
+  padding-top: 0px;
+  color: @text;
+  font-size: 15px;
+}
+
+/* 
+  ================================================================
+  => Others
+  ================================================================
+*/
+#custom-dot {
+  padding: 0px 4px 0px 0px;
+  margin: 0px 4px;
+  color: @text;
+}
