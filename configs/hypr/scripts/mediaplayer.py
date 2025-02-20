@@ -119,7 +119,15 @@ class PlayerManager:
         player_name = player.props.player_name
         artist = player.get_artist()
         title = player.get_title()
-        title = title.replace("&", "&amp;")
+
+        # Handle cases where title or artist is None
+        if title is None:
+            title = "Unknown Title"
+        else:
+            title = title.replace("&", "&amp;")
+
+        if artist is None:
+            artist = "Unknown Artist"
 
         track_info = ""
         if (
@@ -135,8 +143,9 @@ class PlayerManager:
 
         if track_info:
             if player.props.status != "Playing":
-                track_info = " " + artist + " - " + title
-        # only print output if no other player is playing
+                track_info = " " + artist + " - " + title  # Use a paused icon
+
+        # Only print output if no other player is playing
         current_playing = self.get_first_playing_player()
         if (
             current_playing is None
