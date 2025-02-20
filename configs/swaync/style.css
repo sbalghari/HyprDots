@@ -9,20 +9,19 @@
   => Colors
   ============================================================
 */
-@import "../../.cache/wal/colors-waybar.css";
+@import "../../.cache/wal/colors-waybar.css"; 
 
 @define-color accent shade(alpha(@color11, 0.9), 1.25);
-@define-color background alpha(#1e1e2e, 0.9);
-@define-color background-alt alpha(#181825, 0.9);
-@define-color border alpha(@color11, 0.25);
-@define-color border-alt shade(alpha(@color11, 0.9), 1.25);
-@define-color text shade(#cdd6f4, 1.25);
-@define-color text-alt shade(#1e1e2e, 1.25);
-@define-color hover alpha(@color11, 0.5);
-@define-color red #f38ba8;
-@define-color green #a6e3a1;
-@define-color yellow #f9e2af;
-@define-color mauve #cba6f7;
+
+@define-color background alpha(@theme_bg_color, 0.7);
+@define-color border @borders;
+@define-color border-alt shade(alpha(@accent_bg_color, 0.9), 1.25);
+@define-color text @theme_fg_color;
+@define-color text-alt @theme_selected_fg_color;
+@define-color hover alpha(@accent_bg_color, 0.5);
+@define-color green @success_color;
+@define-color yellow @warning_color;
+@define-color red @error_color;
 
 /* 
   ============================================================
