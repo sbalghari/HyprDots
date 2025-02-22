@@ -25,14 +25,14 @@ class GTKThemeManager:
         # Load previous settings
         self.previous_settings = self._load_settings()
         print(f"[Success]:: Settings loaded: {self.previous_settings}")
-         
+        
         # Set the new value if given else set from settings_json
-        self.theme_name = self.previous_settings.get("gtk_theme_name") if not theme_name else theme_name
-        self.icon_theme_name = self.previous_settings.get("gtk_icon_theme_name") if not icon_theme_name else icon_theme_name
-        self.cursor_theme_name = self.previous_settings.get("gtk_cursor_theme_name") if not cursor_theme_name else cursor_theme_name
-        self.cursor_size = self.previous_settings.get("gtk_cursor_size") if not cursor_size else cursor_size
-        self.font_name = self.previous_settings.get("gtk_font_name") if not font_name else font_name
-        self.prefer_dark_mode = self.previous_settings.get("gtk_prefer_dark_mode") if not prefer_dark_mode else prefer_dark_mode
+        self.theme_name = theme_name if theme_name is not None else self.previous_settings.get("gtk_theme_name")
+        self.icon_theme_name = icon_theme_name if icon_theme_name is not None else self.previous_settings.get("gtk_icon_theme_name")
+        self.cursor_theme_name = cursor_theme_name if cursor_theme_name is not None else self.previous_settings.get("gtk_cursor_theme_name")
+        self.cursor_size = cursor_size if cursor_size is not None else self.previous_settings.get("gtk_cursor_size")
+        self.font_name = font_name if font_name is not None else self.previous_settings.get("gtk_font_name")
+        self.prefer_dark_mode = prefer_dark_mode if prefer_dark_mode is not None else self.previous_settings.get("gtk_prefer_dark_mode")
 
         # Theme dirs
         self.theme_dirs = [
@@ -310,10 +310,14 @@ Inherits={self.cursor_theme_name}"""
     def _reload_gtk_settings(self) -> None:
         # Reload gsettings
         subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "gtk-theme", f"{self.theme_name}"])
+        subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "icon-theme", f"{self.icon_theme_name}"])
+        subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "cursor-theme", f"{self.cursor_theme_name}"])
         
+        # Quit nautilus if running
         print("[Debug]:: Quitting nautilus")
         subprocess.run(["nautilus", "-q"])
         
+        # Reload hyprland
         print("[Debug]:: Reload hyprland")
         subprocess.run(["hyprctl", "reload"])
         
