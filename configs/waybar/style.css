@@ -11,11 +11,10 @@
 */
 @import "../../.cache/wal/colors-waybar.css"; 
 
-@define-color accent shade(alpha(@color11, 0.9), 1.25);
-
-@define-color background alpha(@theme_bg_color, 0.7);
-@define-color border @borders;
-@define-color border-alt shade(alpha(@accent_bg_color, 0.9), 1.25);
+@define-color accent shade(alpha(@accent_color, 0.9), 1.25);
+@define-color background alpha(@theme_bg_color, 0.9);
+@define-color border alpha(@color11, 0.3);
+@define-color border-alt alpha(@color11, 0.9);
 @define-color text @theme_fg_color;
 @define-color text-alt @theme_selected_fg_color;
 @define-color hover alpha(@accent_bg_color, 0.5);
@@ -67,6 +66,7 @@ tooltip label {
 #custom-sysinfo,
 #backlight,
 #taskbar,
+#custom-weather,
 #custom-extra,
 #battery,
 #pulseaudio,
@@ -76,24 +76,6 @@ tooltip label {
 #network {
   margin: 0px 4px;
   border-radius: 6px;
-}
-
-/* Group */
-#backlight,
-#clock {
-  margin-right: 0px;
-  border-radius: 6px 0px 0px 6px;
-}
-#custom-notifications,
-#battery {
-  border-radius: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-}
-#pulseaudio,
-#custom-exit {
-  margin-left: 0px;
-  border-radius: 0px 6px 6px 0px;
 }
 
 /* 
@@ -106,15 +88,27 @@ tooltip label {
   margin-left: 0px;
   padding-right: 13px;
   font-size: 15px;
-  font-weight: bolder;
-  color: @text-alt;
-  background: @accent;
-  border: 1px solid @accent;
-}
-#custom-menu:hover {
-  color: @accent;
+  color: @text;
   background: @background;
   border: 1px solid @border;
+}
+#custom-menu:hover {
+  border: 1px solid @border-alt;
+}
+
+/* 
+  ================================================================
+  => Weather
+  ================================================================
+*/
+#custom-weather {
+  padding: 2px 8px 2px 8px;
+  color: @text;
+  background: @background;
+  border: 1px solid @border;
+}
+#custom-weather:hover {
+  border: 1px solid @border-alt;
 }
 
 /* 
@@ -133,19 +127,19 @@ tooltip label {
   margin: 2px 3px;
   text-shadow: none;
   border-radius: 4px;
-  background: transparent;
-  color: @text;
+  background: alpha(@text, 0.1);
+  color: alpha(@text, 0.5);
   transition: all 0.1s linear;
 }
 #workspaces button.active {
-  min-width: 26px;
+  min-width: 28px;
   transition: all 0.1s linear;
-  color: @text-alt;
-  background: @accent;
+  color: @background;
+  background: @text;
 }
 #workspaces button:hover {
-  color: @accent;
-  background: @text-alt;
+  background: alpha(@text, 0.2);
+  border: 1px solid alpha(@text, 0.1);
 }
 #workspaces button.urgent {
   background-color: @red;
@@ -331,7 +325,6 @@ tooltip label {
   color: @text;
   background: @background;
   border: 1px solid @border;
-  border-radius: 0px;
 }
 #battery:hover {
   background: @background;
@@ -418,13 +411,11 @@ tooltip label {
 */
 #clock {
   padding: 2px 8px 2px 8px;
-  color: @text-alt;
-  background: @accent;
-  border: 1px solid @accent;
-}
-#clock:hover {
   color: @text;
   background: @background;
+  border: 1px solid @border;
+}
+#clock:hover {
   border: 1px solid @border-alt;
 }
 
@@ -435,14 +426,11 @@ tooltip label {
 */
 #custom-notifications {
   padding: 2px 10px 2px 8px;
-  color: @text-alt;
-  background: @accent;
-  border: 1px solid @accent;
-  border-radius: 0px;
-}
-#custom-notifications:hover {
   color: @text;
   background: @background;
+  border: 1px solid @border;
+}
+#custom-notifications:hover {
   border: 1px solid @border-alt;
 }
 
@@ -454,9 +442,9 @@ tooltip label {
 #custom-exit {
   margin-right: 0px;
   padding: 2px 12px 2px 8px;
-  color: @text-alt;
-  background: @accent;
-  border: 1px solid @accent;
+  color: @text;
+  background: @background;
+  border: 1px solid @border;
 }
 #custom-exit:hover {
   color: @text;

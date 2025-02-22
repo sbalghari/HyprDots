@@ -107,6 +107,13 @@
     "on-scroll-down": "playerctl previous"
   },
 
+  // Weather
+  "custom/weather": {
+      "exec": "python3 ~/.config/hypr/scripts/weather.py",
+      "interval": 600,
+      "return-type": "json"
+  },
+
   // Workspaces
   "hyprland/workspaces": {
     "all-outputs": true,
@@ -208,7 +215,7 @@
   // Audio
   "pulseaudio": {
     "scroll-step": 5,
-    "format": "{icon} {volume}% {format_source}",
+    "format": "{icon} {volume}%",
     "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
     "format-muted": " {format_source}",
@@ -245,10 +252,10 @@
 
   // Clockr
   "clock": {
-    // "format": "<b>{:%I:%M %p | %a.%d-%b}</b>",
-    "format": "<b>{:%I:%M %p}</b>",
-    "format-alt": "<b>{:%a.%d,%b}</b>",
-    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
+    "format": "<b>{:%I:%M %p | %a.%d-%b}</b>",
+    // "format": "<b>{:%I:%M %p}</b>",
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click": "sleep 0.1 && swaync-client -t"
   },
 
   // Notifications

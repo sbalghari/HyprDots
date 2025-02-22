@@ -1,8 +1,3 @@
-/* 
-  ================================================================
-  => Waybar theme: Catppuccin-Mocha (dark)
-  ================================================================
-*/
 {
   "layer": "top",
   "margin-top": 10,
@@ -18,25 +13,22 @@
   "include": ["~/.config/waybar/modules.jsonc"],
   "modules-left": [
     "custom/menu",
-    // "custom/dot",
     "hyprland/workspaces",
-    // "custom/dot",
     "group/sysinfo",
-    "wlr/taskbar"
+    "wlr/taskbar",
+    // "hyprland/window",
+    "custom/mediaplayer"
   ],
-  "modules-center": ["hyprland/window", "custom/mediaplayer"],
+  "modules-center": ["clock"],
   "modules-right": [
-    "group/extra",
+    "custom/weather",
+    // "group/extra",
     "custom/updates",
-    // "custom/dot",
-    "backlight",
+    // "backlight",
     "battery",
     "pulseaudio",
-    // "custom/dot",
-    "tray",
-    // "custom/dot",
-    "clock",
-    "custom/notifications",
-    "custom/exit"
+    "tray"
+    // "custom/notifications"
+    // "custom/exit"
   ]
 }

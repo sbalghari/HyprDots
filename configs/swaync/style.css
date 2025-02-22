@@ -1,21 +1,14 @@
 /* 
   ============================================================
-  => SwayNC theme: Mocha (dark)
-  ============================================================
-*/
-
-/* 
-  ============================================================
   => Colors
   ============================================================
 */
 @import "../../.cache/wal/colors-waybar.css"; 
 
-@define-color accent shade(alpha(@color11, 0.9), 1.25);
-
-@define-color background alpha(@theme_bg_color, 0.7);
-@define-color border @borders;
-@define-color border-alt shade(alpha(@accent_bg_color, 0.9), 1.25);
+@define-color accent shade(alpha(@accent_color, 0.9), 1.25);
+@define-color background alpha(@theme_bg_color, 0.9);
+@define-color border alpha(@color11, 0.3);
+@define-color border-alt alpha(@color11, 0.9);
 @define-color text @theme_fg_color;
 @define-color text-alt @theme_selected_fg_color;
 @define-color hover alpha(@accent_bg_color, 0.5);
@@ -46,7 +39,7 @@
   background: @hover;
 }
 .notification-background {
-  padding: 5px;
+  padding: 10px;
 }
 .close-button {
   background: transparent;
@@ -71,7 +64,7 @@
   border: 1px solid @border;
   padding: 8px;
   transition: background 0.15s ease-in-out;
-  background: @background;
+  background: @theme_bg_color;
 }
 .low {
   background: alpha(@background, 0.75);
@@ -214,6 +207,7 @@
   border: 1px solid @border;
   color: @text;
   border-radius: 6px;
+  box-shadow: 0 2px 6px 0 alpha(#000, 0.5);
 }
 .control-center-list-placeholder {
   opacity: 0.5;
