@@ -18,7 +18,7 @@ if [[ -z "$aur_helper" ]]; then
 fi
 
 # Title
-sleep 0.4
+sleep 0.2
 clear
 figlet -f smslant "Updates"
 echo
