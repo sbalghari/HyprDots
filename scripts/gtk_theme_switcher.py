@@ -3,6 +3,17 @@ import subprocess
 import shutil
 import json
 from typing import Dict
+import logging
+
+# Configure logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="[%(asctime)s] [%(levelname)s] %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+    handlers=[
+        logging.FileHandler(os.path.expanduser("~/.cache/gtk_theme_switcher.log"))
+    ]
+)
 
 # Paths
 DATA_DIR = os.path.expanduser("~/.local/share")
@@ -16,7 +27,7 @@ class GTKThemeManager:
             cursor_theme_name: str | None = None, 
             cursor_size: int | None = None,
             font_name: str | None = None,
-            prefer_dark_mode: int | None = None,
+            dark_light_mode: int | None = None, # 0, 1, -1 = default, prefer_dark, prefer_light
         ) -> None:
         
         # Saved settings json path
@@ -24,7 +35,7 @@ class GTKThemeManager:
         
         # Load previous settings
         self.previous_settings = self._load_settings()
-        print(f"[Success]:: Settings loaded: {self.previous_settings}")
+        logging.info(f"Settings loaded: {self.previous_settings}")
         
         # Set the new value if given else set from settings_json
         self.theme_name = theme_name if theme_name is not None else self.previous_settings.get("gtk_theme_name")
@@ -32,7 +43,7 @@ class GTKThemeManager:
         self.cursor_theme_name = cursor_theme_name if cursor_theme_name is not None else self.previous_settings.get("gtk_cursor_theme_name")
         self.cursor_size = cursor_size if cursor_size is not None else self.previous_settings.get("gtk_cursor_size")
         self.font_name = font_name if font_name is not None else self.previous_settings.get("gtk_font_name")
-        self.prefer_dark_mode = prefer_dark_mode if prefer_dark_mode is not None else self.previous_settings.get("gtk_prefer_dark_mode")
+        self.prefer_dark_mode = dark_light_mode if dark_light_mode is not None else self.previous_settings.get("gtk_prefer_dark_mode")
 
         # Theme dirs
         self.theme_dirs = [
@@ -70,6 +81,16 @@ class GTKThemeManager:
         # build the contents
         self._build_config_contents()
         
+    def _remove_duplicates(self, items: list[str]) -> list[str]:
+        """Remove duplicates from a list"""
+        seen = set()
+        result = []
+        for item in items:
+            if item not in seen:
+                seen.add(item)
+                result.append(item)
+        return result
+    
     def _save_settings(self):
         """Create the .user_settings dir if doesn't exists and write the settings to it"""
         settings: dict[str: str] = {
@@ -87,7 +108,7 @@ class GTKThemeManager:
         with open(self.settings_json_path, "w") as f:
             json.dump(settings, f, indent=4)
             
-        print(f"[Debug]:: Settings updated: {settings}")
+        logging.debug(f"Settings updated: {settings}")
             
     def _load_settings(self) -> Dict[str, str]:
         """Load settings from the JSON file and return them as a dictionary."""
@@ -96,10 +117,10 @@ class GTKThemeManager:
                 settings = json.load(f)
             return settings
         except FileNotFoundError:
-            print(f"[Error]:: file not found: {self.settings_json_path}")
+            logging.error(f"File not found: {self.settings_json_path}")
             return {}
         except json.JSONDecodeError as e:
-            print(f"[Error]:: JSONDecodeError: {e}")
+            logging.error(f"JSONDecodeError: {e}")
             return {}
         
     def _get_themes(self) -> None:
@@ -109,11 +130,15 @@ class GTKThemeManager:
                 for theme in os.listdir(theme_dir):
                     if self._is_theme_dir(os.path.join(theme_dir, theme)):
                         self.themes.append(theme)
-        print(f"[Debug]:: Found themes = {self.themes}")
+                        
+        # Remove duplicates
+        self.themes = self._remove_duplicates(self.themes)
+        
+        logging.debug(f"Found themes = {self.themes}")
         
         # If no themes are found
         if not self.themes:
-            print("[Error]:: No themes found")
+            logging.error("No themes found")
             
     def _get_icon_themes(self):
         """Get the available icon themes"""
@@ -129,12 +154,15 @@ class GTKThemeManager:
                     if os.path.isdir(theme_path) and not os.path.exists(os.path.join(theme_path, "cursors")):
                         if theme not in not_themes:
                             self.icon_themes.append(theme)
+                            
+        # Remove duplicates
+        self.icon_themes = self._remove_duplicates(self.icon_themes)
                     
-        print(f"[Debug]:: Found icon themes = {self.icon_themes}")
+        logging.debug(f"Found icon themes = {self.icon_themes}")
         
         # If no themes are found
         if not self.icon_themes:
-            print("[Error]:: No icon themes found")
+            logging.error("No icon themes found")
 
     def _get_cursor_themes(self):
         """Get the available cursor themes"""
@@ -151,12 +179,15 @@ class GTKThemeManager:
                     if os.path.isdir(theme_path) and os.path.isdir(cursors_dir):
                         if theme not in not_themes:
                             self.cursor_themes.append(theme)
+                            
+        # Remove duplicates
+        self.cursor_themes = self._remove_duplicates(self.cursor_themes)
                                                 
-        print(f"[Debug]:: Found cursor themes = {self.cursor_themes}")
+        logging.debug(f"Found cursor themes = {self.cursor_themes}")
                     
         # If no themes are found
         if not self.cursor_themes:
-            print("[Error]:: No cursor themes found")
+            logging.error("No cursor themes found")
 
     def _is_theme_dir(self, theme_path):
         """Check if a directory is a valid theme dir"""
@@ -224,17 +255,17 @@ Inherits={self.cursor_theme_name}"""
     def apply_theme(self) -> None:
         # Check if given theme exists
         if not self.theme_name in self.themes:
-            print(f"[Error]:: Theme {self.theme_name} does not exist.")
+            logging.error(f"Theme {self.theme_name} does not exist.")
             return
             
-        msg = f"""[Debug]:: Applying theme:
+        msg = f"""Applying theme:
     GTK Theme: {self.theme_name}
     GTK Icon: {self.icon_theme_name}
     GTK Cursor: {self.cursor_theme_name}
     GTK Font: {self.font_name}
     GTK Cursor Size: {self.cursor_size}
     GTK Prefer Dark Mode: {self.prefer_dark_mode}"""
-        print(msg)
+        logging.debug(msg)
         
         # Create config files
         self._write(file=self.gtkrc_2_0, content=self.gtkrc_2_0_content)
@@ -255,20 +286,20 @@ Inherits={self.cursor_theme_name}"""
         # Save the applied settings as backup
         self._save_settings()
             
-        print(f"[Success]:: Theme applied.")
+        logging.info("Theme applied.")
     
     def _apply_theme_gtk_4(self):
         """Apply the theme to GTK-4.0"""
         
         items = ["assets", "gtk-dark.css", "gtk.css"]
         
-        print("[Debug]:: Deleting old GTK-4.0 theme")
+        logging.debug("Deleting old GTK-4.0 theme")
         for item in items:
             output = subprocess.run(
                 ["rm", "-r", f"{os.path.join(self.gtk_4_dir, item)}"],
                 capture_output=True
             )
-            print(f"[Debug]:: Deleting {item}: {output.stderr}")
+            logging.debug(f"Deleting {item}: {output.stderr}")
         
         # Copy the assets, gtk.css and gtk-dark.css from themes dir to gtk-4.0 dir
         for theme_dir in self.theme_dirs:
@@ -281,12 +312,12 @@ Inherits={self.cursor_theme_name}"""
                         copy_function=shutil.copy2,
                         dirs_exist_ok=True
                     )
-                    print(f"[Success]:: GTK-4 theme applied.")
+                    logging.info("GTK-4 theme applied.")
                     return  # Exit the loop once the theme is applied
                 except Exception as e:
-                    print(f"[Error]:: While applying GTK-4.0 theme: {e}")
+                    logging.error(f"While applying GTK-4.0 theme: {e}")
         
-        print(f"[Error]:: GTK-4.0 theme directory for '{self.theme_name}' not found in any of the theme directories.")
+        logging.error(f"GTK-4.0 theme directory for '{self.theme_name}' not found in any of the theme directories.")
             
     def _write(self, file, content) -> None:
         """Write the content(str) to the file"""
@@ -294,10 +325,10 @@ Inherits={self.cursor_theme_name}"""
         try:
             with open(file, "w") as f:
                 f.write(content)
-                print(f"[Success]:: Wrote to {file}")
+                logging.info(f"Wrote to {file}")
                 
         except Exception as e:
-            print(f"[Error]:: Error while writing to {file}:{e}")
+            logging.error(f"Error while writing to {file}:{e}")
             return
 
     def _apply_flatpak_overrides(self) -> None:
@@ -305,7 +336,7 @@ Inherits={self.cursor_theme_name}"""
         subprocess.run(["flatpak", "override", "--user", "--filesystem=xdg-config/gtk-3.0"])
         subprocess.run(["flatpak", "override", "--user", "--filesystem=xdg-config/gtk-4.0"])
         subprocess.run(["flatpak", "override", "--user", "--filesystem=xdg-data/themes"])
-        print("[Success]:: Flatpak overrides applied")
+        logging.info("Flatpak overrides applied")
 
     def _reload_gtk_settings(self) -> None:
         # Reload gsettings
@@ -313,15 +344,25 @@ Inherits={self.cursor_theme_name}"""
         subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "icon-theme", f"{self.icon_theme_name}"])
         subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "cursor-theme", f"{self.cursor_theme_name}"])
         
+        # Light/Dark mode 
+        if self.prefer_dark_mode == 1:
+            subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "color-scheme", "'prefer-dark'"])
+        elif not self.prefer_dark_mode == 0:
+            subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "color-scheme", "'default'"])
+        elif not self.prefer_dark_mode == -1:
+            subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "color-scheme", "'prefer-light'"])
+        else:
+            logging.error("Error, use: 0 for default, 1 for prefer_dark, -1 for prefer_light") 
+            
         # Quit nautilus if running
-        print("[Debug]:: Quitting nautilus")
+        logging.debug("Quitting nautilus")
         subprocess.run(["nautilus", "-q"])
         
         # Reload hyprland
-        print("[Debug]:: Reload hyprland")
+        logging.debug("Reload hyprland")
         subprocess.run(["hyprctl", "reload"])
         
-        print("[Success]:: GTK settings reloaded")
+        logging.info("GTK settings reloaded")
     
     def get_available_themes(self) -> list[str]:
         return self.themes
