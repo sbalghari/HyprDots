@@ -3,5 +3,5 @@ atuin/history.db-shm
 atuin/history.db-wal
 
 __pycache__
-hypr/scripts/location.py
+hypr/scripts/WeatherAPI.py
 hypr/configs/colors.conf
