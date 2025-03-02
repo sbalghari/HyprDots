@@ -1,0 +1,41 @@
+@import "../../.cache/wal/colors-waybar.css";
+
+@define-color background alpha(@theme_bg_color, 0.9);
+@define-color border alpha(@color11, 0.3);
+@define-color hover alpha(@accent_bg_color, 0.5);
+
+window {
+  background: transparent;
+}
+
+#box {
+  background: @background;
+  border-radius: 6px;
+  border: 2px solid @border;
+  padding: 2px;
+  margin: 5px;
+}
+
+button,
+image {
+  background: none;
+  border-style: none;
+  box-shadow: none;
+  color: transparent;
+}
+
+button {
+  padding: 4px;
+  margin: 2px;
+  color: transparent;
+  font-size: 12px;
+}
+
+button:hover {
+  background-color: alpha(@hover, 0.5);
+  border-radius: 3px;
+}
+
+button:focus {
+	box-shadow: none
+}
