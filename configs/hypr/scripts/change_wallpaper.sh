@@ -3,7 +3,7 @@
 # Check if an argument is passed
 if [[ -z "$1" ]]; then
     echo "No arguments passed."
-    echo "Usage: $0 <change|restore|help>"
+    echo "Usage: $0 change|restore"
     exit 1
 fi
 
