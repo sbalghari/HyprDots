@@ -6,7 +6,7 @@
 @import "../../.cache/wal/colors-waybar.css"; 
 
 @define-color accent shade(alpha(@accent_color, 0.9), 1.25);
-@define-color background alpha(@theme_bg_color, 0.9);
+@define-color background alpha(@theme_bg_color, 0.98);
 @define-color border alpha(@color11, 0.3);
 @define-color border-alt alpha(@color11, 0.9);
 @define-color text @theme_fg_color;
@@ -207,7 +207,7 @@
   border: 1px solid @border;
   color: @text;
   border-radius: 6px;
-  box-shadow: 0 2px 6px 0 alpha(#000, 0.5);
+  box-shadow: 0 2px 4px 0 alpha(#000, 0.5);
 }
 .control-center-list-placeholder {
   opacity: 0.5;
