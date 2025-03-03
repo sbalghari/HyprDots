@@ -3,5 +3,9 @@ atuin/history.db-shm
 atuin/history.db-wal
 
 __pycache__
-hypr/scripts/WeatherAPI.py
+
+waybar/scripts/WeatherAPI.py
 hypr/configs/colors.conf
+btop/btop.log
+cava/shaders
+fish/fish_variables
