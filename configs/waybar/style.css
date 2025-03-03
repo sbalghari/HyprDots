@@ -1,26 +1,22 @@
-/* 
-  ================================================================
-  => Colors (Pywal + GTK)
-  ================================================================
-*/
+/* ================================================================
+=> Colors (Pywal + GTK)
+================================================================*/
 @import "../../.cache/wal/colors-waybar.css"; 
 
 @define-color accent shade(alpha(@accent_color, 0.9), 1.25);
 @define-color background alpha(@theme_bg_color, 0.9);
-@define-color border alpha(@color11, 0.3);
-@define-color border-alt alpha(@color11, 0.9);
+@define-color border alpha(@color11, 0.25);
+@define-color border-alt alpha(@color11, 0.63);
 @define-color text @theme_fg_color;
 @define-color text-alt @theme_selected_fg_color;
-@define-color hover alpha(@accent_bg_color, 0.5);
+@define-color hover shade(alpha(@accent_bg_color, 0.5), 1.25);
 @define-color green @success_color;
 @define-color yellow @warning_color;
 @define-color red @error_color;
 
-/* 
-  ================================================================
-  => General
-  ================================================================
-*/
+/*================================================================
+=> General
+================================================================*/
 * {
   margin: 0px;
   padding: 0px;
@@ -31,11 +27,9 @@
   background: transparent;
 }
 
-/* 
-  ================================================================
-  => Tooltip
-  ================================================================
-*/
+/*================================================================
+=> Tooltip
+================================================================*/
 tooltip {
   border: @border;
   background-color: @background;
@@ -44,73 +38,43 @@ tooltip label {
   color: @text;
 }
 
-/* 
-  ================================================================
-  => General layout
-  ================================================================
-*/
-/* Margin and border radius */
-#custom-menu,
-#workspaces,
-#window,
-#custom-mediaplayer,
-#custom-updates,
-#tray,
-#custom-settings,
-#custom-sysinfo,
-#backlight,
-#taskbar,
-#custom-weather,
-#custom-extra,
-#battery,
-#pulseaudio,
-#clock,
-#custom-notifications,
-#custom-exit,
-#network {
+/*================================================================
+=> App Menu
+================================================================*/
+#custom-menu {
   margin: 0px 4px;
   border-radius: 6px;
-}
-
-/* 
-  ================================================================
-  => App Menu
-  ================================================================
-*/
-#custom-menu {
-  padding: 2px 8px 2px 8px;
+  padding: 2px 12px 2px 8px;
   margin-left: 0px;
-  padding-right: 13px;
   font-size: 15px;
   color: @text;
   background: @background;
   border: 1px solid @border;
 }
 #custom-menu:hover {
-  border: 1px solid @border-alt;
+  color: @hover;
 }
 
-/* 
-  ================================================================
-  => Weather
-  ================================================================
-*/
+
+
+/*================================================================
+=> Weather
+================================================================*/
 #custom-weather {
+  margin: 0px 4px;
+  border-radius: 6px;
   padding: 2px 8px 2px 8px;
   color: @text;
   background: @background;
   border: 1px solid @border;
 }
-#custom-weather:hover {
-  border: 1px solid @border-alt;
-}
 
-/* 
-  ================================================================
-  => Workspaces
-  ================================================================
-*/
+/*================================================================
+=> Workspaces
+================================================================*/
 #workspaces {
+  margin: 0px 4px;
+  border-radius: 6px;
   padding: 1px;
   background: @background;
   border: 1px solid @border;
@@ -139,30 +103,12 @@ tooltip label {
   background-color: @red;
 }
 
-/* 
-  ================================================================
-  => Settings shortcut
-  ================================================================
-*/
-#custom-settings {
-  padding: 0px;
-  padding-right: 10px;
-  padding-left: 6px;
-  font-size: 15px;
-  font-weight: bolder;
-  background: transparent;
-  color: @text;
-}
-#custom-settings:hover {
-  background: @hover;
-}
-
-/* 
-  ================================================================
-  => System info drawer
-  ================================================================
-*/
+/*================================================================
+=> System info drawer
+================================================================*/
 #custom-sysinfo {
+  margin: 0px 4px;
+  border-radius: 6px;
   padding: 0px;
   padding-right: 6px;
   padding-left: 6px;
@@ -177,6 +123,8 @@ tooltip label {
 }
 #cpu,
 #memory,
+#custom-hyprshade,
+#custom-hypridle,
 #temperature,
 #disk {
   color: @text;
@@ -197,15 +145,16 @@ tooltip label {
 }
 #taskbar button {
   padding: 2px 4px;
-  margin-right: 4px;
-  border-radius: 8px;
-  color: @text;
+  margin-right: 2px;
+  border-radius: 6px;
 }
 #taskbar button:hover {
-  background: @hover;
+  background: @background;
+  border: 1px solid @border;
 }
 #taskbar button.active {
-  background-color: @hover;
+  background: alpha(@background, 0.2);
+  border: 1px solid alpha(@border, 0.3)
 }
 
 /* 
@@ -213,15 +162,14 @@ tooltip label {
   => Active Window
   ================================================================
 */
+#custom-active_window,
 #window {
+  margin: 0px 4px;
+  border-radius: 6px;
   padding: 2px 8px 2px 8px;
   background: @background;
   border: 1px solid @border;
   color: @text;
-}
-#window:hover {
-  background: @background;
-  border: 1px solid @border-alt;
 }
 
 /* 
@@ -230,43 +178,15 @@ tooltip label {
   ================================================================
 */
 #custom-mediaplayer {
+  margin: 0px 4px;
+  border-radius: 6px;
   padding: 2px 8px 2px 8px;
   background: @background;
   border: 1px solid @border;
   color: @text;
 }
 #custom-mediaplayer:hover {
-  background: @background;
-  border: 1px solid @border-alt;
-}
-
-/* 
-  ================================================================
-  => Extras drawer
-  ================================================================
-*/
-#custom-extra {
-  padding: 0px;
-  padding-right: 8px;
-  padding-left: 6px;
-  font-size: 15px;
-  font-weight: bolder;
-  background: transparent;
-  color: @text;
-}
-#custom-extra:hover {
-  background: @hover;
-}
-#custom-hypridle,
-#custom-hypridle.notactive,
-#custom-hyprshade,
-#language,
-#idle_inhibitor {
-  color: @text;
-  padding: 0px 10px 0px 10px;
-}
-#custom-hypridle.active {
-  color: @red;
+  color: @hover;
 }
 
 /* 
@@ -275,22 +195,41 @@ tooltip label {
   ================================================================
 */
 #custom-updates {
+  margin: 0px 4px;
+  border-radius: 6px;
   padding: 2px 8px 2px 8px;
   background: @background;
   border: 1px solid @border;
 }
-#custom-updates:hover {
-  background: @background;
-  border: 1px solid @border-alt;
-}
 #custom-updates.green {
-  color: @text;
+  background: @text;
+  color: @background;
 }
 #custom-updates.yellow {
-  color: @yellow;
+  background: @yellow;
+  color: @background;
 }
 #custom-updates.red {
-  color: @red;
+  background: @red;
+  color: @background;
+}
+
+/* 
+  ================================================================
+  => Pulse Audio
+  ================================================================
+*/
+#pulseaudio {
+  margin: 0px 0px 0px 4px;
+  border-radius: 6px 0px 0px 6px;
+  border: 1px solid @border;
+  border-right: none;
+  padding: 2px 8px 2px 8px;
+  color: @text;
+  background: @background;
+}
+#pulseaudio:hover {
+  color: shade(@hover, 1.25);
 }
 
 /* 
@@ -299,14 +238,53 @@ tooltip label {
   ================================================================
 */
 #backlight {
+  margin: 0px;
+  border-radius: 0px;
+  border: 1px solid @border;
+  border-right: none;
+  border-left: none;
+  padding: 2px 12px 2px 8px;
+  color: @text;
+  background: @background;
+}
+#backlight:hover {
+  color: shade(@hover, 1.25);
+}
+
+/*================================================================
+=> Bluetooth
+================================================================*/
+#bluetooth {
+  margin: 0px;
+  border-radius: 0px;
+  border: 1px solid @border;
+  border-right: none;
+  border-left: none;
   padding: 2px 8px 2px 8px;
   color: @text;
   background: @background;
-  border: 1px solid @border;
 }
-#backlight:hover {
+#bluetooth:hover {
+  color: shade(@hover, 1.25);
+}
+
+/* 
+  ================================================================
+  => Network
+  ================================================================
+*/
+#network {
+  margin: 0px;
+  border-radius: 0px;
+  padding: 2px 12px 2px 8px;
+  border: 1px solid @border;
+  border-right: none;
+  border-left: none;
+  color: @text;
   background: @background;
-  border: 1px solid @border-alt;
+}
+#network:hover {
+  color: shade(@hover, 1.25);
 }
 
 /* 
@@ -315,14 +293,16 @@ tooltip label {
   ================================================================
 */
 #battery {
-  padding: 2px 8px 2px 8px;
+  margin: 0px 4px 0px 0px;
+  border-radius: 0px 6px 6px 0px;
+  padding: 2px 10px 2px 6px;
+  border: 1px solid @border;
+  border-left: none;
   color: @text;
   background: @background;
-  border: 1px solid @border;
 }
 #battery:hover {
-  background: @background;
-  border: 1px solid @border-alt;
+  color: shade(@hover, 1.25);
 }
 #battery.charging,
 #battery.plugged {
@@ -330,12 +310,11 @@ tooltip label {
 }
 @keyframes blink {
   to {
-    color: @theme_fg_color;
-    background-color: @red;
+    color: @red;
   }
 }
 #battery.critical:not(.charging) {
-  color: @red;
+  color: @text;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -345,42 +324,12 @@ tooltip label {
 
 /* 
   ================================================================
-  => Pulse Audio
-  ================================================================
-*/
-#pulseaudio {
-  padding: 2px 12px 2px 8px;
-  color: @text;
-  background: @background;
-  border: 1px solid @border;
-}
-#pulseaudio:hover {
-  background: @background;
-  border: 1px solid @border-alt;
-}
-
-/* 
-  ================================================================
-  => Network
-  ================================================================
-*/
-#network {
-  padding: 2px 12px 2px 8px;
-  color: @text;
-  background: @background;
-  border: 1px solid @border;
-}
-#network:hover {
-  background: @background;
-  border: 1px solid @border-alt;
-}
-
-/* 
-  ================================================================
   => Tray
   ================================================================
 */
 #tray {
+  margin: 0px 4px;
+  border-radius: 6px;
   padding: 2px 8px 2px 8px;
   background: @background;
   border: 1px solid @border;
@@ -404,13 +353,12 @@ tooltip label {
   ================================================================
 */
 #clock {
+  margin: 0px 4px;
+  border-radius: 6px;
   padding: 2px 8px 2px 8px;
   color: @text;
   background: @background;
   border: 1px solid @border;
-}
-#clock:hover {
-  border: 1px solid @border-alt;
 }
 
 /* 
@@ -419,31 +367,15 @@ tooltip label {
   ================================================================
 */
 #custom-notifications {
+  margin: 0px 4px;
+  border-radius: 6px;
   padding: 2px 10px 2px 8px;
   color: @text;
   background: @background;
   border: 1px solid @border;
 }
 #custom-notifications:hover {
-  border: 1px solid @border-alt;
-}
-
-/* 
-  ================================================================
-  => Power Menu
-  ================================================================
-*/
-#custom-exit {
-  margin-right: 0px;
-  padding: 2px 12px 2px 8px;
-  color: @text;
-  background: @background;
-  border: 1px solid @border;
-}
-#custom-exit:hover {
-  color: @text;
-  background: @background;
-  border: 1px solid @border-alt;
+  color: @hover;
 }
 
 /* 
