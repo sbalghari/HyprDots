@@ -208,8 +208,8 @@
 
   // System Tray
   "tray": {
-    "icon-size": 15,
-    "spacing": 6,
+    "icon-size": 12,
+    "spacing": 8,
     "show-passive-items": true
   },
 
