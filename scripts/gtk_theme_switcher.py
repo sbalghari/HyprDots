@@ -5,12 +5,17 @@ import json
 from typing import Dict
 import logging
 
+import gi
+gi.require_version('Adw', '1')
+from gi.repository import Adw
+
 # Configure logging
 logging.basicConfig(
     level=logging.DEBUG,
     format="[%(asctime)s] [%(levelname)s] %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S",
     handlers=[
+        logging.StreamHandler(),
         logging.FileHandler(os.path.expanduser("~/.cache/gtk_theme_switcher.log"))
     ]
 )
@@ -27,7 +32,7 @@ class GTKThemeManager:
             cursor_theme_name: str | None = None, 
             cursor_size: int | None = None,
             font_name: str | None = None,
-            dark_light_mode: int | None = None, # 0, 1, -1 = default, prefer_dark, prefer_light
+            prefer_dark_mode: int | None = None, # 0=default, 1=prefer_dark, -1=prefer_light
         ) -> None:
         
         # Saved settings json path
@@ -43,7 +48,7 @@ class GTKThemeManager:
         self.cursor_theme_name = cursor_theme_name if cursor_theme_name is not None else self.previous_settings.get("gtk_cursor_theme_name")
         self.cursor_size = cursor_size if cursor_size is not None else self.previous_settings.get("gtk_cursor_size")
         self.font_name = font_name if font_name is not None else self.previous_settings.get("gtk_font_name")
-        self.prefer_dark_mode = dark_light_mode if dark_light_mode is not None else self.previous_settings.get("gtk_prefer_dark_mode")
+        self.prefer_dark_mode = prefer_dark_mode if prefer_dark_mode is not None else self.previous_settings.get("gtk_prefer_dark_mode")
 
         # Theme dirs
         self.theme_dirs = [
@@ -339,30 +344,40 @@ Inherits={self.cursor_theme_name}"""
         logging.info("Flatpak overrides applied")
 
     def _reload_gtk_settings(self) -> None:
-        # Reload gsettings
+        # Reload gsettings for GTK themes, icons, and cursors
         subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "gtk-theme", f"{self.theme_name}"])
         subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "icon-theme", f"{self.icon_theme_name}"])
         subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "cursor-theme", f"{self.cursor_theme_name}"])
-        
-        # Light/Dark mode 
+
+        # Set color scheme for vanilla GTK apps using gsettings
         if self.prefer_dark_mode == 1:
             subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "color-scheme", "'prefer-dark'"])
-        elif not self.prefer_dark_mode == 0:
+        elif self.prefer_dark_mode == 0:
             subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "color-scheme", "'default'"])
-        elif not self.prefer_dark_mode == -1:
+        elif self.prefer_dark_mode == -1:
             subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "color-scheme", "'prefer-light'"])
         else:
-            logging.error("Error, use: 0 for default, 1 for prefer_dark, -1 for prefer_light") 
-            
+            logging.error("Error, use: 0 for default, 1 for prefer_dark, -1 for prefer_light")
+
+        # Set color scheme for libadwaita apps using AdwStyleManager
+        style_manager = Adw.StyleManager.get_default()
+        if self.prefer_dark_mode == 1:
+            style_manager.set_color_scheme(Adw.ColorScheme.PREFER_DARK)
+        elif self.prefer_dark_mode == 0:
+            style_manager.set_color_scheme(Adw.ColorScheme.DEFAULT)
+        elif self.prefer_dark_mode == -1:
+            style_manager.set_color_scheme(Adw.ColorScheme.PREFER_LIGHT)
+
         # Quit nautilus if running
         logging.debug("Quitting nautilus")
         subprocess.run(["nautilus", "-q"])
-        
+
         # Reload hyprland
         logging.debug("Reload hyprland")
         subprocess.run(["hyprctl", "reload"])
-        
+
         logging.info("GTK settings reloaded")
+
     
     def get_available_themes(self) -> list[str]:
         return self.themes
@@ -375,5 +390,7 @@ Inherits={self.cursor_theme_name}"""
 
 
 if __name__ == "__main__":
-    theme_switcher = GTKThemeManager()
+    theme_switcher = GTKThemeManager(
+        theme_name="Catppuccin-Mocha",
+    )
     theme_switcher.apply_theme()
