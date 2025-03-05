@@ -15,8 +15,8 @@
     <li><b>Rofi</b> - Application launcher with a pywal colors that matches the wallpaper</li>
     <li><b>Swaync</b> - Notification daemon with a notification control center</li>
     <li><b>Kitty + Fish + Starship</b> - Modern and interactive shell with auto-suggestions, also with the look</li>
-    <li><b>Theming</b> - Hyprland, Waybar, Swaync, and flatpaks all follows system-wide GTK theme automatically</li>
-    <li><b>Wallpapers</b> - A collection of beautiful wallpapers with the SWWW wallpaper engine</li>
+    <li><b>Theming</b> - Hyprland, Waybar, Swaync, and flatpaks, etc all follows system-wide GTK theme automatically</li>
+    <li><b>Wallpapers</b> - Waypaper with swww wallpaper engine for the wallpapers</li>
     <li><b>Scripts</b> - A collection of scripts for managing the system, wallpapers, and more</li>
     <li>and many more on the way...</li>
 </ul>
@@ -41,4 +41,36 @@
       <b>Step 2</b> - Clone the repository
       <code>git clone https://github.com/Saifullah-Balghari/Hyprland-Dotfiles.git</code>
     </li>
+    <li>
+      <b>Step 3</b> - Copy the configuration files
+      <code>CD Hyprland-Dotfiles && cp -r configs/* ~/.cofig/</code>
+    </li>
+    <li>
+      <b>Step 4</b> - Start Hyprland
+    </li
 </ul>
+
+<h2>
+  Contribution
+</h2>
+<p>
+  Contributions and suggestions are welcome! feel free to ask for help and please make a issue if you encounter any.
+</p>
+
+<h2>
+  License 
+</h2>
+<p>
+  This project is licensed under the MIT license. Refer to the <a href=""https://github.com/Saifullah-Balghari/Hyprland-Dotfiles/blob/main/LICENSE">License</a> for more details.
+</p>
+
+<h2>
+  Credits
+</h2>
+<p>
+ Thanks for the inspiration.
+<ul>
+    <li><b>ML4W</b> - source</li>
+</p>
+
+
