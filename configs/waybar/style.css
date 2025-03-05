@@ -331,8 +331,8 @@ tooltip label {
   margin: 0px 4px;
   border-radius: 6px;
   padding: 2px 8px 2px 8px;
-  background: @background;
-  border: 1px solid @border;
+  background: transparent;
+  border: none;
 }
 #tray > .passive {
   -gtk-icon-effect: dim;
@@ -416,4 +416,8 @@ window#waybar.empty #window,
   padding: 0px 4px 0px 0px;
   margin: 0px 4px;
   color: @text;
+}
+
+#custom-hypridle.notactive {
+  color: @red;
 }

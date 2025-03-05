@@ -116,9 +116,9 @@
     "return-type": "json",
     "escape": true,
     "exec-on-event": true,
-    "interval": 60,
-    "exec": "~/.config/hypr/services/hypridle.sh status",
-    "on-click": "~/.config/hypr/services/hypridle.sh toggle"
+    "interval": 1,
+    "exec": "bash ~/.config/hypr/services/hypridle.sh status",
+    "on-click": "bash ~/.config/hypr/services/hypridle.sh toggle"
   },
 
   // Updates
@@ -160,18 +160,18 @@
   // Bluetooth
   "bluetooth": {
     "format": "󰂯",
-    "format-alt": "󰂯 {status}",
     "format-disabled": "󰂲",
     "format-off": "󰂲",
     "interval": 30,
-    "on-click-right": "blueman-manager",
+    "on-click": "blueman-manager",
+    "on-click-right": "sleep 0.1 && kill -9 $pgrep blueman-applet",
     "format-no-controller": ""
   },
 
   // Audio
   "pulseaudio": {
     "scroll-step": 5,
-    "format": "{icon} {volume}% {format_source}",
+    "format": "{icon} {volume}%  {format_source}",
     "format-alt": "{icon}",
     "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
@@ -203,12 +203,13 @@
     "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 20,
+    "on-scroll-down": "sleep 0.1 && kill -9 $pgrep nm-applet",
     "on-click-right": "~/.config/waybar/scripts/nmtui.sh"
   },
 
   // System Tray
   "tray": {
-    "icon-size": 12,
+    "icon-size": 15,
     "spacing": 8,
     "show-passive-items": true
   },
@@ -284,7 +285,6 @@
       "custom/hyprshade",
       "custom/separator-left",
       "custom/hypridle"
-
     ]
   }
 }

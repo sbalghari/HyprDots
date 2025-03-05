@@ -1,11 +1,11 @@
 {
   "layer": "top",
   "position": "top",
-  "margin-top": 8,
-  "margin-left": 8,
+  "margin-top": 10,
+  "margin-left": 10,
   "margin-bottom": 0,
-  "margin-right": 8,
-  "height": 25,
+  "margin-right": 10,
+  "height": 27,
   "gtk-layer-shell": true,
   "reload_style_on_change": true,
 
@@ -13,21 +13,20 @@
   "modules-left": [
     "custom/menu",
     "hyprland/workspaces",
-    "custom/weather",
     "group/sysinfo",
-    // "wlr/taskbar",
+    "wlr/taskbar",
     // "hyprland/window",
-    // "custom/active_window",
-    "custom/mediaplayer",
-    "mpd"
+    "custom/active_window",
+    "custom/mediaplayer"
   ],
   "modules-center": ["clock"],
   "modules-right": [
     "custom/updates",
+    "custom/weather",
     "pulseaudio",
     "backlight",
-    // "bluetooth",
-    // "network",
+    "bluetooth",
+    "network",
     "battery",
     "tray",
     "custom/notifications"
