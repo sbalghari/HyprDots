@@ -1,7 +1,7 @@
 #!/bin/bash
 
 get_nwg_dock_pid() {
-    pgrep nwg-dock-hyprland
+    pgrep -f nwg-dock-hyprland
 }
 
 kill_nwg_dock() {
@@ -17,7 +17,7 @@ kill_nwg_dock() {
 start_nwg_dock() {
     NWG_DOCK_PID=$(get_nwg_dock_pid)
     if [ -z "$NWG_DOCK_PID" ]; then
-        nwg-dock-hyprland &
+        nwg-dock-hyprland -i 34 -d -hd 0&
         echo "nwg-dock-hyprland started."
     else
         echo "nwg-dock-hyprland is already running."

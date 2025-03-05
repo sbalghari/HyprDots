@@ -45,15 +45,6 @@ reload_hypridle() {
     fi
 }
 
-if [[ "$1" == "status" ]]; then
-    sleep 1
-    if get_hypridle_pid >/dev/null ;then
-        echo '{"text": "RUNNING", "class": "active", "tooltip": "Screen locking active\nLeft: Deactivate\nRight: Lock Screen"}'
-    else
-        echo '{"text": "NOT RUNNING", "class": "notactive", "tooltip": "Screen locking deactivated\nLeft: Activate\nRight: Lock Screen"}'
-    fi
-fi
-
 case "$1" in
     kill)
         kill_hypridle
@@ -66,6 +57,14 @@ case "$1" in
         ;;
     reload)
         reload_hypridle
+        ;;
+    status)
+        sleep 0.1
+        if get_hypridle_pid >/dev/null ;then
+            echo '{"text": "On", "class": "active", "tooltip": "Screen locking active\nLeft: Deactivate\nRight: Lock Screen"}'
+        else
+            echo '{"text": "Off", "class": "notactive", "tooltip": "Screen locking deactivated\nLeft: Activate\nRight: Lock Screen"}'
+        fi
         ;;
     *)
         echo "Usage: $0 {kill|start|toggle|reload|status}"

@@ -9,6 +9,7 @@ sleep 1
 
 echo "Generating pywal colors..."
 wal -i "$1"
+sleep 0.2 
 echo "Generated pywal colors"
 
 echo "Reloading waybar and swaync"
