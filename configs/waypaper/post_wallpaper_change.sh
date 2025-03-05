@@ -6,14 +6,14 @@ PYWAL_COLORS_CSS="$HOME/.cache/wal/colors.css"
 HYPRLAND_COLORS_CONF="$HOME/.config/hypr/configs/colors.conf"
 
 # Generate pywal colors
-generate_pywal_colors(){
+generate_pywal_colors() {
     local wallpaper_path=$1
     
     echo "[Debug]::Generating pywal colors"
-    wal -i "$wallpaper_path"
+    wal -i "$wallpaper_path" || { echo "[Error]::Failed to generate pywal colors"; exit 1; }
 }
 
-# hex to argb conversion function
+# Hex to ARGB conversion function
 hex_to_argb() {
     local hex="$1"
     local alpha="b3"
@@ -27,10 +27,10 @@ hex_to_argb() {
 blur_image() {
     local input_image="$1"
     local output_image="$2"
-    magick "$input_image" -blur 0x30 "$output_image"
+    magick "$input_image" -blur 0x30 "$output_image" || { echo "[Error]::Failed to blur image"; exit 1; }
 }
 
-# Store the blurred wallpaper in the cache directory
+# Store the blurred wallpaper
 store_blurred_wallpaper() {
     local wallpaper_path=$1
     local cache_dir="$HOME/.cache/wallpaper"
@@ -39,55 +39,56 @@ store_blurred_wallpaper() {
     # Create the cache directory if it doesn't exist
     mkdir -p "$cache_dir"
 
-    # Blur the wallpaper and store it in the cache
+    # Blur the wallpaper and store it in the cache directory
     blur_image "$wallpaper_path" "$blurred_image"
 }
 
 # Update hyprland window border colors
-update_hyprland_colors(){
+update_hyprland_colors() {
     # Parse pywal colors
     echo "[Debug]::Parsing pywal colors"
-    fg_hex=$(grep -oP '(?<=--color11: )#[0-9a-fA-F]+' "$WAL_CSS")
-    bg_hex=$(grep -oP '(?<=--color0: )#[0-9a-fA-F]+' "$WAL_CSS")
+    fg_hex=$(grep -oP '(?<=--color11: )#[0-9a-fA-F]+' "$PYWAL_COLORS_CSS") || { echo "[Error]::Failed to parse fg color"; exit 1; }
+    bg_hex=$(grep -oP '(?<=--color0: )#[0-9a-fA-F]+' "$PYWAL_COLORS_CSS") || { echo "[Error]::Failed to parse bg color"; exit 1; }
 
     # Convert hex colors to ARGB
     echo "[Debug]::Converting hex colors to ARGB"
     fg=$(hex_to_argb "$fg_hex")
     bg=$(hex_to_argb "$bg_hex")
-    echo "[Info]::$fg"
-    echo "[Info]::$bg"
+    echo "[Info]::Foreground color: $fg"
+    echo "[Info]::Background color: $bg"
 
     # Update colors.conf
     echo "[Debug]::Updating colors.conf"
     if [[ -n $fg && -n $bg ]]; then
-        : > $COLORS_CONF
-        echo "\$fg = $fg" >> $COLORS_CONF
-        echo "\$bg = $bg" >> $COLORS_CONF
+        : > "$HYPRLAND_COLORS_CONF"
+        echo "\$fg = $fg" >> "$HYPRLAND_COLORS_CONF"
+        echo "\$bg = $bg" >> "$HYPRLAND_COLORS_CONF"
     else
-        echo "[Error]:: Could not extract or convert colors."
+        echo "[Error]::Could not extract or convert colors."
+        exit 1
     fi
 }
 
 # Reload services
-reload_services(){
+reload_services() {
     # Reload waybar
     echo "[Debug]::Reloading waybar"
-    bash ~/.config/hypr/services/waybar.sh -r
+    bash ~/.config/hypr/services/waybar.sh -r || { echo "[Error]::Failed to reload waybar"; exit 1; }
     sleep 0.2
 
     # Reload swaync
     echo "[Debug]::Reloading swaync"
-    bash ~/.config/hypr/services/swaync.sh -r
+    bash ~/.config/hypr/services/swaync.sh -r || { echo "[Error]::Failed to reload swaync"; exit 1; }
     sleep 0.2
 
     # Reload nwg_dock
     echo "[Debug]::Reloading nwg_dock"
-    bash ~/.config/hypr/services/nwg_dock.sh -r
+    bash ~/.config/hypr/services/nwg_dock.sh -r || { echo "[Error]::Failed to reload nwg_dock"; exit 1; }
     sleep 0.2
 
     # Reload hyprland
     echo "[Debug]::Reloading hyprland"
-    hyprctl reload
+    hyprctl reload || { echo "[Error]::Failed to reload hyprland"; exit 1; }
 }
 
 # Main
@@ -102,4 +103,5 @@ if [[ -n $WALLPAPER_PATH ]]; then
     echo "[Success]::Wallpaper changed successfully."
 else
     echo "[Error]::No wallpaper path provided."
+    exit 1
 fi
