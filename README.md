@@ -50,6 +50,7 @@
     </li
 </ul>
 
+
 <h2>
   Contribution
 </h2>
@@ -57,12 +58,14 @@
   Contributions and suggestions are welcome! feel free to ask for help and please make a issue if you encounter any.
 </p>
 
+
 <h2>
   License 
 </h2>
 <p>
   This project is licensed under the MIT license. Refer to the <a href=""https://github.com/Saifullah-Balghari/Hyprland-Dotfiles/blob/main/LICENSE">License</a> for more details.
 </p>
+
 
 <h2>
   Credits
