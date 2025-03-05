@@ -46,20 +46,30 @@ reload_waybar() {
 }
 
 case "$1" in
-    kill)
+    -k | --kill)
         kill_waybar
         ;;
-    start)
+    -s | --start)
         start_waybar
         ;;
-    toggle)
+    -t | --toggle)
         toggle_waybar
         ;;
-    reload)
+    -r | --reload)
         reload_waybar
         ;;
+    -h | --help)
+        echo "Usage: $0 [OPTION]"
+        echo "Options:"
+        echo "  -k, --kill      Kill Waybar"
+        echo "  -s, --start     Start Waybar"
+        echo "  -t, --toggle    Toggle Waybar"
+        echo "  -r, --reload    Reload Waybar"
+        echo "  -h, --help      Display this help message"
+        exit 0
+        ;;
     *)
-        echo "Usage: $0 {kill|start|toggle|reload}"
+        echo "Invalid option. Use -h/--help for more information."
         exit 1
         ;;
 esac

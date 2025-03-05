@@ -46,20 +46,29 @@ reload_nwg_dock() {
 }
 
 case "$1" in
-    kill)
+    -k | --kill)
         kill_nwg_dock
         ;;
-    start)
+    -s | --start)
         start_nwg_dock
         ;;
-    toggle)
+    -t | --toggle)
         toggle_nwg_dock
         ;;
-    reload)
+    -r | --reload)
         reload_nwg_dock
         ;;
+    -h | --help)
+        echo "Usage: $0 [option]"
+        echo "Options:"
+        echo "  -k, --kill      Kill nw-dock-hyprland"
+        echo "  -s, --start     Start nwg-dock-hyprland"
+        echo "  -t, --toggle    Toggle nwg-dock-hyprland"
+        echo "  -r, --reload    Reload nwg-dock-hyprland"
+        exit 0
+        ;;
     *)
-        echo "Usage: $0 {kill|start|toggle|reload}"
+        echo "Invalid option. Use -h/--help for more information."
         exit 1
         ;;
 esac

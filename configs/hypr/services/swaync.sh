@@ -46,20 +46,30 @@ reload_swaync() {
 }
 
 case "$1" in
-    kill)
+    -k | --kill)
         kill_swaync
         ;;
-    start)
+    -s | --start)
         start_swaync
         ;;
-    toggle)
+    -t | --toggle)
         toggle_swaync
         ;;
-    reload)
+    -r | --reload)
         reload_swaync
         ;;
+    -h | --help)
+        echo "Usage: swaync.sh [OPTION]"
+        echo "Options:"
+        echo "  -k, --kill      Kill SwayNC"
+        echo "  -s, --start     Start SwayNC"
+        echo "  -t, --toggle    Toggle SwayNC"
+        echo "  -r, --reload    Reload SwayNC"
+        echo "  -h, --help      Display this help message"
+        exit 0
+        ;;
     *)
-        echo "Usage: $0 {kill|start|toggle|reload}"
+        echo "Invalid option. Use -h/--help for more information."
         exit 1
         ;;
 esac
