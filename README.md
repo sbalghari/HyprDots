@@ -6,7 +6,7 @@ Welcome to my Hyprland configuration repository, designed to deliver an aestheti
 
 ## Key Features
 
-This setup leverages the following tools and software, each configured and customized to create a seamless desktop experience. Credits to the original developers are included below:
+This setup leverages the following tools and software,each configured and customized to create a seamless desktop experience. Credits to the original developers are included below:
 
 - **Hyprland**: A lightweight and dynamic tiling Wayland compositor.  
   *Developed by: [vaxerski](https://github.com/vaxerski/hyprland)*
