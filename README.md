@@ -2,7 +2,7 @@
 
 # Hyprland Dotfiles by Saifullah Balghari
 
-Welcome to my personal Hyprland configuration repository, designed to deliver a minimal, efficient, and aesthetically pleasing Linux desktop experience. This setup is tailored for Arch Linux and includes configurations for Hyprland, Waybar, Rofi, Fish shell, and other essential components to ensure a seamless and modern workflow.
+Welcome to my Hyprland configuration repository, designed to deliver an aesthetically pleasing, efficient, and DE like Linux experience. This setup is tailored for Arch Linux and includes configurations for Hyprland, Waybar, Rofi, Fish shell, and other essential components to ensure a seamless and modern workflow.
 
 ## Key Features
 
@@ -40,9 +40,10 @@ This setup leverages the following tools and software, each configured and custo
 - **And More**: Continuous updates and enhancements to improve your desktop experience.
 
 ## Installation Guide
+- Note: I have not tested it on any device other than mine. So install it if you know what you are doing
 
 ### Automatic Installation
-An automatic installation script will be available in the future for a hassle-free setup.
+An automatic installation script will be available in the future.
 
 ### Manual Installation
 1. **Install Dependencies**: Ensure all required dependencies are installed. Refer to the [Dependencies](https://github.com/Saifullah-Balghari/Hyprland-Dotfiles/blob/main/Dependencies) file for a complete list.
@@ -66,4 +67,7 @@ This project is licensed under the MIT License. For more details, please refer t
 ## Credits
 
 Special thanks to the following for inspiration and resources:
-- **ML4W**:
+- **[ML4W](https://github.com/mylinuxforwork/dotfiles)**
+- **[JaKooLit's Hyprland-Dots](https://github.com/JaKooLit/Hyprland-Dots)**
+- **[Prasanthrangan's Hyprdots](https://github.com/prasanthrangan/hyprdots)**
+- **and more**
