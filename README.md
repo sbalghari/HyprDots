@@ -1,79 +1,69 @@
 <img src="https://github.com/Saifullah-Balghari/Hyprland-Dotfiles/blob/main/assets/screenshot1.png" alt="screenshot1">
-<h1>
-  Saifullah Balghari's Hyprland Dotfiles
-</h1>
-<p>
-    This repository contains my personal Hyprland configuration for a minimal, efficient, and aesthetic Linux setup. It includes configurations for Hyprland, Waybar, Rofi, Fish shell, and other essential components to create a seamless desktop experience on Arch Linux.
-</p>
 
-<h2>
-  Features
-</h2>
-<ul>
-    <li><b>Hyprland</b> - Lightweight and dynamic tiling Wayland compositor</li>
-    <li><b>Waybar</b> - Status bar with modules for Tray icons, Weather, Music, System monitoring and many more</li>
-    <li><b>Rofi</b> - Application launcher with a pywal colors that matches the wallpaper</li>
-    <li><b>Swaync</b> - Notification daemon with a notification control center</li>
-    <li><b>Kitty + Fish + Starship</b> - Modern and interactive shell with auto-suggestions, also with the look</li>
-    <li><b>Theming</b> - Hyprland, Waybar, Swaync, and flatpaks, etc all follows system-wide GTK theme automatically</li>
-    <li><b>Wallpapers</b> - Waypaper with swww wallpaper engine for the wallpapers</li>
-    <li><b>Scripts</b> - A collection of scripts for managing the system, wallpapers, and more</li>
-    <li>and many more on the way...</li>
-</ul>
+# Hyprland Dotfiles by Saifullah Balghari
 
-<h2>
-  Installation
-</h2>
+Welcome to my personal Hyprland configuration repository, designed to deliver a minimal, efficient, and aesthetically pleasing Linux desktop experience. This setup is tailored for Arch Linux and includes configurations for Hyprland, Waybar, Rofi, Fish shell, and other essential components to ensure a seamless and modern workflow.
 
-<h3>
-  Automatic
-</h3>
-<p>
-  Automatic installation script will be added in the future.
-</p>
+## Key Features
 
-<h3>
-  Manual
-</h3>
-<ul>
-    <li><b>Step 1</b> - Install the <a href="https://github.com/Saifullah-Balghari/Hyprland-Dotfiles/blob/main/Dependencies">Dependencies</a></li>
-    <li>
-      <b>Step 2</b> - Clone the repository
-      <code>git clone https://github.com/Saifullah-Balghari/Hyprland-Dotfiles.git</code>
-    </li>
-    <li>
-      <b>Step 3</b> - Copy the configuration files
-      <code>CD Hyprland-Dotfiles && cp -r configs/* ~/.cofig/</code>
-    </li>
-    <li>
-      <b>Step 4</b> - Start Hyprland
-    </li
-</ul>
+This setup leverages the following tools and software, each configured and customized to create a seamless desktop experience. Credits to the original developers are included below:
 
+- **Hyprland**: A lightweight and dynamic tiling Wayland compositor.  
+  *Developed by: [vaxerski](https://github.com/vaxerski/hyprland)*
 
-<h2>
-  Contribution
-</h2>
-<p>
-  Contributions and suggestions are welcome! feel free to ask for help and please make a issue if you encounter any.
-</p>
+- **Waybar**: A highly modular status bar featuring tray icons, weather updates, music controls, system monitoring, and more.  
+  *Developed by: [Alexays](https://github.com/Alexays/Waybar)*
 
+- **Rofi**: A sleek application launcher with pywal integration for dynamic color schemes that match your wallpaper.  
+  *Developed by: [Dave Davenport](https://github.com/davatorium/rofi)*
 
-<h2>
-  License 
-</h2>
-<p>
-  This project is licensed under the MIT license. Refer to the <a href=""https://github.com/Saifullah-Balghari/Hyprland-Dotfiles/blob/main/LICENSE">License</a> for more details.
-</p>
+- **Swaync**: A notification daemon with a centralized control center for managing alerts.  
+  *Developed by: [Erik Reider](https://github.com/ErikReider/SwayNotificationCenter)*
+
+- **Kitty**: A modern, GPU-accelerated terminal emulator.  
+  *Developed by: [kovidgoyal](https://github.com/kovidgoyal/kitty)*
+
+- **Fish Shell**: A user-friendly and interactive shell with auto-suggestions and syntax highlighting.  
+  *Developed by: [Fish Shell Team](https://github.com/fish-shell/fish-shell)*
+
+- **Starship**: A minimal and fast shell prompt with extensive customization options.  
+  *Developed by: [Starship Team](https://github.com/starship/starship)*
+
+- **System-Wide Theming**: Consistent theming across Hyprland, Waybar, Swaync, and Flatpak applications, automatically aligned with the system-wide GTK theme.
+
+- **Wallpapers**: Managed by Waypaper and powered by the swww wallpaper engine for dynamic and stunning backgrounds.  
+  *Waypaper by: [anufrievroman](https://github.com/anufrievroman/waypaper)*  
+  *swww by: [Horus645](https://github.com/Horus645/swww)*
+
+- **Scripts**: A collection of utility scripts for system management, wallpaper handling, and more.
+
+- **And More**: Continuous updates and enhancements to improve your desktop experience.
+
+## Installation Guide
+
+### Automatic Installation
+An automatic installation script will be available in the future for a hassle-free setup.
+
+### Manual Installation
+1. **Install Dependencies**: Ensure all required dependencies are installed. Refer to the [Dependencies](https://github.com/Saifullah-Balghari/Hyprland-Dotfiles/blob/main/Dependencies) file for a complete list.
+2. **Clone the Repository**:  
+   ```bash
+   git clone https://github.com/Saifullah-Balghari/Hyprland-Dotfiles.git
+3. **Copy Configuration Files**:
+   ```bash
+   cd Hyprland-Dotfiles && cp -r configs/* ~/.config/
+4. **Start Hyprland**: Launch Hyprland to experience your new desktop environment.
+
+## Contributing
+
+Contributions and suggestions are highly encouraged! If you encounter any issues or have ideas for improvements, please feel free to open an issue or submit a pull request. Your feedback and contributions help make this project better for everyone.
+
+## License
+
+This project is licensed under the MIT License. For more details, please refer to the [LICENSE](https://github.com/Saifullah-Balghari/Hyprland-Dotfiles/blob/main/LICENSE) file.
 
 
-<h2>
-  Credits
-</h2>
-<p>
- Thanks for the inspiration.
-<ul>
-    <li><b>ML4W</b> - source</li>
-</p>
+## Credits
 
-
+Special thanks to the following for inspiration and resources:
+- **ML4W**:
