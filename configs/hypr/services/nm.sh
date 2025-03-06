@@ -3,7 +3,7 @@
 # Launch NetworkManager
 nmcli networking on
 
-sleep 5
+sleep 3
 
 # Kill nm-applet to prevent it from appearing in the system tray
 if pgrep nm-applet > /dev/null; then

@@ -37,6 +37,7 @@ reload_waybar() {
     WAYBAR_PID=$(get_waybar_pid)
     if [ -n "$WAYBAR_PID" ]; then
         kill_waybar
+        sleep 0.2
         start_waybar
         echo "Waybar reloaded."
     else
