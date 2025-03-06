@@ -1,8 +1,8 @@
 <img src="https://github.com/Saifullah-Balghari/Hyprland-Dotfiles/blob/main/assets/screenshot1.png" alt="screenshot1">
 
-# Hyprland Dotfiles by Saifullah Balghari
+# sbalghari's hyprdots
 
-Welcome to my Hyprland configuration repository, designed to deliver an aesthetically pleasing, efficient, and DE like Linux experience. This setup is tailored for Arch Linux and includes configurations for Hyprland, Waybar, Rofi, Fish shell, and other essential components to ensure a seamless and modern workflow.
+Welcome to my Hyprland configuration repository, designed to deliver an aesthetically pleasing, efficient, and DE-like experience. This setup is tailored for Arch Linux and includes configurations for Hyprland, Waybar, Rofi, Fish shell, and other essential components to ensure a seamless and modern workflow.
 
 ## Key Features
 
