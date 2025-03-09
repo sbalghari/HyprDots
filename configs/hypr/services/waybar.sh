@@ -1,5 +1,28 @@
 #!/bin/bash
 
+WAYBAR_STYLES_PATH="$HOME/.config/waybar/styles"
+CURRENT_STYLE="$HOME/.user_settings/waybar/style.sh"
+
+WAYBAR_STYLE="modern"
+
+# Check if waybar_style.sh settings file exists and load
+if [ -f "$CURRENT_STYLE" ]; then
+    source "$CURRENT_STYLE"
+fi
+
+CONFIG_FILE="$WAYBAR_STYLES_PATH/$WAYBAR_STYLE/config"
+STYLE_CSS="$WAYBAR_STYLES_PATH/$WAYBAR_STYLE/style.css"
+
+# Ensure the style directory and files exist
+if [ ! -d "$WAYBAR_STYLES_PATH" ]; then
+    echo "Error: Waybar styles directory not found at $WAYBAR_STYLES_PATH"
+    exit 1
+fi
+if [ ! -f "$CONFIG_FILE" ] || [ ! -f "$STYLE_CSS" ]; then
+    echo "Error: Config or style file not found for style '$WAYBAR_STYLE'"
+    exit 1
+fi
+
 get_waybar_pid() {
     pgrep waybar
 }
@@ -7,7 +30,7 @@ get_waybar_pid() {
 kill_waybar() {
     WAYBAR_PID=$(get_waybar_pid)
     if [ -n "$WAYBAR_PID" ]; then
-        kill -9 "$WAYBAR_PID"
+        pkill waybar
         echo "Waybar killed."
     else
         echo "Waybar is not running."
@@ -17,8 +40,10 @@ kill_waybar() {
 start_waybar() {
     WAYBAR_PID=$(get_waybar_pid)
     if [ -z "$WAYBAR_PID" ]; then
-        waybar &
-        echo "Waybar started."
+        waybar -c "$CONFIG_FILE" -s "$STYLE_CSS" &
+        echo "WAYBAR_STYLE=$WAYBAR_STYLE" > "$CURRENT_STYLE"
+        sleep 0.5
+        echo "Waybar started with style '$WAYBAR_STYLE'."
     else
         echo "Waybar is already running."
     fi
