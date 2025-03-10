@@ -66,7 +66,7 @@ Contributions and suggestions are highly encouraged! If you encounter any issues
 
 ## License
 
-This project is licensed under the MIT License. For more details, please refer to the [LICENSE](https://github.com/Saifullah-Balghari/Hyprland-Dotfiles/blob/main/LICENSE) file.
+This project is licensed under GPL-3.0 license. For more details, please refer to the [LICENSE](https://github.com/Saifullah-Balghari/Hyprland-Dotfiles/blob/main/LICENSE) file.
 
 ## Credits
 
