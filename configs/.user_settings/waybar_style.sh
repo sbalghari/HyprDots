@@ -1,0 +1,1 @@
+WAYBAR_STYLE=modern
