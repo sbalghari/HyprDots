@@ -1,0 +1,40 @@
+# Atuin Configuration
+# by Saifullah Balghari 
+# -----------------------------------------------------
+
+# Database configuration
+db_path = "~/.config/atuin/history.db"
+
+# Date format: "us" (MM/DD/YYYY) or "uk" (DD/MM/YYYY)
+dialect = "us"
+
+# Search mode options: prefix, fulltext, fuzzy, skim
+search_mode = "fuzzy"
+
+# UI style options: auto, full, compact
+style = "full"
+
+# Inline interface height (lines)
+inline_height = 30
+
+# Command preview in UI
+show_preview = true
+
+# Escape key behavior during search
+exit_mode = "return-original"
+
+# Scrolling context lines
+scroll_context_lines = 1
+
+# Use Ctrl instead of Alt for numerical UI shortcuts
+ctrl_n_shortcuts = false
+
+# Enter key behavior in search
+enter_accept = true
+
+# Keymap mode options: vim-insert, vim-command, emacs
+keymap_mode = "vim-insert"
+
+# Faster sync configuration
+[sync]
+records = true
