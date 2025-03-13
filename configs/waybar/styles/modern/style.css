@@ -14,12 +14,6 @@
 @define-color yellow @warning_color;
 @define-color red @error_color;
 
-@define-color mauve shade(#cba6f7, 1.05);
-@define-color peach shade(#fab387, 1.05);
-@define-color rosewater shade(#f5e0dc, 1.05);
-@define-color blue shade(#89b4fa, 1.05);
-@define-color sky shade(#89dceb, 1.05);
-
 /*================================================================
 => General
 ================================================================*/
@@ -233,14 +227,6 @@ tooltip label {
   border: 1px solid @border;
 }
 
-#pulseaudio,
-#backlight,
-#bluetooth,
-#networks,
-#bluetooth,
-#battery {
-  border: 1px solid alpha(@border, 0.33);
-}
 
 /* 
   ================================================================
@@ -250,9 +236,10 @@ tooltip label {
 #pulseaudio {
   margin: 2px 0px 2px 4px;
   padding: 0px 8px 0px 8px;
+  border: 1px solid alpha(@border, 0.33);
   border-radius: 6px 0px 0px 6px;
   border-right: none;
-  color: @mauve;
+  color: @text;
   background: @background;
 }
 #pulseaudio:hover {
@@ -266,11 +253,12 @@ tooltip label {
 */
 #backlight {
   margin: 2px 0px;
+  border: 1px solid alpha(@border, 0.33);
   border-radius: 0px;
   border-right: none;
   border-left: none;
   padding: 0px 12px 0px 8px;
-  color: @peach;
+  color: @text;
   background: @background;
 }
 #backlight:hover {
@@ -283,31 +271,14 @@ tooltip label {
 #bluetooth {
   margin: 2px 0px;
   padding: 0px 8px 0px 4px;
+  border: 1px solid alpha(@border, 0.33);
   border-radius: 0px;
   border-right: none;
   border-left: none;
-  color: @sky;
+  color: @text;
   background: @background;
 }
 #bluetooth:hover {
-  color: shade(@hover, 1.25);
-}
-
-/* 
-  ================================================================
-  => Network
-  ================================================================
-*/
-#network {
-  margin: 2px 0px;
-  padding: 0px 12px 0px 8px;
-  border-radius: 0px;
-  border-right: none;
-  border-left: none;
-  color: @blue;
-  background: @background;
-}
-#network:hover {
   color: shade(@hover, 1.25);
 }
 
@@ -317,11 +288,13 @@ tooltip label {
   ================================================================
 */
 #battery {
-  margin: 2px 4px 2px 0px;
-  padding: 0px 10px 0px 6px;
-  border-radius: 0px 6px 6px 0px;
+  margin: 2px 0px;
+  padding: 0px 8px 0px 4px;
+  border: 1px solid alpha(@border, 0.33);
+  border-radius: 0px;
+  border-right: none;
   border-left: none;
-  color: @rosewater;
+  color: @text;
   background: @background;
 }
 #battery:hover {
@@ -343,6 +316,24 @@ tooltip label {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+
+/* 
+  ================================================================
+  => Network
+  ================================================================
+*/
+#network {
+  margin: 2px 4px 2px 0px;
+  padding: 0px 12px 0px 6px;
+  border: 1px solid alpha(@border, 0.33);
+  border-radius: 0px 6px 6px 0px;
+  border-left: none;
+  color: @text;
+  background: @background;
+}
+#network:hover {
+  color: shade(@hover, 1.25);
 }
 
 /* 

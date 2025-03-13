@@ -13,8 +13,8 @@
   "modules-left": [
     "custom/menu",
     "hyprland/workspaces",
-    // "group/sysinfo",
-    // "wlr/taskbar",
+    "group/sysinfo",
+    "wlr/taskbar",
     "hyprland/window",
     "custom/mediaplayer"
   ],
@@ -24,9 +24,9 @@
     "custom/weather",
     "pulseaudio",
     "backlight",
-    // "bluetooth",
-    // "network",
+    "bluetooth",
     "battery",
+    "network",
     "tray",
     "custom/notifications",
     "custom/power"

@@ -182,8 +182,8 @@
   // Network settings
   "network": {
     "format": "{ifname}",
-    "format-wifi": "󰖩",
-    "format-alt": "󰖩 {essid}",
+    "format-wifi": "󱤚 {essid}",
+    "format-alt": "󱤚",
     "format-ethernet": "  {ifname}",
     "format-disconnected": "Disconnected",
     "tooltip-format": " {ifname} via {gwaddri}",
