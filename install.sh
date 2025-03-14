@@ -23,7 +23,7 @@ fi
 INSTALL_DEP=("figlet" "gum")
 
 # Install yay if not installed
-if ! command -v yay &> /dev/null; then
+if ! command -v yay &>/dev/null; then
     log "Info" "yay not found. Installing yay..."
     git clone https://aur.archlinux.org/yay.git /tmp/yay
     cd /tmp/yay
@@ -36,7 +36,7 @@ fi
 
 # Install installer dependencies
 for dep in "${INSTALL_DEP[@]}"; do
-    if ! command -v "$dep" &> /dev/null; then
+    if ! command -v "$dep" &>/dev/null; then
         log "Info" "$dep not found. Installing $dep..."
         yay -S "$dep" --noconfirm
         if [ $? -eq 0 ]; then
@@ -54,7 +54,7 @@ done
 install() {
     # Install dependencies
     log "Info" "Installing Dependencies.."
-    figlet "Installing Dependencies.." -w 100 | gum style --border="rounded" --border-foreground="#FF00FF" --padding="1 2" --margin="1"
+    figlet -f smslant "Installing Dependencies.." -w 100 | gum style --border="rounded" --border-foreground="#cba6f7" --padding="1 2" --margin="1"
     if installDependencies; then
         log "Success" "Dependencies installed successfully."
     else
@@ -64,7 +64,7 @@ install() {
 
     # Install binaries
     log "Info" "Installing Binaries.."
-    figlet "Installing Binaries.." -w 100 | gum style --border="rounded" --border-foreground="#00FF00" --padding="1 2" --margin="1"
+    figlet -f smslant "Installing Binaries.." -w 100 | gum style --border="rounded" --border-foreground="#cba6f7" --padding="1 2" --margin="1"
     if installBinaries; then
         log "Success" "Binaries installed successfully."
     else
@@ -74,7 +74,7 @@ install() {
 
     # Installing Dotfiles
     log "Info" "Installing Dotfiles.."
-    figlet "Installing Dotfiles.." -w 100 | gum style --border="rounded" --border-foreground="#00FFFF" --padding="1 2" --margin="1"
+    figlet -f smslant "Installing Dotfiles.." -w 100 | gum style --border="rounded" --border-foreground="#cba6f7" --padding="1 2" --margin="1"
     if installDotfiles; then
         log "Success" "Dotfiles installed successfully."
     else
@@ -84,17 +84,33 @@ install() {
 
     # Installing Wallpapers
     log "Info" "Installing Wallpapers.."
-    figlet "Installing Wallpapers.." -w 100 | gum style --border="rounded" --border-foreground="#FFFF00" --padding="1 2" --margin="1"
+    figlet -f smslant "Installing Wallpapers.." -w 100 | gum style --border="rounded" --border-foreground="#cba6f7" --padding="1 2" --margin="1"
     if installWallpapers; then
         log "Success" "Wallpapers installed successfully."
     else
         log "Error" "Failed to install wallpapers."
         exit 1
     fi
-}
+
+    # Apply theme catppuccin mocha
+    catppuccin_theme_installer mocha blue
+    gtk_theme_manager -t 'catppuccin-mocha-blue-standard+default' \
+        -i 'Tela-circle-dark' \
+        -c 'Bibata-Original-Classic' \
+        -s 20 \
+        -m 'prefer_dark'
+}   
 
 # Run the install function
 install
 
 log "Success" "Installation completed successfully!"
-figlet "All Done!" -w 100 | gum style --border="rounded" --border-foreground="#00FF00" --padding="1 2" --margin="1"
+figlet -f smslant "All Done!" -w 100 | gum style --border="rounded" --border-foreground="#cba6f7" --padding="1 2" --margin="1"
+
+if gum confirm "Do want to start Hyprland?"; then
+    echo
+    hyprland
+else
+    echo
+    exit
+fi
