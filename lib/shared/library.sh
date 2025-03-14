@@ -46,11 +46,11 @@ installPackages() {
     log "Success" "$package_group_name packages installation complete."
 }
 
-# Function to backup existing files
+# Function to backup existing files or directories
 backupFiles() {
     local source_dir=$1
     local backup_dir=$2
-    local files=("${!3}")
+    local items=("${!3}")
 
     for item in "${items[@]}"; do
         if [ -e "$source_dir/$item" ]; then
@@ -68,18 +68,37 @@ backupFiles() {
     done
 }
 
-# Function to copy new files
+# Function to copy new files or directories
 copyFiles() {
     local source_dir=$1
     local target_dir=$2
-    local files=("${!3}")
+    local items=("${!3}")
 
-    for file in "${files[@]}"; do
-        if [ -e "$source_dir/$file" ]; then
-            cp -r "$source_dir/$file" "$target_dir/"
-            log "Info" "Copied $source_dir/$file to $target_dir/"
+    for item in "${items[@]}"; do
+        if [ -e "$source_dir/$item" ]; then
+            cp -r "$source_dir/$item" "$target_dir/"
+            log "Info" "Copied $source_dir/$item to $target_dir/"
         else
-            log "Warning" "Source file $source_dir/$file does not exist."
+            log "Warning" "Source file or directory $source_dir/$item does not exist."
+        fi
+    done
+}
+
+# Function to restore files or directories from backup
+restoreFiles() {
+    local backup_dir=$1
+    local target_dir=$2
+    local items=("${!3}")
+
+    for item in "${items[@]}"; do
+        if [ -e "$backup_dir/$item" ]; then
+            # Remove the existing item in the target directory
+            rm -rf "$target_dir/$item"
+            # Restore the item from the backup
+            mv "$backup_dir/$item" "$target_dir/"
+            log "Info" "Restored $backup_dir/$item to $target_dir/"
+        else
+            log "Warning" "$backup_dir/$item does not exist. Skipping restore."
         fi
     done
 }

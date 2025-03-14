@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Log file
-LOG_FILE="${HOME}/dotfiles_install.log"
+SBHD_DIR="$HOME/sbhd/"
+LOG_FILE="$SBHD_DIR/installer.log"
 
 log() {
     local level=$1

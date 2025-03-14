@@ -89,13 +89,12 @@ Appearance=(
     qt6ct
 )
 
-# Install each package groups
-installPackages "Hyprland" Hyprland[@]
-installPackages "Fonts" Fonts[@]
-installPackages "Applications" Applications[@]
-installPackages "Tools" Tools[@]
-installPackages "System" System[@]
-installPackages "Appearance" Appearance[@]
-
-# Display success message
-log "Info" "All dependencies have been successfully installed."
+installDependencies() {
+    # Install each package groups
+    installPackages "Hyprland" Hyprland[@]
+    installPackages "Fonts" Fonts[@]
+    installPackages "Applications" Applications[@]
+    installPackages "Tools" Tools[@]
+    installPackages "System" System[@]
+    installPackages "Appearance" Appearance[@]
+}
