@@ -31,19 +31,10 @@ DOT_CONFIG_FILES=(
     starship.toml
 )
 
-# ~/.user_settings contents
-DOT_USER_SETTINGS_FILES=(
-    gtk_settings.json
-    waybar_style.sh
-)
-
 uninstallDotfiles() {
     # Restore ~/.config files and directories from original backup
-    restoreFiles "$ORIGINAL_BACKUP_DIR/.config" "${HOME/.config" DOT_CONFIG_DIRS[@]
-    restoreFiles "$ORIGINAL_BACKUP_DIR/.config" "${HOME/.config" DOT_CONFIG_FILES[@]
-
-    # Restore ~/.user_settings files from original backup
-    restoreFiles "$ORIGINAL_BACKUP_DIR/.user_settings" "${HOME/.user_settings" DOT_USER_SETTINGS_FILES[@]
+    restoreFiles "$ORIGINAL_BACKUP_DIR/.config" "${HOME}/.config" DOT_CONFIG_DIRS[@]
+    restoreFiles "$ORIGINAL_BACKUP_DIR/.config" "${HOME}/.config" DOT_CONFIG_FILES[@]
 
     # Remove the installation marker file
     if [ -f "$INSTALL_MARKER" ]; then

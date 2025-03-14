@@ -34,6 +34,7 @@ Fonts=(
 Applications=(
     firefox
     kitty
+    flatpak
 )
 
 Tools=(
@@ -61,10 +62,12 @@ System=(
     brightnessctl
     checkupdates-with-aur
     efibootmgr
+    fish
     iw
     networkmanager
     network-manager-applet
     power-profiles-daemon
+    python-gobject
     reflector
     udiskie
     zram-generator
@@ -84,6 +87,7 @@ Appearance=(
     bibata-cursor-theme-bin
     tela-circle-icon-theme-standard
     gtk-engine-murrine
+    python-pywal
     qt5-wayland
     qt5ct
     qt6ct

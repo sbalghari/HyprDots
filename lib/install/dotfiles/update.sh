@@ -34,12 +34,6 @@ DOT_CONFIG_FILES=(
     starship.toml
 )
 
-# ~/.user_settings contents
-DOT_USER_SETTINGS_FILES=(
-    gtk_settings.json
-    waybar_style.sh
-)
-
 updateDotfiles() {
     # Check if dotfiles are installed
     if [ ! -f "$INSTALL_MARKER" ]; then
@@ -57,15 +51,9 @@ updateDotfiles() {
     backupFiles "${HOME}/.config" "$UPDATE_BACKUP_DIR/.config" DOT_CONFIG_DIRS[@]
     backupFiles "${HOME}/.config" "$UPDATE_BACKUP_DIR/.config" DOT_CONFIG_FILES[@]
 
-    # Backup ~/.user_settings
-    backupFiles "${HOME}/.user_settings" "$UPDATE_BACKUP_DIR/.user_settings" DOT_USER_SETTINGS_FILES[@]
-
     # Copy new ~/.config files
     copyFiles "$SOURCE_DOT_CONFIG" "${HOME}/.config" DOT_CONFIG_DIRS[@]
     copyFiles "$SOURCE_DOT_CONFIG" "${HOME}/.config" DOT_CONFIG_FILES[@]
-
-    # Copy new ~/.user_settings
-    copyFiles "$SOURCE_DOT_USER_SETTINGS" "${HOME}/.user_settings" DOT_USER_SETTINGS_FILES[@]
 
     log "Success" "Dotfiles updated successfully!"
 }
