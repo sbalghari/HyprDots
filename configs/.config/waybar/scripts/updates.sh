@@ -53,3 +53,5 @@ if [ "$updates" -le "$threshhold_none" ]; then
 else
     printf '{"text": " %s", "alt": "%s", "tooltip": "System updates: %s", "class": "%s"}' "$updates" "$updates" "$updates" "$css_class"
 fi
+
+exit 0

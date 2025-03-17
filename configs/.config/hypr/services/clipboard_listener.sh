@@ -24,3 +24,5 @@ while true; do
 
   sleep 0.2
 done
+
+exit 0

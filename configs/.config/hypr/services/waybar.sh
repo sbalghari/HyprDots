@@ -30,7 +30,9 @@ get_waybar_pid() {
 kill_waybar() {
     WAYBAR_PID=$(get_waybar_pid)
     if [ -n "$WAYBAR_PID" ]; then
+        sleep 0.1
         pkill waybar
+        sleep 0.5
         echo "Waybar killed."
     else
         echo "Waybar is not running."
@@ -42,7 +44,7 @@ start_waybar() {
     if [ -z "$WAYBAR_PID" ]; then
         waybar -c "$CONFIG_FILE" -s "$STYLE_CSS" &
         echo "WAYBAR_STYLE=$WAYBAR_STYLE" > "$CURRENT_STYLE"
-        sleep 0.5
+        sleep 0.2
         echo "Waybar started with style '$WAYBAR_STYLE'."
     else
         echo "Waybar is already running."
@@ -62,7 +64,6 @@ reload_waybar() {
     WAYBAR_PID=$(get_waybar_pid)
     if [ -n "$WAYBAR_PID" ]; then
         kill_waybar
-        sleep 0.2
         start_waybar
         echo "Waybar reloaded."
     else

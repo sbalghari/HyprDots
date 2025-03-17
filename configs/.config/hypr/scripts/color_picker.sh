@@ -15,3 +15,5 @@ if [[ "$color" ]]; then
   # Notify
   notify-send -i "$image" "$color" "Copied to clipboard"
 fi
+
+exit 0

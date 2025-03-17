@@ -7,7 +7,9 @@ get_hypridle_pid() {
 kill_hypridle() {
     HYPRIDLE_PID=$(get_hypridle_pid)
     if [ -n "$HYPRIDLE_PID" ]; then
+        sleep 0.1
         kill -9 "$HYPRIDLE_PID"
+        sleep 0.5
         echo "Hypridle killed."
     else
         echo "Hypridle is not running."
@@ -18,6 +20,7 @@ start_hypridle() {
     HYPRIDLE_PID=$(get_hypridle_pid)
     if [ -z "$HYPRIDLE_PID" ]; then
         hypridle &
+        sleep 0.2
         echo "Hypridle started."
     else
         echo "Hypridle is already running."

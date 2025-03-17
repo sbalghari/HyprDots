@@ -25,3 +25,5 @@ done
 
 # Switch to the target workspace
 hyprctl dispatch workspace "$target_workspace"
+
+exit 0

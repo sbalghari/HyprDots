@@ -26,12 +26,12 @@
     "tooltip-format": "System usage"
   },
   "cpu": {
-    "interval": 5,
+    "interval": 10,
     "format": " {usage}%",
     "max-length": 10
   },
   "memory": {
-    "interval": 5,
+    "interval": 10,
     "format": " {}%",
     "max-length": 10
   },
@@ -92,7 +92,7 @@
     "return-type": "json",
     "escape": true,
     "exec-on-event": true,
-    "interval": 12,
+    "interval": 10,
     "tooltip-format": "Toggle Screen Shader\nleft-click: Toggle screen shader\nright-click: Open screen shader menu",
     "on-click": "sleep 0.2; ~/.config/rofi/applets/hyprshade.sh",
     "on-click-right": "sleep 0.2; ~/.config/rofi/applets/hyprshade.sh rofi"
@@ -115,7 +115,7 @@
     "escape": true,
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/updates.sh",
-    "interval": 60,
+    "interval": 360,
     "on-click": "kitty --class floating -e ~/.config/waybar/scripts/installupdates.sh"
   },
 

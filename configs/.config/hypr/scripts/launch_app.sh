@@ -6,6 +6,7 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
+sleep 0.2
 program="$1"
 
 # Check if the program exists in the system
@@ -16,3 +17,5 @@ fi
 
 # Execute the program
 exec "$program"
+
+exit 0

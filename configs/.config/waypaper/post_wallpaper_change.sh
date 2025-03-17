@@ -74,17 +74,14 @@ reload_services() {
     # Reload waybar
     echo "[Debug]::Reloading waybar"
     bash ~/.config/hypr/services/waybar.sh -r || { echo "[Error]::Failed to reload waybar"; exit 1; }
-    sleep 0.2
 
     # Reload swaync
     echo "[Debug]::Reloading swaync"
     bash ~/.config/hypr/services/swaync.sh -r || { echo "[Error]::Failed to reload swaync"; exit 1; }
-    sleep 0.2
 
     # Reload nwg_dock
     echo "[Debug]::Reloading nwg_dock"
     bash ~/.config/hypr/services/nwg_dock.sh -r || { echo "[Error]::Failed to reload nwg_dock"; exit 1; }
-    sleep 0.2
 
     # Reload hyprland
     echo "[Debug]::Reloading hyprland"
@@ -94,9 +91,9 @@ reload_services() {
 # Main
 if [[ -n $WALLPAPER_PATH ]]; then
     generate_pywal_colors "$WALLPAPER_PATH"
-    sleep 0.2
+    sleep 0.5
     update_hyprland_colors
-    sleep 0.1
+    sleep 0.2
     reload_services
     sleep 0.5
     store_blurred_wallpaper "$WALLPAPER_PATH"
@@ -105,3 +102,5 @@ else
     echo "[Error]::No wallpaper path provided."
     exit 1
 fi
+
+exit 0

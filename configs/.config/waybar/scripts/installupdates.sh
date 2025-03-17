@@ -71,8 +71,6 @@ if [[ $(_isInstalled "flatpak") == "0" ]]; then
     flatpak update
 fi
 
-sudo pacman -Syyu --noconfirm
-
 # Cleanup orphaned packages
 if gum confirm "DO YOU WANT TO CLEAN UP UNUSED PACKAGES?"; then
     sudo pacman -Rns $(pacman -Qdtq) --noconfirm

@@ -20,24 +20,28 @@ systemctl --user stop xdg-desktop-portal-gnome
 systemctl --user stop xdg-desktop-portal-kde
 systemctl --user stop xdg-desktop-portal-wlr
 systemctl --user stop xdg-desktop-portal-hyprland
-sleep 0.2
+sleep 0.5
 
 # Start xdg-desktop-portal-hyprland
 /usr/lib/xdg-desktop-portal-hyprland &
-sleep 0.2
+sleep 0.3
 
 # Start xdg-desktop-portal-gtk
 if [ -f /usr/lib/xdg-desktop-portal-gtk ]; then
     /usr/lib/xdg-desktop-portal-gtk &
-    sleep 0.2
+    sleep 0.3
 fi
 
 # Start xdg-desktop-portal
 /usr/lib/xdg-desktop-portal &
-sleep 0.2
+sleep 0.3
 
 # Start required services
 systemctl --user start pipewire
 systemctl --user start wireplumber
 systemctl --user start xdg-desktop-portal
 systemctl --user start xdg-desktop-portal-hyprland
+
+sleep 0.2
+
+exit 0

@@ -29,3 +29,5 @@ case $window in
 kitty) handle "50%" "55%" ;;
 *) handle "70%" "70%" ;;
 esac
+
+exit 0
