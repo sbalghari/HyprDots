@@ -40,9 +40,9 @@ mainbox {
 }
 
 imagebox {
-    padding:                     20px;
+    padding:                     10px;
     background-color:            transparent;
-    background-image:            url("~/.cache/hyprland/wallpapers/blurred_wallpaper.jpg", height);
+    background-image:            url("~/.cache/wallpaper/blurred_wallpaper.jpg", height);
     orientation:                 vertical;
     children:                    [ "inputbar", "dummy", "mode-switcher" ];
 }
