@@ -1,15 +1,63 @@
-@import "~/.config/rofi/theme.rasi"
+@import "~/.config/rofi/colors.rasi"
 
-// Configurations
+// General Configurations
 configuration {
-	modi:                       "drun,run,filebrowser,window";
-    show-icons:                 true;
-    display-drun:               "APPS";
-    display-run:                "RUN";
-    display-filebrowser:        "FILES";
-    display-window:             "WINDOW";
-	drun-display-format:        "{name}";
-	window-format:              "{w} · {c} · {t}";
+	modi: "drun,run,filebrowser,window";
+    display-drun: "APPS";
+    display-run: "RUN";
+    display-filebrowser: "FILES";
+    display-window: "WINDOW";
+	drun-display-format: "{name}";
+	window-format: "{w} · {c} · {t}";
+	case-sensitive: false;
+	normalize-match: true;
+	icon-theme: "Tela-circle";    
+    show-icons: true;
+
+	// Matching setting
+	matching: "normal";
+	tokenize: true;
+
+	// Drun settings
+	drun-categories: "";
+	drun-match-fields: "name,generic,exec,categories,keywords";
+	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+	drun-show-actions: false;
+	drun-url-launcher: "xdg-open";
+	drun-use-desktop-cache: false;
+	drun-reload-desktop-cache: false;
+	drun {
+		parse-user:   true;
+		parse-system: true;
+    }
+
+	// Run settings
+	run-command: "{cmd}";
+	run-list-command: "";
+	run-shell-command: "{terminal} -e {cmd}";
+
+	// Fallback Icon
+	run,drun {
+		fallback-icon: "application-x-addon";
+	}
+
+	// Window switcher settings
+	window-match-fields: "title,class,role,name,desktop";
+	window-command: "wmctrl -i -R {window}";
+	window-format: "{w} - {c} - {t:0}";
+	window-thumbnail: false;
+
+	// History and Sorting 
+	disable-history: false;
+	sorting-method: "normal";
+	max-history-size: 25;
+
+	// File browser settings
+    filebrowser {
+	  directory: "$HOME";
+      directories-first: true; 
+      sorting-method: "name";
+    }
 }
 
 // Main window

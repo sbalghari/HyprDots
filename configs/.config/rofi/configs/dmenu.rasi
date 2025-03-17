@@ -1,7 +1,11 @@
-@import "~/.config/rofi/theme.rasi"
+@import "~/.config/rofi/colors.rasi"
 
 configuration {
-    show-icons:                 false;
+	modi: "drun,run,filebrowser,window";
+	case-sensitive: false;
+	normalize-match: true;
+	icon-theme: "Reversal-dark";    
+    show-icons: false;
 }
 
 // Main window
@@ -107,7 +111,7 @@ element {
     border-radius:               12px;
     border-color:                @selected;
     background-color:            transparent;
-    cursor:                      pointer;
+    cursor:                      inherit;
 }
 element-text {
     background-color:            transparent;
