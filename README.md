@@ -1,5 +1,5 @@
 
-![screenshot1](https://github.com/Saifullah-Balghari/Hyprland-Dotfiles/blob/main/assets/screenshot1.png)
+![screenshot1](https://github.com/sbalghari/HyprDots/blob/main/assets/screenshot1.png)
 > Pre-release v0.0.1-alpha
 
 # SBHD – A Modern Hyprland Experience
@@ -34,7 +34,7 @@ Welcome to SBalghari HyprDots – a polished, feature-rich configuration for Arc
    ```
 2. **Clone the Repository**:
   ```bash
-  git clone https://github.com/Saifullah-Balghari/Hyprland-Dotfiles.git && cd Hyprland-Dotfiles
+  git clone https://github.com/sbalghari/HyprDots && cd HyprDots
   ```
 3. **Run install.sh**:
   ```bash
@@ -46,13 +46,13 @@ Welcome to SBalghari HyprDots – a polished, feature-rich configuration for Arc
 
 Contributions are always welcome!
 
-See [CONTRIBUTING.md](https://github.com/Saifullah-Balghari/Hyprland-Dotfiles/blob/main/CONTRIBUTING.md) for ways to get started.
+See [CONTRIBUTING.md](https://github.com/sbalghari/HyprDots/blob/main/CONTRIBUTING.md) for ways to get started.
 
 If you encounter any issues or have ideas for improvements, please feel free to open an issue or submit a pull request. Your feedback and contributions help make this project better for everyone.
 
 ## License
 
-This project is licensed under the GPL-3.0 license. For more details, please refer to the [LICENSE](https://github.com/Saifullah-Balghari/Hyprland-Dotfiles/blob/main/LICENSE) file.
+This project is licensed under the GPL-3.0 license. For more details, please refer to the [LICENSE](https://github.com/sbalghari/HyprDots/blob/main/LICENSE) file.
 
 ## Special Thanks
 
