@@ -368,7 +368,6 @@ tooltip label {
 */
 #custom-notifications {
   margin: 2px 4px;
-  margin-right: 0px;
   border-radius: 6px;
   padding: 0px 10px 0px 8px;
   color: @text;
@@ -376,6 +375,24 @@ tooltip label {
   border: 1px solid @border;
 }
 #custom-notifications:hover {
+  color: @hover;
+}
+
+/* 
+  ================================================================
+  => Power menu
+  ================================================================
+*/
+#custom-power {
+  margin: 2px 4px;
+  margin-right: 0px;
+  border-radius: 6px;
+  padding: 0px 10px 0px 8px;
+  color: @text;
+  background: @background;
+  border: 1px solid @border;
+}
+#custom-power:hover {
   color: @hover;
 }
 
