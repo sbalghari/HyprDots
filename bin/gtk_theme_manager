@@ -51,7 +51,7 @@ class GTKThemeManager:
         self.cursor_theme_name = cursor_theme_name if cursor_theme_name is not None else self.previous_settings.get("gtk_cursor_theme_name")
         self.cursor_size = cursor_size if cursor_size is not None else self.previous_settings.get("gtk_cursor_size")
         self.font_name = font_name if font_name is not None else self.previous_settings.get("gtk_font_name")
-        self.prefer_dark_mode = color_scheme if color_scheme is not None else self.previous_settings.get("gtk_prefer_dark_mode")
+        self.color_scheme = color_scheme if color_scheme is not None else self.previous_settings.get("gtk_prefer_dark_mode")
 
         # Theme dirs
         self.theme_dirs = [
@@ -107,7 +107,7 @@ class GTKThemeManager:
             "gtk_cursor_theme_name": self.cursor_theme_name,
             "gtk_cursor_size": self.cursor_size,
             "gtk_font_name": self.font_name,
-            "gtk_prefer_dark_mode": self.prefer_dark_mode
+            "gtk_prefer_dark_mode": self.color_scheme
         }
         # Ensure the directory exists
         os.makedirs(os.path.dirname(self.settings_json_path), exist_ok=True)
@@ -203,6 +203,14 @@ class GTKThemeManager:
         return os.path.isfile(index_theme)
         
     def _build_config_contents(self):
+        self.prefer_dark_mode = ""
+        if self.color_scheme == "prefer_dark":
+            self.prefer_dark_mode = 1
+        elif self.color_scheme == "prefer_light":
+            self.prefer_dark_mode = -1
+        else:
+            self.prefer_dark_mode = 0
+        
         # GTK-3.0.ini file contents
         self.gtk_3_ini_content = f"""[Settings]
 gtk-theme-name={self.theme_name}
@@ -272,7 +280,7 @@ Inherits={self.cursor_theme_name}"""
     GTK Cursor: {self.cursor_theme_name}
     GTK Font: {self.font_name}
     GTK Cursor Size: {self.cursor_size}
-    GTK Prefer Dark Mode: {self.prefer_dark_mode}"""
+    GTK Prefer Dark Mode: {self.color_scheme}"""
         logging.debug(msg)
         
         # Create config files
@@ -290,6 +298,9 @@ Inherits={self.cursor_theme_name}"""
         
         # Reload GTK
         self._reload_gtk_settings()
+        
+        # Generate colors.rasi for rofi
+        subprocess.run(["generate_rofi_colors"])
         
         # Save the applied settings as backup
         self._save_settings()
@@ -352,26 +363,24 @@ Inherits={self.cursor_theme_name}"""
         subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "gtk-theme", f"{self.theme_name}"])
         subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "icon-theme", f"{self.icon_theme_name}"])
         subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "cursor-theme", f"{self.cursor_theme_name}"])
-
-        color_scheme = self.prefer_dark_mode
         
         # Set color scheme for vanilla GTK apps using gsettings
-        if color_scheme == "prefer_dark":
+        if self.color_scheme == "prefer_dark":
             subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "color-scheme", "'prefer-dark'"])
-        elif color_scheme == "default":
+        elif self.color_scheme == "default":
             subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "color-scheme", "'default'"])
-        elif color_scheme == "prefer_light":
+        elif self.color_scheme == "prefer_light":
             subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "color-scheme", "'prefer-light'"])
         else:
             logging.error("Error, use: 0 for default, 1 for prefer_dark, -1 for prefer_light")
 
         # Set color scheme for libadwaita apps using AdwStyleManager
         style_manager = Adw.StyleManager.get_default()
-        if color_scheme == "prefer_dark":
+        if self.color_scheme == "prefer_dark":
             style_manager.set_color_scheme(Adw.ColorScheme.PREFER_DARK)
-        elif color_scheme == "default":
+        elif self.color_scheme == "default":
             style_manager.set_color_scheme(Adw.ColorScheme.DEFAULT)
-        elif color_scheme == "prefer_light":
+        elif self.color_scheme == "prefer_light":
             style_manager.set_color_scheme(Adw.ColorScheme.PREFER_LIGHT)
 
         # Quit nautilus if running
