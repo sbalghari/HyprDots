@@ -7,9 +7,8 @@ get_swaync_pid() {
 kill_swaync() {
     SWAYNC_PID=$(get_swaync_pid)
     if [ -n "$SWAYNC_PID" ]; then
-        sleep 0.2
         kill -9 "$SWAYNC_PID"
-        sleep 0.5
+        sleep 0.2
         echo "SwayNC killed."
     else
         echo "SwayNC is not running."

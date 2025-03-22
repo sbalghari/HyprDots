@@ -7,9 +7,8 @@ get_nwg_dock_pid() {
 kill_nwg_dock() {
     NWG_DOCK_PID=$(get_nwg_dock_pid)
     if [ -n "$NWG_DOCK_PID" ]; then
-        sleep 0.1
         kill -9 "$NWG_DOCK_PID"
-        sleep 0.5
+        sleep 0.2
         echo "nwg-dock-hyprland killed."
     else
         echo "nwg-dock-hyprland is not running."
