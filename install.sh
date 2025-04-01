@@ -9,7 +9,7 @@ source lib/install/dependencies.sh
 source lib/install/binaries.sh
 source lib/install/dotfiles/install.sh
 source lib/install/wallpapers.sh
-source lib/options/udev_rules.sh
+source lib/options/udev_rule.sh
 log "Success" "Successfully imported the sources"
 
 # Main dir to save dotfile's configs
