@@ -30,7 +30,7 @@ get_waybar_pid() {
 kill_waybar() {
     WAYBAR_PID=$(get_waybar_pid)
     if [ -n "$WAYBAR_PID" ]; then
-        pkill waybar
+        killall waybar
         sleep 0.2
         echo "Waybar killed."
     else
