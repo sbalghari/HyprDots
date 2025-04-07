@@ -91,11 +91,10 @@ reload_services() {
 # Main
 if [[ -n $WALLPAPER_PATH ]]; then
     generate_pywal_colors "$WALLPAPER_PATH"
-    sleep 0.5
+    sleep 0.4
     update_hyprland_colors
     sleep 0.2
     reload_services
-    sleep 0.5
     store_blurred_wallpaper "$WALLPAPER_PATH"
     echo "[Success]::Wallpaper changed successfully."
 else
