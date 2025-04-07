@@ -35,6 +35,9 @@ Applications=(
     firefox
     kitty
     flatpak
+    mission-center
+    nautilus
+    smile
 )
 
 Tools=(
