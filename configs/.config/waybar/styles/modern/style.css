@@ -1,7 +1,7 @@
 /* ================================================================
 => Colors (Pywal + GTK)
 ================================================================*/
-@import "../../../../.cache/wal/colors-waybar.css"; 
+@import "../../../../.cache/wal/colors-waybar.css";
 
 @define-color accent shade(alpha(@accent_color, 0.9), 1.25);
 @define-color background shade(alpha(@theme_bg_color, 0.9), 0.9);
@@ -43,9 +43,9 @@ tooltip label {
 ================================================================*/
 #custom-menu {
   margin: 2px 4px;
+  margin-left: 0px;
   border-radius: 6px;
   padding: 0px 12px 0px 8px;
-  margin-left: 0px;
   font-size: 15px;
   color: @text;
   background: @background;
@@ -53,6 +53,64 @@ tooltip label {
 }
 #custom-menu:hover {
   color: @hover;
+}
+
+/*================================================================
+=> Tools menu
+================================================================*/
+#custom-sysinfo,
+#power-profiles-daemon,
+#custom-hyprshade,
+#custom-hypridle,
+#cpu,
+#memory,
+#temperature {
+  margin: 2px 0px;
+  font-size: 13px;
+  border: 1px solid alpha(@border, 0.33);
+  padding: 0px 8px 0px 8px;
+  font-weight: bold;
+  background: @background;
+  color: @text;
+}
+
+#cpu,
+#memory,
+#temperature {
+  padding: 0px 8px;
+  font-size: 11px;
+  font-weight: bolder;
+}
+#power-profiles-daemon {
+  padding: 0px 12px 0px 6px;
+}
+#custom-sysinfo {
+  margin-left: 4px;
+  border-radius: 6px 0px 0px 6px;
+}
+#custom-hypridle {
+  margin-right: 4px;
+  border-radius: 0px 6px 6px 0px;
+}
+#custom-sysinfo:hover,
+#custom-hyprshade:hover,
+#custom-hypridle:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover {
+  color: @hover;
+}
+#power-profiles-daemon.balanced {
+  color: @text;
+}
+#power-profiles-daemon.performance {
+  color: @red;
+}
+#power-profiles-daemon.power-saver {
+  color: @green;
+}
+#custom-hypridle.notactive {
+  color: @red;
 }
 
 /*================================================================
@@ -90,43 +148,14 @@ tooltip label {
   background-color: @red;
 }
 
-/*================================================================
-=> System info drawer
-================================================================*/
-#custom-sysinfo {
-  margin: 2px 4px;
-  margin-right: 0px;
-  border-radius: 6px;
-  padding: 0px;
-  padding-right: 6px;
-  padding-left: 6px;
-  border-radius: 0px;
-  font-size: 15px;
-  background: transparent;
-  color: @text;
-}
-#custom-sysinfo:hover {
-  color: @hover;
-}
-#cpu,
-#memory,
-#custom-hyprshade,
-#custom-hypridle,
-#temperature,
-#disk {
-  color: @text;
-  padding: 0px 8px 0px 8px;
-}
-
 /* 
   ================================================================
   => Taskbar
   ================================================================
 */
 #taskbar {
-  margin: 2px 4px;
+  margin: 3px 4px;
   padding: 0px;
-  margin-left: 0px;
   background: transparent;
   border: none;
   font-size: 15px;
@@ -184,10 +213,14 @@ tooltip label {
 #clock {
   margin: 2px 4px;
   padding: 0px 8px 0px 8px;
+  border: 2px solid @accent;
   border-radius: 6px;
+  border-top: none;
+  /* border-bottom: none; */
+  border-left: none;
+  border-right: none;
   color: @text;
   background: @background;
-  border: 1px solid @border;
 }
 
 /* 
@@ -226,7 +259,6 @@ tooltip label {
   background: @background;
   border: 1px solid @border;
 }
-
 
 /* 
   ================================================================
@@ -342,11 +374,11 @@ tooltip label {
   ================================================================
 */
 #tray {
-  margin: 2px 0px;
+  margin: 3px 2px;
   border-radius: 6px;
-  padding: 0px 6px 0px 6px;
-  background: transparent;
-  border: none;
+  padding: 0px 4px 0px 4px;
+  background: alpha(@background, 0.5);
+  border: 1px solid alpha(@border, 0.33);
 }
 #tray > .passive {
   -gtk-icon-effect: dim;
@@ -367,12 +399,15 @@ tooltip label {
   ================================================================
 */
 #custom-notifications {
+  font-size: 13px;
   margin: 2px 4px;
-  border-radius: 6px;
-  padding: 0px 10px 0px 8px;
+  margin-right: 0px;
+  border: 1px solid @border;
+  border-radius: 6px 0px 0px 6px;
+  border-right: none;
+  padding: 0px 11px 0px 8px;
   color: @text;
   background: @background;
-  border: 1px solid @border;
 }
 #custom-notifications:hover {
   color: @hover;
@@ -384,13 +419,15 @@ tooltip label {
   ================================================================
 */
 #custom-power {
+  font-size: 13px;
   margin: 2px 4px;
   margin-right: 0px;
-  border-radius: 6px;
-  padding: 0px 10px 0px 8px;
+  margin-left: 0px;
+  border: 1px solid @border;
+  border-radius: 0px 6px 6px 0px;
+  padding: 0px 12px 0px 8px;
   color: @text;
   background: @background;
-  border: 1px solid @border;
 }
 #custom-power:hover {
   color: @hover;
@@ -410,32 +447,4 @@ window#waybar.empty #window,
   background-color: transparent;
   padding: 0px;
   margin: 0px;
-}
-
-/* 
-  ================================================================
-  => Separators
-  ================================================================
-*/
-#custom-separator-right,
-#custom-separator-left {
-  font-weight: bold;
-  padding-top: 0px;
-  color: @text;
-  font-size: 15px;
-}
-
-/* 
-  ================================================================
-  => Others
-  ================================================================
-*/
-#custom-dot {
-  padding: 0px 4px 0px 0px;
-  margin: 0px 4px;
-  color: @text;
-}
-
-#custom-hypridle.notactive {
-  color: @red;
 }

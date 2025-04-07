@@ -5,7 +5,7 @@
   // Application menu
   "custom/menu": {
     "format": "",
-    "on-click": "~/.config/rofi/launcher.sh",
+    "on-click": "~/.config/hypr/scripts/app_launcher.sh",
     "tooltip-format": "Application menu\nLeft-click: Application Launcher\nRight-click: Display Keybinds",
     "on-click-right": "~/.config/rofi/applets/keybindings.sh"
   },
@@ -27,19 +27,19 @@
   },
   "cpu": {
     "interval": 10,
-    "format": " {usage}%",
+    "format": " {usage}%",
     "max-length": 10
   },
   "memory": {
     "interval": 10,
-    "format": " {}%",
+    "format": " {}%",
     "max-length": 10
   },
   "temperature": {
     "thermal-zone": 0,
     "critical-threshold": 80,
-    "format-critical": " {temperatureC}°C",
-    "format": " {temperatureC}°C"
+    "format-critical": " {temperatureC}°C",
+    "format": " {temperatureC}°C"
   },
 
   // Active window name
@@ -202,6 +202,19 @@
     "show-passive-items": true
   },
 
+  // Power Profiles Daemon
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+
   // Clock
   "clock": {
     "format": "<b>{:%I:%M %p | %a.%d-%b}</b>",
@@ -212,8 +225,22 @@
 
   // Notifications
   "custom/notifications": {
-    "format": "󰂚",
-    "on-click": "sleep 0.1 && swaync-client -t"
+    "tooltip-format": "Notifications Center",
+    "format": "{icon}",
+    "format-icons": {
+      "none": "",
+      "inhibited-none": "",
+      "dnd-none": "",
+      "dnd-inhibited-none": "",
+      "notification": "",
+      "inhibited-notification": "",
+      "dnd-notification": "",
+      "dnd-inhibited-notification": ""
+    },
+    "return-type": "json",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "escape": true
   },
 
   // Power-menu
@@ -265,14 +292,8 @@
     "modules": [
       "custom/sysinfo",
       "cpu",
-      "custom/separator-left",
       "memory",
-      "custom/separator-left",
-      "temperature",
-      "custom/separator-left",
-      "custom/hyprshade",
-      "custom/separator-left",
-      "custom/hypridle"
+      "temperature"
     ]
   }
 }

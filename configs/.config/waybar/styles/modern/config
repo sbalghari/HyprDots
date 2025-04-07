@@ -3,7 +3,7 @@
   "position": "top",
   "margin-top": 5,
   "margin-left": 5,
-  "margin-bottom": 0,
+  "margin-bottom": 5,
   "margin-right": 5,
   "height": 30,
   "gtk-layer-shell": true,
@@ -13,7 +13,13 @@
   "modules-left": [
     "custom/menu",
     "hyprland/workspaces",
-    // "group/sysinfo",
+
+    // ToolBox
+    "group/sysinfo",
+    "power-profiles-daemon",
+    "custom/hyprshade",
+    "custom/hypridle",
+
     // "wlr/taskbar",
     "hyprland/window",
     "custom/mediaplayer"
@@ -22,12 +28,15 @@
   "modules-right": [
     "custom/updates",
     "custom/weather",
+
+    // Tray
     "pulseaudio",
     "backlight",
-    // "bluetooth",
+    "bluetooth",
     "battery",
     "network",
     "tray",
+    
     "custom/notifications",
     "custom/power"
   ]
