@@ -1,3 +1,6 @@
+> [!NOTE]
+> The installer is currently broken; we will fix it soon.
+
 
 ![screenshot1](https://github.com/sbalghari/HyprDots/blob/main/assets/screenshot1.png)
 > Pre-release v0.0.1-alpha
