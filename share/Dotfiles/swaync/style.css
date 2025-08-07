@@ -3,7 +3,7 @@
   => Colors
   ============================================================
 */
-@import "../../.cache/wal/colors-waybar.css"; 
+@import "../../.cache/wal/colors-waybar.css";
 
 @define-color accent shade(alpha(@accent_color, 0.9), 1.25);
 @define-color background alpha(@theme_bg_color, 0.98);
@@ -31,24 +31,14 @@
   => Notification Popup
   ============================================================
 */
-.notification-row {
-  outline: none;
-}
-.notification-row:focus,
-.notification-row:hover {
-  background: @hover;
-}
 .notification-background {
   padding: 10px;
 }
 .close-button {
   background: transparent;
-  color: @red;
-  text-shadow: none;
-  font-size: 8px;
   padding: 0px;
   border-radius: 6px;
-  margin: 0;
+  margin: 4;
   box-shadow: none;
   border: none;
 }
@@ -74,7 +64,7 @@
 }
 .notification-action,
 .notification-default-action {
-  padding: 4px;
+  padding: 0px;
   margin: 0;
   box-shadow: none;
   background: transparent;
@@ -85,7 +75,7 @@
 .notification-action:hover,
 .notification-default-action:hover {
   -gtk-icon-effect: none;
-  background: @hover;
+  background: transparent;
 }
 .notification-default-action {
   border-radius: 6px;
@@ -137,32 +127,7 @@
   margin-top: 4px;
   color: @accent;
 }
-.inline-reply {
-  margin-top: 4px;
-}
-.inline-reply-entry {
-  background: @background;
-  color: @text;
-  caret-color: @text;
-  border: 1px solid @border;
-  border-radius: 6px;
-}
-.inline-reply-button {
-  margin-left: 4px;
-  background: @background;
-  border: 1px solid @border;
-  border-radius: 6px;
-  color: @text;
-}
-.inline-reply-button:disabled {
-  background: initial;
-  color: alpha(@text, 0.63);
-  border: 1px solid alpha(@background, 0.3);
-  border-color: transparent;
-}
-.inline-reply-button:hover {
-  background: @hover;
-}
+
 .notification-action {
   border-top: 1px solid @border;
   border-radius: 0px;
@@ -180,12 +145,6 @@
   margin: 0 16px;
   color: @text;
 }
-.notification-group-icon {
-  color: @text;
-}
-.notification-group-header {
-  color: @text;
-}
 .notification-row:not(:last-child) .notification-action,
 .notification-row:not(:last-child) .notification-default-action {
   opacity: 1;
@@ -193,7 +152,7 @@
 .notification-group.collapsed:hover
   .notification-row:not(:only-child)
   .notification {
-  background-color: alpha(@background, 0.83);
+    background-color: alpha(@background, 0.7);
 }
 
 /* 
@@ -261,37 +220,6 @@
 .widget-dnd > switch slider {
   background: @background;
   border-radius: 6px;
-}
-
-/* Media-player widget */
-.widget-mpris-player {
-  padding: 8px 42px 8px 42px;
-  margin: 8px -6px;
-  background-color: @background;
-  border-radius: 6px;
-  border: 1px solid @border;
-  box-shadow: none;
-}
-.widget-mpris-player button:hover {
-  background: @hover;
-}
-.widget-mpris-album-art {
-  border-radius: 6px;
-  box-shadow: none;
-}
-.widget-mpris-title {
-  font-weight: bold;
-  font-size: 16px;
-}
-.widget-mpris-subtitle {
-  font-size: 13px;
-}
-.widget-mpris-player > box > button {
-  background: @background;
-  color: @text;
-}
-.widget-mpris-player > box > button:hover {
-  background: @hover;
 }
 
 /* Control Buttons widget */
