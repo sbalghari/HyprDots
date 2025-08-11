@@ -41,7 +41,7 @@ MAIN_INSTALLER="$TARGET_LIB_DIR/main.py"
 # Create an empty log file
 mkdir -p "$(dirname "$LOG_FILE")"
 touch "$LOG_FILE"
-: >$LOG_FILE
+:> $LOG_FILE
 
 # Logger function
 log() {
@@ -159,7 +159,7 @@ downloadStableRelease() {
     success "Fetched version: $latest_tag"
     log "Success" "Fetched version: $latest_tag"
 
-    create_dir_if_not_exists "$DOWNLOAD_DIR"
+    mkdir -p "$DOWNLOAD_DIR"
 
     if gum spin --spinner dot --title "Cloning stable release $latest_tag..." \
         -- bash -c "git clone --branch \"$latest_tag\" --depth 1 https://github.com/sbalghari/HyprDots.git \"$DOWNLOAD_DIR\" >> \"$LOG_FILE\" 2>&1"; then
@@ -174,7 +174,7 @@ downloadStableRelease() {
 
 # Function to download the rolling release of HyprDots
 downloadRollingRelease() {
-    create_dir_if_not_exists "$DOWNLOAD_DIR"
+    mkdir -p "$DOWNLOAD_DIR"
 
     if gum spin --spinner dot --title "Cloning rolling release..." \
         -- bash -c "git clone https://github.com/sbalghari/HyprDots.git \"$DOWNLOAD_DIR\" >> \"$LOG_FILE\" 2>&1"; then
@@ -360,15 +360,8 @@ main() {
 
     if [[ -d "$DOWNLOAD_DIR" ]]; then
         echo
-        info "HOME is: $HOME"
-        info "HyprDots download dir already exists."
         log "Info" "HyprDots download dir already exists."
-
-        info "Removing existing HyprDots download directory..."
         log "Info" "Removing existing HyprDots download directory..."
-
-        sleep 2
-
         if rm -rf "$DOWNLOAD_DIR"; then
             success "Removed existing HyprDots download directory."
             log "Success" "Removed existing HyprDots download directory."
