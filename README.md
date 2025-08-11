@@ -1,5 +1,6 @@
 > [!NOTE]
 > The installer is currently in the testing phase.
+> v1.0.0 will be released soon.
 
 
 ![screenshot1](https://github.com/sbalghari/HyprDots/blob/main/assets/screenshot1.png)
