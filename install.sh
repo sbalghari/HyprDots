@@ -21,7 +21,7 @@ RED="\033[0;31m"
 RESET="\033[0m"
 
 ## Paths
-DOWNLOAD_DIR="/tmp/hyprdots"
+DOWNLOAD_DIR="$HOME/.cache/hyprdots"
 LOG_FILE="$HOME/.cache/hyprdotsSetup.log"
 METADATA_FILE="$HOME/.config/hyprdots/metadata.json"
 
