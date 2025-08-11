@@ -1,13 +1,12 @@
 > [!NOTE]
-> The installer is currently broken; we will fix it soon.
+> The installer is currently in the testing phase.
 
 
 ![screenshot1](https://github.com/sbalghari/HyprDots/blob/main/assets/screenshot1.png)
-> Pre-release v0.0.1-alpha
 
-# SBHD – A Modern Hyprland Experience
+# HyprDots – A Modern Hyprland Experience
 
-Welcome to SBalghari HyprDots – a polished, feature-rich configuration for Arch Linux and Hyprland, a dynamic tiling Wayland compositor. Designed for aesthetics, efficiency, and full functionality, SBHD delivers a refined, seamless, and modern desktop experience.
+Welcome to HyprDots – a polished, feature-rich dotfiles for Arch Linux and Hyprland. Designed for aesthetics, efficiency, and full functionality, it delivers a refined, seamless, and modern desktop experience.
 
 ## Features
 
@@ -23,27 +22,20 @@ Welcome to SBalghari HyprDots – a polished, feature-rich configuration for Arc
 
 - A unified and consistent visual theme across Hyprland, Waybar, SwayNC, and Flatpak applications, automatically syncing with the system-wide GTK theme for seamless aesthetics.  
 
-- A collection of custom utility scripts written in shell and python, designed for system management, wallpaper automation, and workflow enhancements.  
+- A collection of custom utility scripts written in shell and Python, designed for system management, wallpaper automation, and workflow enhancements.  
 
 - Regular updates and ongoing refinements to continuously enhance functionality, stability, and the overall user experience.
 
 ## Installation
 
->Note:  This configuration is designed for Arch Linux. While Arch-based distributions may work, they are not officially tested.
+>Note:  HyprDots is designed for Arch Linux. While Arch-based distributions may work, they are not tested.
 
-1. **Install Dependencies**:
+1. **Run install.sh**:
   ```bash
-   sudo pacman -Syu git base-devel
-   ```
-2. **Clone the Repository**:
-  ```bash
-  git clone https://github.com/sbalghari/HyprDots && cd HyprDots
+  bash <(wget -qO- https://raw.githubusercontent.com/sbalghari/HyprDots/main/install.sh)
   ```
-3. **Run install.sh**:
-  ```bash
-  ./install.sh # and follow the instructions of the installer.
-  ```
-4. **Enjoy...**
+2. **Follow the installer's instructions**:
+3. **Enjoy...**
 
 ## Contributing
 
@@ -57,9 +49,9 @@ If you encounter any issues or have ideas for improvements, please feel free to 
 
 This project is licensed under the GPL-3.0 license. For more details, please refer to the [LICENSE](https://github.com/sbalghari/HyprDots/blob/main/LICENSE) file.
 
-## Special Thanks
+## Acknowledgment
 
-A huge shoutout to these projects for inspiration and contributions to the Hyprland ecosystem.
+A special thanks to these projects for inspiration and contributions to the Hyprland ecosystem.
 
 - [ML4W](https://github.com/mylinuxforwork/dotfiles)
 - [JaKooLit's Hyprland-Dots](https://github.com/JaKooLit/Hyprland-Dots)
