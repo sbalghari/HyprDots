@@ -94,7 +94,7 @@ isInstalled() {
 
 # Function to install required dependencies of the setup script
 installDependencies() {
-    local deps=(curl gum figlet)
+    local deps=(curl gum figlet python-pyfiglet python-rich)
 
     for dep in "${deps[@]}"; do
         if ! pacman -Q "$dep" &>/dev/null; then
