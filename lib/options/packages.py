@@ -4,6 +4,7 @@ from includes import (
     Spinner,
     print_header,
     install_package_group,
+    is_installed
 )
 from shared import logger, log_heading
 
@@ -29,15 +30,16 @@ def install_optional_applications(dry_run: bool = False) -> bool:
             if dry_run:
                 sleep(2)
             else:
+                chosen = [pkg for pkg in chosen if not is_installed(pkg)] # Filter out already installed packages
                 if not install_package_group(group=chosen, group_name="optional packages"):
                     logger.error("Unable to install optional packages.")
                     spinner.error("Unable to install optional packages.")
                     return False
             spinner.success("Optional packages installed successfully.")
     else:
-        if dry_run:
-            sleep(2)
         logger.info("No optional packages selected, skipping...")
         print_info("No optional packages selected, skipping...")
+        if dry_run:
+            sleep(2)
         
     return True

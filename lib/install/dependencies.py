@@ -3,6 +3,7 @@ from includes import (
     print_success,
     print_header,
     install_package_group,
+    is_installed
 )
 from shared import logger, log_heading
 
@@ -117,9 +118,10 @@ def install_dependencies(dry_run: bool = False) -> bool:
     if dry_run:
             sleep(2)
     if not dry_run:
-        for key, value in groups.items():
-            if not install_package_group(group=value, group_name=key):
-                logger.error(f"Unable to install {key}")
+        for title, packages_list in groups.items():
+            packages_list = [pkg for pkg in packages_list if not is_installed(pkg)] # Filter out already installed packages
+            if not install_package_group(group=packages_list, group_name=title):
+                logger.error(f"Unable to install {title}")
                 return False
     print_success("Successfully installed dependencies.")
     
