@@ -41,5 +41,6 @@ def install_optional_applications(dry_run: bool = False) -> bool:
         print_info("No optional packages selected, skipping...")
         if dry_run:
             sleep(2)
-        
+    
+    print()
     return True

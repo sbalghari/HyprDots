@@ -125,4 +125,5 @@ def install_dependencies(dry_run: bool = False) -> bool:
                 return False
     print_success("Successfully installed dependencies.")
     
+    print()
     return True

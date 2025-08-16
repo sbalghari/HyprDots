@@ -6,9 +6,12 @@ import shutil
 from shared import logger
 
 def remove(filepath):
-    """Remove a file or directory at the specified path.
+    """
+    Remove a file or directory at the specified path.
+    
     Args:
         filepath (str): The path to the file or directory to remove.
+    
     Returns:
         bool: True if the removal was successful, False otherwise.
     """
@@ -36,9 +39,12 @@ def remove(filepath):
     return True
 
 def check_configs_exists(filepath) -> bool:
-    """Check if a configuration file exists at the specified path.
+    """
+    Check if a configuration file exists at the specified path.
+    
     Args:
         filepath (str): The path to the configuration file.
+    
     Returns:
         bool: True if the file exists, False otherwise.
     """
@@ -48,10 +54,13 @@ def check_configs_exists(filepath) -> bool:
     return True
 
 def create_symlink(source, target) -> bool:
-    """Create a symbolic link from source to target.
+    """
+    Create a symbolic link from source to target.
+    
     Args:
         source (str): The source file or directory to link from.
         target (str): The target file or directory to link to.
+    
     Returns:
         bool: True if the symlink was created successfully, False otherwise.
     """

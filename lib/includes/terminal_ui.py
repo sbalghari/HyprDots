@@ -19,7 +19,7 @@ WARNING_COLOR: str = "#f9e2af"
 DONE_ICON: str = "✔"
 WARNING_ICON: str = "⚠"
 ERROR_ICON: str = "✖"
-INFO_ICON: str = "ℹ"
+INFO_ICON: str = ">"
 
 # Styles
 HEADING_STYLE = RichStyle(color=HEADER_COLOR, bold=True)
@@ -88,7 +88,7 @@ class Spinner:
 # Functions for printing messages with styles
 def print_hyprdots_title() -> None:
     console = Console()
-    text = figlet_format("HyprDots", font="slant")
+    text = figlet_format("HyprDots")
     styled_text = RichText(text, style=HEADING_STYLE)
     console.print(styled_text)
 def print_subtext(text: str) -> None:
@@ -112,7 +112,8 @@ def print_warning(text: str) -> None:
     
     
 def chose(message: str, options: List[str]) -> str:
-    """Display a message and present a list of options for the user to choose any one from.
+    """
+    Display a message and present a list of options for the user to choose any one from.
 
     Args:
         message (str): the message to display
@@ -136,10 +137,13 @@ def chose(message: str, options: List[str]) -> str:
             
             
 def checklist(items: List[str], title: str = "List") -> List[str]:
-    """Display a checklist and allow the user to select multiple items.
+    """ 
+    Display a checklist and allow the user to select multiple items.
+    
     Args:
         items (List[str]): the items to display in the checklist
         title (str): the title of the checklist
+    
     Returns:
         List[str]: the selected items
     """
@@ -152,9 +156,9 @@ def checklist(items: List[str], title: str = "List") -> List[str]:
     while True:
         chosen: str = input("Select items by their numbers separated by empty spaces(eg: 1 2 3), type 0 to skip: ")
         selected_items = []
-        
-        if int(chosen) == 0:
-            return selected_items
+
+        if chosen.strip() == "0":
+            return []
         
         for part in chosen.split():
             if part.isdigit():
@@ -164,6 +168,6 @@ def checklist(items: List[str], title: str = "List") -> List[str]:
                 else:
                     console.print(RichText(f"Invalid choice: {part}. Please try again.", style=ERROR_STYLE))
                     continue
-                
+                                
         if selected_items:
             return selected_items

@@ -5,9 +5,12 @@ import subprocess
 from shared import logger
 
 def install_package(package: str) -> bool:
-    """ Installs a package.
+    """ 
+    Installs a package.
+    
     Args:
         package (str): The name of the package to install.  
+    
     Returns:
         bool: True if the package was installed successfully, False otherwise.
     """
@@ -30,10 +33,13 @@ def install_package(package: str) -> bool:
     return True
 
 def install_package_group(group: List[str], group_name: str) -> bool:
-    """ Installs a group of packages.
+    """ 
+    Installs a group of packages.
+    
     Args:
         group (List[str]): List of package names to install.
         group_name (str): Name of the package group for logging purposes.
+   
     Returns:
         bool: True if all packages in the group were installed successfully, False otherwise.
     """
@@ -47,9 +53,12 @@ def install_package_group(group: List[str], group_name: str) -> bool:
     return True
 
 def is_installed(package: str) -> bool:
-    """ Check if a system package is installed.
+    """ 
+    Check if a system package is installed.
+    
     Args:
         package (str): The name of the package to check.
+    
     Returns:
         bool: True if the package is installed, False otherwise.
     """
@@ -61,11 +70,15 @@ def is_installed(package: str) -> bool:
     return result.returncode == 0
 
 def run_command(command: List[str]) -> subprocess.CompletedProcess:
-    """ Runs a shell command using subprocess.run
+    """ 
+    Runs a shell command using subprocess.run
+    
     Args:
         command (List[str]): The command to run as a list of strings.
+    
     Returns:
         subprocess.CompletedProcess: The result of the command execution.
+    
     Raises:
         ValueError: If the command is an empty list.
         FileNotFoundError: If the executable is not found.

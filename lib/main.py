@@ -4,10 +4,13 @@ from includes import print_hyprdots_title, print_subtext, print_success, print_e
 from shared import LOG_FILE
 
 from time import sleep
+from typing import Dict, Callable
 import os 
 import sys
 
 LOG_FILE = os.path.join(os.path.expanduser("~"), ".cache", "HyprDotsSetup.log")
+
+DRY_RUN = True
 
 if not sys.stdin.isatty():
     print("Error: This script must be run in a TTY-enabled terminal.")
@@ -31,36 +34,27 @@ def _error_message(component_name: str) -> None:
 def install() -> bool:
     _clear()
     
-    dry_run = False  # Replaces the actual logic code with sleep statements.
-    
     # Clear the log file
     open(LOG_FILE, "w").close()
     
-    # Packages (dependencies)
-    if not install_dependencies(dry_run=dry_run):
-        print_error(_error_message("Packages"))
-        return False
+    dry_run = DRY_RUN
     
-    # Dotfiles
-    print()
-    if not DotfilesInstaller(dry_run=dry_run).install():
-        print_error(_error_message("Dotfiles"))
-        return False
-
-    # Wallpapers
-    print()
-    if not install_wallpapers(dry_run=dry_run):
-        print_error(_error_message("Wallpapers"))
-        return False
+    components: Dict[str, Callable] = {
+        "Dependencies": install_dependencies(dry_run=dry_run),
+        "Dotfiles": DotfilesInstaller(dry_run=dry_run).install(),
+        "Wallpapers": install_wallpapers(dry_run=dry_run),
+        "Optional Applications": install_optional_applications(dry_run=dry_run),
+    }
     
-    # Optional Applications
-    print()
-    if not install_optional_applications(dry_run=dry_run):
-        print_error(_error_message("Optional Applications"))
-        return False
-    
+    # Install components
+    for component_name, install_function in components.items():
+        if not install_function:
+            print_error(_error_message(component_name))
+            return False
+            
     if dry_run:
         sleep(2)
+        
     return True
 
 def main():

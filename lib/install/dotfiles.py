@@ -54,6 +54,8 @@ class DotfilesInstaller:
 
             spinner.success("Dotfiles installed successfully!")
             logger.info("Dotfiles installed successfully!")
+        
+        print()
         return True
 
     def _validate_sources(self, spinner) -> bool:

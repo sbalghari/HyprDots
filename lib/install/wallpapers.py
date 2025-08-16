@@ -38,5 +38,6 @@ def install_wallpapers(dry_run: bool = False) -> bool:
                 spinner.error("Failed to copy wallpapers.")
                 return False
         spinner.success("Wallpapers copied successfully.")
-        
+    
+    print()
     return True
