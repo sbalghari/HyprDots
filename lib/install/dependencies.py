@@ -97,7 +97,6 @@ applications: List[str] = [
         "nautilus-hide",
         "mission-center",
         "visual-studio-code-bin",
-        "freedownloadmanager",
     ]
 
 

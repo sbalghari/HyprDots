@@ -13,7 +13,7 @@ from shared import (
     HYPRDOTS_DOTFILES_DIR,
 )
 
-import os
+from pathlib import Path
 import shutil
 from time import sleep
 from subprocess import run as run_command
@@ -29,10 +29,10 @@ class DotfilesInstaller:
         ]
 
         self.source_dotfiles_components_paths = [
-            os.path.join(HYPRDOTS_DOTFILES_DIR, i) for i in self.dotfiles_components
+            HYPRDOTS_DOTFILES_DIR / i for i in self.dotfiles_components
         ]
         self.target_dotfiles_components_paths = [
-            os.path.join(USER_DOTFILES_DIR, i) for i in self.dotfiles_components
+            USER_DOTFILES_DIR / i for i in self.dotfiles_components
         ]
 
     def install(self):
@@ -78,7 +78,7 @@ class DotfilesInstaller:
             sleep(2)
             return True
         logger.info("Creating dotfiles dir...")
-        if os.path.exists(USER_DOTFILES_DIR):
+        if USER_DOTFILES_DIR.exists():
             logger.info("Dotfiles dir already exists, removing it...")
             remove(USER_DOTFILES_DIR)
         logger.info("Copying...")
@@ -107,7 +107,7 @@ class DotfilesInstaller:
             sleep(2)
             return True
         for i in self.dotfiles_components:
-            file = os.path.join(USER_CONFIGS_DIR, i)
+            file: Path = USER_CONFIGS_DIR / i
             if not remove(file):
                 spinner.error(f"Failed to remove existing config: {file}.")
                 return False
@@ -120,8 +120,8 @@ class DotfilesInstaller:
             sleep(2)
             return True
         for component in self.dotfiles_components:
-            source = os.path.join(USER_DOTFILES_DIR, component)
-            target = os.path.join(USER_CONFIGS_DIR, component)
+            source: Path = USER_DOTFILES_DIR / component
+            target: Path = USER_CONFIGS_DIR / component
             if not create_symlink(source, target):
                 spinner.error(f"Failed to link {source} to {target}.")
                 return False

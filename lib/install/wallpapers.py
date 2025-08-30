@@ -25,19 +25,21 @@ def install_wallpapers(dry_run: bool = False) -> bool:
             sleep(2)
         if not dry_run:
             logger.info("Creating wallpapers dir...")
-            if not os.path.exists(USER_WALLPAPERS_DIR):
+            if not USER_WALLPAPERS_DIR.exists():
                 os.makedirs(USER_WALLPAPERS_DIR, exist_ok=True)
                 logger.info("Created wallpapers dir.")
             try:
                 wallpapers = os.listdir(HYPRDOTS_WALLPAPERS_DIR)
                 for i in wallpapers:
-                    shutil.copy2(os.path.join(HYPRDOTS_WALLPAPERS_DIR, i), USER_WALLPAPERS_DIR)
+                    shutil.copy2(HYPRDOTS_WALLPAPERS_DIR / i, USER_WALLPAPERS_DIR)
                     logger.info("Wallpapers copied successfully")
             except Exception as e:
                 logger.error(f"Failed to copy wallpapers: {e}")
                 spinner.error("Failed to copy wallpapers.")
                 return False
         spinner.success("Wallpapers copied successfully.")
+        os.system("waypaper --restore >/dev/null 2>&1 </dev/null & disown")
+        sleep(1)  # Small delay for better UX
     
     print()
     return True

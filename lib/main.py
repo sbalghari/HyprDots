@@ -12,7 +12,7 @@ import json
 # Create an empty log file
 open(LOG_FILE, "w").close()
 
-DRY_RUN = False
+DRY_RUN = False # Set to True for testing without making changes
 
 def _title() -> None:
     print_hyprdots_title()

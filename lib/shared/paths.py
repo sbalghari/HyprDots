@@ -2,7 +2,7 @@ from pathlib import Path
 
 HOME = Path.home()
 
-USER_CONFIGS_DIR = HOME / "config"
+USER_CONFIGS_DIR = HOME / ".config"
 USER_DOTFILES_DIR = HOME / "Dotfiles"
 USER_WALLPAPERS_DIR = HOME / "Wallpapers"
 
