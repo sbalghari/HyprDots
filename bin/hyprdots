@@ -1,0 +1,3 @@
+#!/bin/bash
+HYPRDOTS="$HOME/Documents/GitHub/HyprDots/lib/main.py"
+python3 "$HYPRDOTS" "$@"
