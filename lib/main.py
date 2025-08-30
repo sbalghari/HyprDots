@@ -1,21 +1,18 @@
 from install import DotfilesInstaller, install_wallpapers, install_dependencies
 from options import install_optional_applications
 from includes import print_hyprdots_title, print_subtext, print_success, print_error
-from shared import LOG_FILE
+from shared import LOG_FILE, HYPRDOTS_METADATA_FILE
 
 from time import sleep
 from typing import Dict, Callable
-import os 
 import sys
+import argparse
+import json
 
-LOG_FILE = os.path.join(os.path.expanduser("~"), ".cache", "HyprDotsSetup.log")
+# Create an empty log file
+open(LOG_FILE, "w").close()
 
 DRY_RUN = True
-
-if not sys.stdin.isatty():
-    print("Error: This script must be run in a TTY-enabled terminal.")
-    sys.exit(1)
-
 
 def _title() -> None:
     print_hyprdots_title()
@@ -31,12 +28,7 @@ def _clear() -> None:
 def _error_message(component_name: str) -> None:
     return f"{component_name} installation failed. Please check the logs for details."
 
-def install() -> bool:
-    _clear()
-    
-    # Clear the log file
-    open(LOG_FILE, "w").close()
-    
+def _install_components() -> bool:
     dry_run = DRY_RUN
     
     components: Dict[str, Callable] = {
@@ -57,18 +49,83 @@ def install() -> bool:
         
     return True
 
-def main():
-    if not install():
+def _get_version():
+    try:
+        with open(HYPRDOTS_METADATA_FILE, "r") as f:
+            metadata = json.load(f)
+            return metadata.get("version", "unknown")
+    except Exception:
+        return "unknown"
+
+def install():
+    _clear()
+    if not _install_components():
         print()
         print()
         print_error(f"HyprDots installation failed. Please check the logs for details: {LOG_FILE}")
         sys.exit()
-    
     print()
     print()
     print_success("HyprDots installation completed successfully!")
-    
 
+def uninstall():
+    print("work in progress for this feature...")
+
+def check_update():
+    print("work in progress for this feature...")
+
+def update():
+    print("work in progress for this feature...")
+
+def arg_parser(parser)-> argparse.Namespace:
+    parser.add_argument(
+        "-i", "--install", 
+        action="store_true", 
+        help="Installs HyprDots on your system", 
+    )
+    parser.add_argument(
+        "-r", "--remove",
+        action="store_true",
+        help="Uninstalls HyprDots from your system"
+    )
+    parser.add_argument(
+        "-u", "--update",
+        action="store_true",
+        help="Updates HyprDots to the latest version"
+    )
+    parser.add_argument(
+        "-cu", "--check-update",
+        action="store_true",
+        help="Checks if a new version of HyprDots is available"
+    )
+    parser.add_argument(
+        "-v", "--version",
+        action="version",
+        version=_get_version(),
+        help="Show program version and exit"
+    )
+    
+    args = parser.parse_args()
+    return args
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="HyprDots, a polished, feature-rich dotfiles for Arch Linux and Hyprland.",
+        formatter_class=argparse.RawTextHelpFormatter
+    )
+    args = arg_parser(parser)
+    
+    if args.install:
+        install()
+    elif args.remove:
+        uninstall()
+    elif args.update:
+        update()
+    elif args.check_update:
+        check_update() 
+    else:
+        parser.print_help()
+        sys.exit(0)
+        
 if __name__ == "__main__":
     main()
-    
