@@ -4,7 +4,7 @@
 DOWNLOAD_DIR="$HOME/.cache/hyprdots"
 
 # Main setup script
-SETUP="$HOME/Documents/GitHub/HyprDots/setup/setup.py"
+SETUP="$DOWNLOAD_DIR/setup/setup.py"
 
 # Colors
 GREEN="\033[0;32m"
