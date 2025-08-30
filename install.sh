@@ -1,16 +1,16 @@
 #!/bin/bash
 
+# Download dir
+DOWNLOAD_DIR="$HOME/.cache/hyprdots"
+
+# Main setup script
+SETUP="$HOME/Documents/GitHub/HyprDots/setup/setup.py"
+
 # Colors
 GREEN="\033[0;32m"
 YELLOW="\033[1;33m"
 RED="\033[0;31m"
 RESET="\033[0m"
-
-# Download dir
-DOWNLOAD_DIR="$HOME/.cache/hyprdots"
-
-# Main setup script
-SETUP="$DOWNLOAD_DIR/setup/setup.py"
 
 # Colored output helpers
 info() { echo -e "${YELLOW}> $1${RESET}"; }
@@ -147,8 +147,6 @@ main() {
 		;;
 	esac
 
-	echo
-
 	# Create a marker of release type
 	if [[ "$choice" == "Stable" ]]; then
 		echo "stable" >"$DOWNLOAD_DIR/release_type.txt"
@@ -156,10 +154,9 @@ main() {
 		echo "rolling" >"$DOWNLOAD_DIR/release_type.txt"
 	fi
 
-	gum spin --title "Launching main setup..." -- sleep 2
-
 	# Check if setup script exists
 	if [[ ! -f "$SETUP" ]]; then
+		echo
 		fail "Setup script not found at $SETUP, something went wrong!"
 		exit 1
 	fi
