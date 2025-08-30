@@ -197,7 +197,8 @@ def main() -> None:
         
     print()
     log.info("Launching HyprDots...")
-    os.system("gum spin --title \"Launching HyprDots...\" -- sleep 2")
+    os.system("gum spin --title \"Launching HyprDots Installer...\" -- sleep 2")
+    os.system("hyprdots --install")
     
 if __name__ == "__main__":
     main()
