@@ -1,13 +1,14 @@
-import os
+from pathlib import Path
 
-HOME = os.path.expanduser("~")
+HOME = Path.home()
 
-USER_CONFIGS_DIR = os.path.join(HOME, ".config")
-USER_DOTFILES_DIR = os.path.join(HOME, "Dotfiles")
-USER_WALLPAPERS_DIR = os.path.join(HOME, "Wallpapers")
+USER_CONFIGS_DIR = HOME / "config"
+USER_DOTFILES_DIR = HOME / "Dotfiles"
+USER_WALLPAPERS_DIR = HOME / "Wallpapers"
 
-HYPRDOTS_SHARE_DIR = "/usr/share/hyprdots"
-HYPRDOTS_DOTFILES_DIR = os.path.join(HYPRDOTS_SHARE_DIR, "dotfiles")
-HYPRDOTS_WALLPAPERS_DIR = os.path.join(HYPRDOTS_SHARE_DIR, "wallpapers")
+HYPRDOTS_SHARE_DIR = Path("/usr/share/hyprdots")
+HYPRDOTS_DOTFILES_DIR = HYPRDOTS_SHARE_DIR / "dotfiles"
+HYPRDOTS_WALLPAPERS_DIR = HYPRDOTS_SHARE_DIR / "wallpapers"
+HYPRDOTS_METADATA_FILE = HYPRDOTS_SHARE_DIR / "metadata.json"
 
-LOG_FILE = os.path.join(os.path.expanduser("~"), ".cache", "hyprdots_installer.log")
+LOG_FILE = HOME / ".cache/hyprdots_installer.log"
