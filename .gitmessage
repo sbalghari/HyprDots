@@ -1,0 +1,20 @@
+# <type>(<scope>): <summary>
+# 
+# <body>
+# 
+# <footer>
+# 
+# type → what kind of change? (required)
+#     Examples:
+#         feat → new feature
+#         fix → bug fix
+#         docs → documentation only changes
+#         style → formatting, missing semi-colons, etc (no code change)
+#         refactor → code change that neither fixes a bug nor adds a feature
+#         perf → performance improvement
+#         test → adding/missing tests
+#         chore → maintenance (build scripts, CI, etc)
+# scope → what part of the project is affected? (optional, e.g. ui, auth, db)
+# summary → 50 chars max, no period at the end. (required)
+# body → explain why not what, wrap at 72 chars. (optional)
+# footer → issues or breaking changes. (optional)
