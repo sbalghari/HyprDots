@@ -15,7 +15,7 @@ BIN_DIR = Path("/usr/local/bin")
 SHARE_DIR = Path("/usr/share/hyprdots")
 
 # Log file
-LOG_FILE = Path.home() / ".cache/hyprdotsSetup.log"
+LOG_FILE = Path.home() / ".cache/hyprdots_setup.log"
 
 # Configure logging
 logging.basicConfig(
