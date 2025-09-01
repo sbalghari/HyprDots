@@ -1,9 +1,10 @@
 from install import DotfilesInstaller, install_wallpapers, install_dependencies
 from options import install_optional_applications
-from includes import print_hyprdots_title, print_subtext, print_success, print_error
-from shared import LOG_FILE, HYPRDOTS_METADATA_FILE
+from includes import print_hyprdots_title, print_subtext, print_success, print_error, print_info, Spinner
+from shared import LOG_FILE, HYPRDOTS_METADATA_FILE, logger
 
 from time import sleep
+import subprocess
 from typing import Dict, Callable
 import sys
 import argparse
@@ -57,13 +58,57 @@ def _get_version():
     except Exception:
         return "unknown"
 
+def apply_gtk_theme() -> bool:
+    print()
+    try:
+        with Spinner("Applying GTK theme...") as spinner:
+            sleep(1)  # delay for better UX
+                
+            # 'catppuccin_theme_installer' and 'gtk_theme_manager' are scripts that comes with HyprDots
+            # and installed in /usr/local/bin/ by the Setup script.
+
+            spinner.update_text("Downloading Catppuccin theme...")
+            subprocess.run(
+                ["catppuccin_theme_installer", "mocha", "blue"],
+                check=True,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL
+            )
+
+            spinner.update_text("Applying Catppuccin theme...")
+            subprocess.run(
+                [
+                    "gtk_theme_manager",
+                    "-t", "catppuccin-mocha-blue-standard+default",
+                    "-i", "Tela-circle-dark",
+                    "-c", "Bibata-Original-Classic",
+                    "-s", "20",
+                    "-m", "prefer_dark"
+                ],
+                check=True,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL
+            )
+
+            spinner.success("GTK theme applied successfully.")
+        return True
+
+    except subprocess.CalledProcessError as e:
+        logger.error(f"Command failed: {e.cmd} (exit code {e.returncode})")
+        return False
+    except Exception as e:
+        logger.error(f"Unexpected error while applying GTK theme: {e}")
+        return False
+
 def install():
     _clear()
-    if not _install_components():
+            
+    if not _install_components() or not apply_gtk_theme():
         print()
         print()
         print_error(f"HyprDots installation failed. Please check the logs for details: {LOG_FILE}")
-        sys.exit()
+        sys.exit(1)
+        
     print()
     print()
     print_success("HyprDots installation completed successfully!")
