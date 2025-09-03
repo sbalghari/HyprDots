@@ -2,7 +2,6 @@
 > The installer is currently in the testing phase.
 > v1.0.0 will be released soon.
 
-
 ![screenshot1](https://github.com/sbalghari/HyprDots/blob/main/assets/screenshot1.png)
 
 # HyprDots – A Modern Hyprland Experience
@@ -11,30 +10,32 @@ Welcome to HyprDots – a polished, feature-rich dotfiles for Arch Linux and Hyp
 
 ## Features
 
-- A clean, efficient, and fully optimized configuration for [Hyprland](https://github.com/vaxerski/hyprland), providing a smooth tiling window management experience.  
+- A clean, efficient, and fully optimized configuration for [Hyprland](https://github.com/vaxerski/hyprland), providing a smooth tiling window management experience.
 
-- A stylish and functional status bar using [Waybar](https://github.com/Alexays/Waybar), featuring tray icons, weather updates, music controls, system monitoring, and more, with extensive customization options.  
+- A stylish and functional status bar using [Waybar](https://github.com/Alexays/Waybar), featuring tray icons, weather updates, music controls, system monitoring, and more, with extensive customization options.
 
-- A sleek and dynamic application launcher powered by [Rofi](https://github.com/davatorium/rofi), featuring pywal integration for automatic color adaptation based on the current wallpaper.  
+- A sleek and dynamic application launcher powered by [Rofi](https://github.com/davatorium/rofi), featuring pywal integration for automatic color adaptation based on the current wallpaper.
 
-- A modern notification system powered by [SwayNC](https://github.com/ErikReider/SwayNotificationCenter), offering a centralized control center for managing notifications efficiently.  
+- A modern notification system powered by [SwayNC](https://github.com/ErikReider/SwayNotificationCenter), offering a centralized control center for managing notifications efficiently.
 
-- A user-friendly and interactive shell experience with auto-suggestions and syntax highlighting, combining the power of [fish](https://fishshell.com/) and [Starship](https://github.com/starship/starship) for a visually appealing command-line interface.  
+- A user-friendly and interactive shell experience with auto-suggestions and syntax highlighting, combining the power of [fish](https://fishshell.com/) and [Starship](https://github.com/starship/starship) for a visually appealing command-line interface.
 
-- A unified and consistent visual theme across Hyprland, Waybar, SwayNC, and Flatpak applications, automatically syncing with the system-wide GTK theme for seamless aesthetics.  
+- A unified and consistent visual theme across Hyprland, Waybar, SwayNC, and Flatpak applications, automatically syncing with the system-wide GTK theme for seamless aesthetics.
 
-- A collection of custom utility scripts written in shell and Python, designed for system management, wallpaper automation, and workflow enhancements.  
+- A collection of custom utility scripts written in shell and Python, designed for system management, wallpaper automation, and workflow enhancements.
 
 - Regular updates and ongoing refinements to continuously enhance functionality, stability, and the overall user experience.
 
 ## Installation
 
->Note:  HyprDots is designed for Arch Linux. While Arch-based distributions may work, they are not tested.
+> Note: HyprDots is designed for Arch Linux. While Arch-based distributions may work, they are not tested.
 
 1. **Run install.sh**:
-  ```bash
-  bash <(wget -qO- https://raw.githubusercontent.com/sbalghari/HyprDots/main/install.sh)
-  ```
+
+```bash
+bash <(wget -qO- https://raw.githubusercontent.com/sbalghari/HyprDots/main/install.sh)
+```
+
 2. **Follow the installer's instructions**:
 3. **Enjoy...**
 
