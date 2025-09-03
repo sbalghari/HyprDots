@@ -1,6 +1,5 @@
 > [!NOTE]
-> The installer is currently in the testing phase.
-> v1.0.0 will be released soon.
+> HyprDots is in its alpha stage, install at your own risk!
 
 ![screenshot1](https://github.com/sbalghari/HyprDots/blob/main/assets/screenshot1.png)
 
