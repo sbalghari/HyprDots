@@ -1,17 +1,7 @@
-from includes import (
-    print_header,
-    remove,
-    check_configs_exists,
-    create_symlink,
-    Spinner,
-)
-from shared import (
-    logger, 
-    log_heading,
-    USER_CONFIGS_DIR,
-    USER_DOTFILES_DIR,
-    HYPRDOTS_DOTFILES_DIR,
-)
+from includes.logger import logger, log_heading
+from includes.paths import USER_CONFIGS_DIR, USER_DOTFILES_DIR, HYPRDOTS_DOTFILES_DIR
+from includes.library import remove, check_configs_exists, create_symlink
+from includes.tui import print_header, Spinner
 
 from pathlib import Path
 import shutil
@@ -23,9 +13,20 @@ class DotfilesInstaller:
     def __init__(self, dry_run: bool = False):
         self.dry_run = dry_run
         self.dotfiles_components = [
-            "hypr", "waybar", "rofi", "fish", "kitty", "neofetch",
-            "fastfetch", "cava", "waypaper", "swaync", "btop",
-            "wlogout", "atuin", "starship.toml"
+            "hypr",
+            "waybar",
+            "rofi",
+            "fish",
+            "kitty",
+            "neofetch",
+            "fastfetch",
+            "cava",
+            "waypaper",
+            "swaync",
+            "btop",
+            "wlogout",
+            "atuin",
+            "starship.toml",
         ]
 
         self.source_dotfiles_components_paths = [
@@ -53,8 +54,7 @@ class DotfilesInstaller:
             self._reload_hyprland(spinner)
 
             spinner.success("Dotfiles installed successfully!")
-            logger.info("Dotfiles installed successfully!")
-        
+
         print()
         return True
 
