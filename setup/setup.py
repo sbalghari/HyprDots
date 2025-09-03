@@ -9,7 +9,7 @@ from pathlib import Path
 from time import sleep
 
 # Directories
-HYPRDOTS_DOWNLOADED_DIR = Path.home() / "Documents/GitHub/HyprDots"
+HYPRDOTS_DOWNLOADED_DIR = Path.home() / ".cache/hyprdots"
 LIB_DIR = Path("/usr/lib/hyprdots")
 BIN_DIR = Path("/usr/local/bin")
 SHARE_DIR = Path("/usr/share/hyprdots")
