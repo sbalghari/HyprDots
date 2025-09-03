@@ -9,7 +9,7 @@ from pathlib import Path
 from time import sleep
 
 # Directories
-HYPRDOTS_DOWNLOADED_DIR = Path.home() / ".cache/hyprdots"
+HYPRDOTS_DOWNLOADED_DIR = Path.home() / "Documents/GitHub/HyprDots"
 LIB_DIR = Path("/usr/lib/hyprdots")
 BIN_DIR = Path("/usr/local/bin")
 SHARE_DIR = Path("/usr/share/hyprdots")
@@ -33,14 +33,19 @@ RED = "\033[0;31m"
 RESET = "\033[0m"
 
 # Colorful message functions
+
+
 def info(msg: str) -> None:
     print(f"{YELLOW}> {msg}{RESET}")
+
 
 def success(msg: str) -> None:
     print(f"{GREEN}✔ {msg}{RESET}")
 
+
 def fail(msg: str) -> None:
     print(f"{RED}✘ {msg}{RESET}")
+
 
 def generate_metadata() -> bool:
     """
@@ -63,7 +68,7 @@ def generate_metadata() -> bool:
 
     def _get_version() -> str:
         return _run_git_command("-C", str(repo_dir), "describe", "--tags", "--always", "--dirty")
-    
+
     def _get_commit_hash() -> str:
         return _run_git_command("-C", str(repo_dir), "rev-parse", "HEAD")
 
@@ -88,7 +93,7 @@ def generate_metadata() -> bool:
         "commit_hash": commit_hash,
         "release_type": release_type
     }
-    
+
     log.debug(f"Generated metadata: {metadata}")
 
     try:
@@ -97,7 +102,8 @@ def generate_metadata() -> bool:
         log.info(f"Metadata written to {metadata_file}")
         return True
     except PermissionError:
-        log.warning(f"No permission to write {metadata_file}, retrying with sudo...")
+        log.warning(
+            f"No permission to write {metadata_file}, retrying with sudo...")
         try:
             json_str = json.dumps(metadata, indent=4)
             subprocess.run(
@@ -114,6 +120,7 @@ def generate_metadata() -> bool:
     except Exception as e:
         log.error(f"Failed to write metadata: {e}")
         return False
+
 
 def copy(src: Path, dest: Path) -> bool:
     """
@@ -138,7 +145,8 @@ def copy(src: Path, dest: Path) -> bool:
         return True
 
     except PermissionError:
-        log.warning(f"Permission denied copying {src} to {dest}, retrying with sudo...")
+        log.warning(
+            f"Permission denied copying {src} to {dest}, retrying with sudo...")
         try:
             subprocess.run(
                 ["sudo", "rm", "-rf", str(dest)],
@@ -158,24 +166,26 @@ def copy(src: Path, dest: Path) -> bool:
         log.error(f"Unexpected error copying {src} to {dest}: {e}")
         return False
 
+
 def setup() -> bool:
     """ Main function to setup HyprDots on the system. """
     if not HYPRDOTS_DOWNLOADED_DIR.exists():
         fail(f"Source directory {HYPRDOTS_DOWNLOADED_DIR} does not exist.")
         return False
-    
+
     info("Copying files to system directories...")
     sleep(1)  # Small delay for better UX
-    src = [HYPRDOTS_DOWNLOADED_DIR / "lib", HYPRDOTS_DOWNLOADED_DIR / "bin", HYPRDOTS_DOWNLOADED_DIR / "share"]
+    src = [HYPRDOTS_DOWNLOADED_DIR / "lib", HYPRDOTS_DOWNLOADED_DIR /
+           "bin", HYPRDOTS_DOWNLOADED_DIR / "share"]
     dest = [LIB_DIR, BIN_DIR, SHARE_DIR]
-    
+
     for s, d in zip(src, dest):
         if not copy(s, d):
             fail(f"Failed to copy {s} to {d}. Aborting setup.")
             return False
     success("All files copied successfully.")
     print()
-    
+
     info("Genarating metadata...")
     sleep(1)  # Small delay for better UX
     if not generate_metadata():
@@ -183,8 +193,9 @@ def setup() -> bool:
         return False
     success("Metadata generated successfully.")
     print()
-    
+
     return True
+
 
 def main() -> None:
     log.info("Starting HyprDots setup...")
@@ -194,12 +205,12 @@ def main() -> None:
     else:
         fail("HyprDots setup failed. Check the log file for details.")
         sys.exit(1)
-        
+
     print()
     log.info("Launching HyprDots...")
     os.system("gum spin --title \"Launching HyprDots Installer...\" -- sleep 2")
     os.system("hyprdots --install")
-    
+
+
 if __name__ == "__main__":
     main()
-    
