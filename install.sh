@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Download dir
-DOWNLOAD_DIR="$HOME/.cache/hyprdots"
+DOWNLOAD_DIR="/tmp/hyprdots"
 
 # Main setup script
 SETUP="$DOWNLOAD_DIR/setup/setup.py"
@@ -17,106 +17,135 @@ info() { echo -e "${YELLOW}> $1${RESET}"; }
 success() { echo -e "${GREEN}✔ $1${RESET}"; }
 fail() { echo -e "${RED}✘ $1${RESET}"; }
 
+# Check if running as root
+if [[ $EUID -eq 0 ]]; then
+	fail "Don't run this script as root. Exiting..."
+	exit 1
+fi
+
+# Check if running on arch
+if [[ ! -f "/etc/arch-release" ]]; then
+	fail "This script is designed for Arch Linux only"
+	exit 1
+fi
+
 # Function to check if a package is installed
 _is_installed() {
 	local package="$1"
-	pacman -Q "$package" >/dev/null
+	pacman -Q "$package" >/dev/null 2>&1
+}
+
+# Create a dir
+_create_dir() {
+	local dir="$1"
+
+	if [ ! -d "$dir" ]; then
+		mkdir -p "$dir"
+		success "Created directory: $dir"
+		return 0
+	fi
+
+	if [ -z "$(ls -A "$dir")" ]; then
+		info "Directory exists and is empty: $dir"
+		return 0
+	fi
+
+	rm -rf "${dir:?}/"* "${dir:?}/".* 2>/dev/null || true
+	info "Directory existed but was not empty. Emptied: $dir"
+	return 0
 }
 
 # Function to install required dependencies of the setup script
 _install_dependencies() {
-	local deps=(curl gum figlet python-pyfiglet python-rich)
+	local deps=(curl git base-devel gum python-pyfiglet python-rich jq)
 
 	info "Installing required dependencies..."
-	echo && sleep 2
 	for dep in "${deps[@]}"; do
 		if ! _is_installed "$dep"; then
-			if ! sudo pacman -S --noconfirm "$dep" >/dev/null 2>&1; then
-				fail "Failed to install $dep."
+			if ! sudo pacman -S --noconfirm "$dep"; then
+				fail "Failed to install $dep. Manual install needed!"
 				exit 1
 			fi
 		else
 			info "$dep is already installed. Skipping..."
 		fi
 	done
+	echo
 }
 
 # Function to install yay (AUR helper)
 _install_yay() {
-	if ! command -v yay &>/dev/null; then
-		if gum spin --spinner dot --title "Installing yay..." \
-			-- bash -c "
-                git clone https://aur.archlinux.org/yay.git /tmp/yay &&
-                cd /tmp/yay &&
-                makepkg -si --noconfirm 
-            "; then
-			rm -rf /tmp/yay
-			success "yay installed successfully."
+	info "Installing yay..."
+
+	_create_dir "/tmp/yay"
+	if git clone https://aur.archlinux.org/yay.git "/tmp/yay" >/dev/null 2>&1; then
+		cd "/tmp/yay" || return 1
+		if makepkg -si --noconfirm; then
+			success "yay installed successfully"
+			cd ~ >/dev/null || true
+			rm -rf "/tmp/yay"
+			return 0
 		else
-			fail "Failed to install yay. Check $LOG_FILE."
-			exit 1
+			fail "makepkg failed while building yay"
+			cd ~ >/dev/null || true
+			rm -rf "/tmp/yay"
+			return 1
 		fi
 	else
-		info "yay already installed. Skipping..."
+		fail "Could not clone yay from AUR"
+		rm -rf "/tmp/yay"
+		return 1
 	fi
 }
 
-_create_download_dir() {
-	if [[ ! -d "$DOWNLOAD_DIR" ]]; then
-		mkdir -p "$DOWNLOAD_DIR"
-	else
-		rm -rf "$DOWNLOAD_DIR"
-		mkdir -p "$DOWNLOAD_DIR"
-	fi
-}
-
-# Function to download the stable release of HyprDots
-_download_stable_release() {
-	info "Fetching latest stable release..."
+# Function to download the latest pre-release of HyprDots
+_download_pre_release() {
+	info "Fetching latest tag..."
 
 	latest_tag=$(curl -s https://api.github.com/repos/sbalghari/HyprDots/releases |
-		grep -B10 '"prerelease": true' |
-		grep '"tag_name":' |
-		head -n 1 |
-		cut -d '"' -f4)
+		jq -r '.[] | select(.prerelease==true) | .tag_name' |
+		head -n1)
 
-	if [[ -z "$latest_tag" ]]; then
-		fail "Failed to fetch latest stable release tag."
+	if [[ -z "$latest_tag" || "$latest_tag" == "null" ]]; then
+		fail "Failed to fetch latest pre-release tag."
 		exit 1
 	fi
+
 	echo
 	success "Fetched version: $latest_tag"
+	echo
 
-	_create_download_dir
+	_create_dir "$DOWNLOAD_DIR"
 
-	if gum spin --spinner dot --title "Cloning stable release $latest_tag..." \
-		-- bash -c "git clone --branch \"$latest_tag\" --depth 1 https://github.com/sbalghari/HyprDots.git \"$DOWNLOAD_DIR\""; then
-		success "Successfully cloned stable release $latest_tag"
+	if git clone --branch "$latest_tag" --depth 1 https://github.com/sbalghari/HyprDots.git "$DOWNLOAD_DIR"; then
+		success "Successfully cloned release $latest_tag"
 	else
-		fail "Failed to clone stable release. Retry later!"
+		fail "Failed to clone pre-release. Retry later!"
 		exit 1
 	fi
 }
 
 # Function to download the rolling release of HyprDots
 _download_rolling_release() {
-	_create_download_dir
+	_create_dir "$DOWNLOAD_DIR"
 
-	if gum spin --spinner dot --title "Cloning rolling release..." \
-		-- bash -c "git clone https://github.com/sbalghari/HyprDots.git \"$DOWNLOAD_DIR\""; then
+	if git clone --depth 1 https://github.com/sbalghari/HyprDots.git "$DOWNLOAD_DIR"; then
 		success "Successfully cloned rolling release"
 	else
-		fail "Failed to clone rolling release. Retry later!"
+		fail "Failed to clone rolling release."
 		exit 1
 	fi
 }
 
 # Function to run the actual setup
 _run_setup() {
-	cd ~
-	if ! python3 "$SETUP"; then
-		fail "Failed to run the main setup."
-		exit 1
+	if command -v python3 >/dev/null 2>&1; then
+		python3 "$SETUP"
+	elif command -v python >/dev/null 2>&1; then
+		python "$SETUP"
+	else
+		fail "Python not found. Please install python."
+		return 1
 	fi
 }
 
@@ -126,33 +155,38 @@ main() {
 		echo
 	fi
 
-	if _install_yay; then
-		success "Installed yay (AUR helper)"
-		echo
+	if ! command -v "yay" >/dev/null 2>&1; then
+		if _install_yay; then
+			success "Installed yay (AUR helper)"
+			echo
+		else
+			fail "Yay install failed, Please install it manually and try again!"
+			exit 1
+		fi
+	else
+		success "Yay already installed, skipping..."
 	fi
 
+	echo
+	echo
+
 	info "Choose a version to download."
-	choice=$(gum choose "Stable" "Rolling")
+	choice=$(gum choose "Pre-release" "Rolling")
 
 	case "$choice" in
-	"Stable")
-		_download_stable_release
+	"Pre-release")
+		_download_pre_release
+		echo "pre-release" >"$DOWNLOAD_DIR/release_type.txt"
 		;;
 	"Rolling")
 		_download_rolling_release
+		echo "rolling" >"$DOWNLOAD_DIR/release_type.txt"
 		;;
 	*)
 		fail "Invalid choice. Exiting."
 		exit 1
 		;;
 	esac
-
-	# Create a marker of release type
-	if [[ "$choice" == "Stable" ]]; then
-		echo "stable" >"$DOWNLOAD_DIR/release_type.txt"
-	else
-		echo "rolling" >"$DOWNLOAD_DIR/release_type.txt"
-	fi
 
 	# Check if setup script exists
 	if [[ ! -f "$SETUP" ]]; then
