@@ -14,21 +14,6 @@ class WallpapersInstaller:
         self.repo_url = "https://github.com/sbalghari/Wallpapers.git"
         self.clone_dir = Path("/tmp/wallpapers_collection")
 
-    def _apply_wallpaper(self) -> bool:
-        """Apply wallpaper using waypaper."""
-        try:
-            subprocess.run(
-                ["waypaper", "--restore"],
-                check=True,
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
-            )
-            logger.info("Wallpaper applied successfully.")
-            return True
-        except subprocess.CalledProcessError as e:
-            logger.error(f"Failed to apply wallpaper: {e}")
-            return False
-
     def _clone_repo(self, repo_url: str, clone_dir: Path) -> bool:
         """Clone a git repository into the given directory."""
         try:
@@ -113,12 +98,8 @@ class WallpapersInstaller:
                     logger.info(
                         "User chose not to install wallpaper collection.")
 
-                spinner.update_text("Applying wallpaper...")
-                if not self._apply_wallpaper():
-                    spinner.error("Failed to apply wallpaper.")
-                    return False
-
                 spinner.success("Wallpapers installed successfully.")
+                print()
                 return True
 
             except Exception as e:

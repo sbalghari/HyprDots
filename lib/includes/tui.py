@@ -1,3 +1,7 @@
+import subprocess
+import threading
+import time
+from typing import Optional, Callable
 from rich.text import Text as RichText
 from rich.live import Live as RichLive
 from rich.spinner import Spinner as RichSpinner
@@ -8,6 +12,8 @@ from rich.prompt import Prompt
 from functools import partial
 from pyfiglet import figlet_format
 from typing import List
+
+from .logger import logger
 
 # Colors
 HEADER_COLOR: str = "#89b4fa"
@@ -35,42 +41,151 @@ WARNING_STYLE = _STYLE(color=WARNING_COLOR)
 class Spinner:
     """Context manager for showing a live console spinner using `rich`.
 
-    Allows updating the spinner text in real time and replacing it with
-    styled success, error, or warning messages when done."""
+    Enhanced with optional sudo timeout handling and integration with SudoKeepAlive.
 
-    def __init__(self, message: str):
+    Args:
+        message: Initial spinner message
+        sudo_keepalive: Optional SudoKeepAlive instance to monitor
+        monitor_sudo: Whether to monitor sudo status (default: False)
+        check_sudo_fallback: Whether to fallback to sudo checking if keepalive fails
+        on_sudo_expired: Callback function when sudo expires (optional)
+    """
+
+    def __init__(
+        self,
+        message: str,
+        sudo_keepalive=None,
+        monitor_sudo: bool = False,
+        check_sudo_fallback: bool = True,
+        on_sudo_expired: Optional[Callable] = None
+    ):
         self.message = message
+        self.sudo_keepalive = sudo_keepalive
+        self.monitor_sudo = monitor_sudo or (sudo_keepalive is not None)
+        self.check_sudo_fallback = check_sudo_fallback
+        self.on_sudo_expired = on_sudo_expired
+
         self.spinner_style = "arc"
         self.spinner = RichSpinner(
-            self.spinner_style, text=self._styled_text(message), style=TEXT_STYLE)
+            self.spinner_style, text=self._styled_text(message), style=TEXT_STYLE
+        )
         self.live = RichLive(self.spinner, refresh_per_second=10)
+
+        self._stop_event = threading.Event()
+        self._sudo_checker_thread = None
+        self._sudo_expired = False
 
     def _styled_text(self, text: str) -> RichText:
         return RichText(text, style=TEXT_STYLE)
 
-    def _update_renderable(self, renderable: str) -> None:
-        self.live.update(renderable)
+    def _check_sudo_status(self):
+        """Background thread to monitor sudo status as fallback"""
+        check_interval = 60  # Check every minute
 
-    def update_text(self, new_message: str) -> None:
-        self.spinner.text = self._styled_text(new_message)
+        while not self._stop_event.is_set():
+            time.sleep(check_interval)
 
-    def success(self, message: str) -> None:
-        self._update_renderable(
-            RichText(DONE_ICON + " " + message, style=SUCCES_STYLE))
+            # If we have a keepalive, check if it's still running
+            if self.sudo_keepalive and self.sudo_keepalive.is_running:
+                continue
 
-    def error(self, message: str) -> None:
-        self._update_renderable(
-            RichText(ERROR_ICON + " " + message, style=ERROR_STYLE))
+            # Fallback: check sudo status directly
+            try:
+                result = subprocess.run(
+                    ['sudo', '-n', 'true'],
+                    capture_output=True,
+                    text=True,
+                    timeout=5
+                )
 
-    def warning(self, message: str) -> None:
-        self._update_renderable(
-            RichText(WARNING_ICON + " " + message, style=WARNING_STYLE))
+                if result.returncode != 0 and not self._sudo_expired:
+                    self._sudo_expired = True
+                    self._handle_sudo_expired()
+
+            except (subprocess.TimeoutExpired, subprocess.CalledProcessError):
+                if not self._sudo_expired:
+                    self._sudo_expired = True
+                    self._handle_sudo_expired()
+            except:
+                pass
+
+    def _handle_sudo_expired(self):
+        """Handle sudo expiration"""
+        if self.on_sudo_expired:
+            self.on_sudo_expired()
+            return
+
+        # Default handler
+        self.live.stop()
+        console = Console()
+        console.print(
+            RichText("\nSudo authorization expired!", style=WARNING_STYLE))
+        console.print(
+            RichText("Please enter your password when prompted:", style=TEXT_STYLE))
+
+        try:
+            subprocess.run(['sudo', '-v'], check=True, timeout=30)
+            self._sudo_expired = False
+            console.print(
+                RichText("Sudo re-authenticated successfully!", style=SUCCES_STYLE))
+        except (subprocess.TimeoutExpired, subprocess.CalledProcessError):
+            console.print(
+                RichText("Failed to re-authenticate sudo", style=ERROR_STYLE))
+        finally:
+            self.live.start()
+
+    def _start_sudo_monitor(self):
+        """Start sudo monitoring if enabled"""
+        if self.monitor_sudo and not self._sudo_checker_thread:
+            self._stop_event.clear()
+            self._sudo_checker_thread = threading.Thread(
+                target=self._check_sudo_status, daemon=True
+            )
+            self._sudo_checker_thread.start()
+
+    def _stop_sudo_monitor(self):
+        """Stop sudo monitoring"""
+        self._stop_event.set()
+        if self._sudo_checker_thread:
+            self._sudo_checker_thread.join(timeout=1)
+            self._sudo_checker_thread = None
+
+    def update_text(self, new_message: str, log: bool = False) -> None:
+        """Update the spinner text"""
+        if log:
+            logger.info(new_message)
+        self.spinner.update(text=self._styled_text(new_message))
+
+    def success(self, message: str, log: bool = False) -> None:
+        """Show success message and stop spinner"""
+        if log:
+            logger.info(message)
+        self.live.update(RichText(DONE_ICON + " " +
+                         message, style=SUCCES_STYLE))
+
+    def error(self, message: str, log: bool = False) -> None:
+        """Show error message and stop spinner"""
+        if log:
+            logger.error(message)
+        self.live.update(RichText(ERROR_ICON + " " +
+                         message, style=ERROR_STYLE))
+
+    def warning(self, message: str, log: bool = False) -> None:
+        """Show warning message and stop spinner"""
+        if log:
+            logger.warning(message)
+        self.live.update(RichText(WARNING_ICON + " " +
+                         message, style=WARNING_STYLE))
 
     def __enter__(self):
         self.live.start()
+        if self.monitor_sudo:
+            self._start_sudo_monitor()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
+        if self.monitor_sudo:
+            self._stop_sudo_monitor()
         self.live.stop()
 
 
