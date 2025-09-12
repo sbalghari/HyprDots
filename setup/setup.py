@@ -9,7 +9,7 @@ from pathlib import Path
 from time import sleep
 
 # Directories
-HYPRDOTS_DOWNLOADED_DIR = Path.home() / ".cache/hyprdots"
+HYPRDOTS_DOWNLOADED_DIR = Path("/tmp/hyprdots")
 LIB_DIR = Path("/usr/lib/hyprdots")
 BIN_DIR = Path("/usr/local/bin")
 SHARE_DIR = Path("/usr/share/hyprdots")
@@ -33,15 +33,11 @@ RED = "\033[0;31m"
 RESET = "\033[0m"
 
 # Colorful message functions
-
-
 def info(msg: str) -> None:
     print(f"{YELLOW}> {msg}{RESET}")
 
-
 def success(msg: str) -> None:
     print(f"{GREEN}✔ {msg}{RESET}")
-
 
 def fail(msg: str) -> None:
     print(f"{RED}✘ {msg}{RESET}")
