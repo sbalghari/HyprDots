@@ -1,5 +1,5 @@
 > [!NOTE]
-> HyprDots is in its alpha stage, install at your own risk!
+> HyprDots is in alpha - expect some rough edges! Bug reports are appreciated.
 
 ![screenshot1](https://github.com/sbalghari/HyprDots/blob/main/assets/screenshot1.png)
 
