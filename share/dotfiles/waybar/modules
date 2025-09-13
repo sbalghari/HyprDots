@@ -22,7 +22,7 @@
 
   // System info
   "custom/sysinfo": {
-    "format": "",
+    "format": "󰞘",
     "tooltip-format": "System usage"
   },
   "cpu": {
@@ -100,7 +100,7 @@
 
   // Locking system (hypridle)
   "custom/hypridle": {
-    "format": "󰌾",
+    "format": "󱫔",
     "return-type": "json",
     "escape": true,
     "exec-on-event": true,
@@ -163,7 +163,7 @@
     "format-alt": "{icon}",
     "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
+    "format-muted": "  {format_source}",
     "format-source": "󰍬 {volume}%",
     "format-source-muted": "󰍭",
     "format-icons": {
@@ -209,7 +209,7 @@
     "tooltip": true,
     "format-icons": {
       "default": "",
-      "performance": "",
+      "performance": "",
       "balanced": "",
       "power-saver": ""
     }
