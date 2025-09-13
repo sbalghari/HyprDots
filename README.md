@@ -1,7 +1,7 @@
 > [!NOTE]
 > HyprDots is in alpha - expect some rough edges! Bug reports are appreciated.
 
-![screenshot1](https://github.com/sbalghari/HyprDots/blob/main/assets/screenshot1.png)
+![screenshot1](https://github.com/sbalghari/HyprDots/blob/main/assets/s1.png)
 
 # HyprDots – A Modern Hyprland Experience
 
