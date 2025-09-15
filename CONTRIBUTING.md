@@ -1,6 +1,6 @@
 # Contributing to Hyprland Dotfiles
 
-Thank you for considering contributing to **SBalghari HyprDots**! This project aims to provide a polished and customizable Hyprland setup. Your contributions—whether new features, bug fixes, or improvements—are always welcome.
+Thank you for considering contributing to **SBDots**! This project aims to provide a polished and customizable Hyprland setup. Your contributions—whether new features, bug fixes, or improvements—are always welcome.
 
 ## How to Contribute
 
@@ -8,7 +8,7 @@ Thank you for considering contributing to **SBalghari HyprDots**! This project a
 
 If you encounter any bugs or issues, please report them by following these steps:
 
-1. Check the [issue tracker](https://github.com/Saifullah-Balghari/Hyprland-Dotfiles/issues) to see if the issue has already been reported.
+1. Check the [issue tracker](https://github.com/sbalghari/SBDots/issues) to see if the issue has already been reported.
 2. If the issue has not been reported, open a new issue and provide detailed information about the problem, including:
    - Steps to reproduce the issue
    - Your operating system and version
@@ -18,7 +18,7 @@ If you encounter any bugs or issues, please report them by following these steps
 
 We welcome suggestions for new features or improvements. To suggest an enhancement:
 
-1. Check the [issue tracker](https://github.com/Saifullah-Balghari/Hyprland-Dotfiles/issues) to see if the suggestion has already been made.
+1. Check the [issue tracker](https://github.com/sbalghari/SBDots/issues) to see if the suggestion has already been made.
 2. If the suggestion has not been made, open a new issue and provide detailed information about your suggestion, including:
    - A clear description of the enhancement
    - The benefits of the enhancement

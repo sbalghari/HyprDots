@@ -190,9 +190,9 @@ class Spinner:
 
 
 # Functions for printing messages with styles
-def print_hyprdots_title() -> None:
+def print_sbdots_title() -> None:
     console = Console()
-    text = figlet_format("HyprDots")
+    text = figlet_format("SBDots")
     styled_text = RichText(text, style=HEADING_STYLE)
     console.print(styled_text)
 

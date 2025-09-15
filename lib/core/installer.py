@@ -1,6 +1,6 @@
 from includes.logger import logger, log_heading
 from includes.paths import LOG_FILE
-from includes.tui import print_hyprdots_title, print_subtext, print_success, print_error, Spinner
+from includes.tui import print_sbdots_title, print_subtext, print_success, print_error, Spinner
 
 from modules import DotfilesInstaller, WallpapersInstaller, PackagesInstaller
 
@@ -13,17 +13,17 @@ from typing import Dict, Callable
 import sys
 
 
-class HyprDotsInstaller:
+class SBDotsInstaller:
     def __init__(self, dry_run: bool = False):
         self.dry_run = dry_run
 
         # ensure log file is empty at start
         open(LOG_FILE, "w").close()
-        log_heading("HyprDots is initialized")
+        log_heading("SBDots is initialized")
 
     def _title(self) -> None:
-        print_hyprdots_title()
-        print_subtext("Welcome to HyprDots installer!")
+        print_sbdots_title()
+        print_subtext("Welcome to SBDots installer!")
         print_subtext(
             "A clean, full-featured, and aesthetic Hyprland dotfiles.")
         print_subtext("An open-source project by Saifullah Balghari")
@@ -36,7 +36,7 @@ class HyprDotsInstaller:
         print()
         print()
         print_error(
-            f"HyprDots installation failed. Please check the logs for details: {LOG_FILE}"
+            f"SBDots installation failed. Please check the logs for details: {LOG_FILE}"
         )
         sys.exit(1)
 
@@ -67,7 +67,7 @@ class HyprDotsInstaller:
             print("Dry run mode enabled. No changes will be made.")
             print()
 
-        logger.info("Starting HyprDots installation...")
+        logger.info("Starting SBDots installation...")
 
         logger.info("Installing main components...")
         if not self.install_components():
@@ -80,7 +80,7 @@ class HyprDotsInstaller:
 
         # Finalizing
         log_heading("Finalization")
-        with Spinner("Finalizing HyprDots installation...") as spinner:
+        with Spinner("Finalizing SBDots installation...") as spinner:
             sleep(1)
 
             spinner.update_text("Reloading hyprland...")
@@ -103,6 +103,6 @@ class HyprDotsInstaller:
 
         print()
         print()
-        print_success("HyprDots installation completed successfully!")
+        print_success("SBDots installation completed successfully!")
         sleep(2)
         sys.exit(0)

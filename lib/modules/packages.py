@@ -67,7 +67,7 @@ class PackagesInstaller:
                 print_error(
                     f"Failed to remove conflicting packages: {failed_removals}")
                 print_error(
-                    "Installation will continue but HyprDots may act unexpectedly.")
+                    "Installation will continue but SBDots may act unexpectedly.")
                 print_error("Please remove them manually!")
             else:
                 print_success(

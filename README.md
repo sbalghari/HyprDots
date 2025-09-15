@@ -1,11 +1,11 @@
 > [!NOTE]
-> HyprDots is in alpha - expect some rough edges! Bug reports are appreciated.
+> SBDots is in alpha - expect some rough edges! Bug reports are appreciated.
 
-![screenshot1](https://github.com/sbalghari/HyprDots/blob/main/assets/s1.png)
+![screenshot1](https://github.com/sbalghari/SBDots/blob/main/assets/s1.png)
 
-# HyprDots – A Modern Hyprland Experience
+# SBDots – A Modern Hyprland Experience
 
-Welcome to HyprDots – a polished, feature-rich dotfiles for Arch Linux and Hyprland. Designed for aesthetics, efficiency, and full functionality, it delivers a refined, seamless, and modern desktop experience.
+Welcome to SBDots – a polished, feature-rich dotfiles for Arch Linux and Hyprland. Designed for aesthetics, efficiency, and full functionality, it delivers a refined, seamless, and modern desktop experience.
 
 ## Features
 
@@ -27,12 +27,12 @@ Welcome to HyprDots – a polished, feature-rich dotfiles for Arch Linux and Hyp
 
 ## Installation
 
-> Note: HyprDots is designed for Arch Linux. While Arch-based distributions may work, they are not tested.
+> Note: SBDots is designed for Arch Linux. While Arch-based distributions may work, they are not tested.
 
 1. **Run install.sh**:
 
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/sbalghari/HyprDots/main/install.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/sbalghari/SBDots/main/install.sh)
 ```
 
 2. **Follow the installer's instructions**:
@@ -42,13 +42,13 @@ bash <(wget -qO- https://raw.githubusercontent.com/sbalghari/HyprDots/main/insta
 
 Contributions are always welcome!
 
-See [CONTRIBUTING.md](https://github.com/sbalghari/HyprDots/blob/main/CONTRIBUTING.md) for ways to get started.
+See [CONTRIBUTING.md](https://github.com/sbalghari/SBDots/blob/main/CONTRIBUTING.md) for ways to get started.
 
 If you encounter any issues or have ideas for improvements, please feel free to open an issue or submit a pull request. Your feedback and contributions help make this project better for everyone.
 
 ## License
 
-This project is licensed under the GPL-3.0 license. For more details, please refer to the [LICENSE](https://github.com/sbalghari/HyprDots/blob/main/LICENSE) file.
+This project is licensed under the GPL-3.0 license. For more details, please refer to the [LICENSE](https://github.com/sbalghari/SBDots/blob/main/LICENSE) file.
 
 ## Acknowledgment
 
@@ -56,5 +56,5 @@ A special thanks to these projects for inspiration and contributions to the Hypr
 
 - [ML4W](https://github.com/mylinuxforwork/dotfiles)
 - [JaKooLit's Hyprland-Dots](https://github.com/JaKooLit/Hyprland-Dots)
-- [Prasanthrangan's Hyprdots](https://github.com/prasanthrangan/hyprdots)
+- [Prasanthrangan's hyprdots](https://github.com/prasanthrangan/hyprdots)
 - ...and more.

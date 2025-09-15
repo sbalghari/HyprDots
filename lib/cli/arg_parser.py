@@ -6,7 +6,7 @@ class ArgumentParser:
     @staticmethod
     def create_parser() -> argparse.ArgumentParser:
         parser = argparse.ArgumentParser(
-            description="HyprDots, a polished, feature-rich dotfiles for Arch Linux and Hyprland.",
+            description="SBDots, a polished, feature-rich dotfiles for Arch Linux and Hyprland.",
             formatter_class=argparse.RawTextHelpFormatter,
         )
 
@@ -14,25 +14,25 @@ class ArgumentParser:
             "-i",
             "--install",
             action="store_true",
-            help="Installs HyprDots on your system",
+            help="Installs SBDots on your system",
         )
         parser.add_argument(
             "-r",
             "--remove",
             action="store_true",
-            help="Uninstalls HyprDots from your system",
+            help="Uninstalls SBDots from your system",
         )
         parser.add_argument(
             "-u",
             "--update",
             action="store_true",
-            help="Updates HyprDots to the latest version",
+            help="Updates SBDots to the latest version",
         )
         parser.add_argument(
             "-cu",
             "--check-update",
             action="store_true",
-            help="Checks if a new version of HyprDots is available",
+            help="Checks if a new version of SBDots is available",
         )
         parser.add_argument(
             "-v",

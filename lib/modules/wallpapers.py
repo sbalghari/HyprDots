@@ -1,5 +1,5 @@
 from includes.logger import logger, log_heading
-from includes.paths import USER_WALLPAPERS_DIR, HYPRDOTS_WALLPAPERS_DIR
+from includes.paths import USER_WALLPAPERS_DIR, SBDOTS_WALLPAPERS_DIR
 from includes.tui import print_header, Spinner, confirm
 
 from time import sleep
@@ -81,7 +81,7 @@ class WallpapersInstaller:
                 try:
                     sleep(1)
                     shutil.copytree(
-                        HYPRDOTS_WALLPAPERS_DIR, USER_WALLPAPERS_DIR, dirs_exist_ok=True
+                        SBDOTS_WALLPAPERS_DIR, USER_WALLPAPERS_DIR, dirs_exist_ok=True
                     )
                 except Exception as e:
                     logger.error(f"Failed to copy default wallpapers: {e}")

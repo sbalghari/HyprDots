@@ -9,13 +9,13 @@ from pathlib import Path
 from time import sleep
 
 # Directories
-HYPRDOTS_DOWNLOADED_DIR = Path("/tmp/hyprdots")
-LIB_DIR = Path("/usr/lib/hyprdots")
+SBDOTS_DOWNLOADED_DIR = Path("/tmp/sbdots")
+LIB_DIR = Path("/usr/lib/sbdots")
 BIN_DIR = Path("/usr/local/bin")
-SHARE_DIR = Path("/usr/share/hyprdots")
+SHARE_DIR = Path("/usr/share/sbdots")
 
 # Log file
-LOG_FILE = Path.home() / ".cache/hyprdots_setup.log"
+LOG_FILE = Path.home() / ".cache/sbdots_setup.log"
 
 # Configure logging
 logging.basicConfig(
@@ -49,8 +49,8 @@ def generate_metadata() -> bool:
     Returns True if successful, False otherwise.
     """
     metadata_file = SHARE_DIR / "metadata.json"
-    release_type_marker = HYPRDOTS_DOWNLOADED_DIR / "release_type.txt"
-    repo_dir = HYPRDOTS_DOWNLOADED_DIR
+    release_type_marker = SBDOTS_DOWNLOADED_DIR / "release_type.txt"
+    repo_dir = SBDOTS_DOWNLOADED_DIR
 
     def _run_git_command(*args):
         """Run a git command and return its output."""
@@ -164,15 +164,15 @@ def copy(src: Path, dest: Path) -> bool:
 
 
 def setup() -> bool:
-    """ Main function to setup HyprDots on the system. """
-    if not HYPRDOTS_DOWNLOADED_DIR.exists():
-        fail(f"Source directory {HYPRDOTS_DOWNLOADED_DIR} does not exist.")
+    """ Main function to setup SBDots on the system. """
+    if not SBDOTS_DOWNLOADED_DIR.exists():
+        fail(f"Source directory {SBDOTS_DOWNLOADED_DIR} does not exist.")
         return False
 
     info("Copying files to system directories...")
     sleep(1)  # Small delay for better UX
-    src = [HYPRDOTS_DOWNLOADED_DIR / "lib", HYPRDOTS_DOWNLOADED_DIR /
-           "bin", HYPRDOTS_DOWNLOADED_DIR / "share"]
+    src = [SBDOTS_DOWNLOADED_DIR / "lib", SBDOTS_DOWNLOADED_DIR /
+           "bin", SBDOTS_DOWNLOADED_DIR / "share"]
     dest = [LIB_DIR, BIN_DIR, SHARE_DIR]
 
     for s, d in zip(src, dest):
@@ -194,18 +194,18 @@ def setup() -> bool:
 
 
 def main() -> None:
-    log.info("Starting HyprDots setup...")
+    log.info("Starting SBDots setup...")
     print()
     if setup():
-        success("HyprDots setup completed successfully!")
+        success("SBDots setup completed successfully!")
     else:
-        fail("HyprDots setup failed. Check the log file for details.")
+        fail("SBDots setup failed. Check the log file for details.")
         sys.exit(1)
 
     print()
-    log.info("Launching HyprDots...")
-    os.system("gum spin --title \"Launching HyprDots Installer...\" -- sleep 2")
-    os.system("hyprdots --install")
+    log.info("Launching SBDots...")
+    os.system("gum spin --title \"Launching SBDots Installer...\" -- sleep 2")
+    os.system("sbdots --install")
 
 
 if __name__ == "__main__":

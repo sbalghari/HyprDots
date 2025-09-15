@@ -1,12 +1,11 @@
 from includes.logger import logger, log_heading
-from includes.paths import USER_CONFIGS_DIR, USER_DOTFILES_DIR, HYPRDOTS_DOTFILES_DIR
+from includes.paths import USER_CONFIGS_DIR, USER_DOTFILES_DIR, SBDOTS_DOTFILES_DIR
 from includes.library import remove, create_symlink, path_lexists, copy
 from includes.tui import print_header, Spinner
 
 from pathlib import Path
 from typing import List, Tuple
 from time import sleep
-from subprocess import run as run_command
 
 
 class DotfilesInstaller:
@@ -30,7 +29,7 @@ class DotfilesInstaller:
         ]
 
         self.source_dotfiles_components_paths = [
-            HYPRDOTS_DOTFILES_DIR / i for i in self.dotfiles_components
+            SBDOTS_DOTFILES_DIR / i for i in self.dotfiles_components
         ]
         self.target_dotfiles_components_paths = [
             USER_DOTFILES_DIR / i for i in self.dotfiles_components
@@ -41,6 +40,8 @@ class DotfilesInstaller:
         print_header("Installing dotfiles.")
 
         with Spinner("Installing dotfiles...") as spinner:
+            sleep(1) # delay for better UX
+            
             # Step 1: Check if source files exists
             if not self._validate_sources(spinner):
                 return False
@@ -91,7 +92,7 @@ class DotfilesInstaller:
 
         logger.info("Copying...")
         try:
-            copy(HYPRDOTS_DOTFILES_DIR, USER_DOTFILES_DIR)
+            copy(SBDOTS_DOTFILES_DIR, USER_DOTFILES_DIR)
         except Exception as e:
             logger.error(f"Failed to copy dotfiles: {e}")
             spinner.error("Failed to copy dotfiles.")

@@ -1,14 +1,14 @@
-from core.installer import HyprDotsInstaller
-from core.uninstaller import HyprDotsUninstaller
-from core.updater import HyprDotsUpdater
+from core.installer import SBDotsInstaller
+from core.uninstaller import SBDotsUninstaller
+from core.updater import SBDotsUpdater
 from cli.arg_parser import ArgumentParser
 from cli.commands import Commands
 
 def main():
     # Main components
-    installer = HyprDotsInstaller(dry_run=False)
-    uninstaller = HyprDotsUninstaller(dry_run=False)
-    updater = HyprDotsUpdater(dry_run=False)
+    installer = SBDotsInstaller(dry_run=False)
+    uninstaller = SBDotsUninstaller(dry_run=False)
+    updater = SBDotsUpdater(dry_run=False)
     
     # cli
     parser = ArgumentParser.create_parser()

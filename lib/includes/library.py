@@ -5,7 +5,7 @@
 # |_____|_|_.__/|_|  \__,_|_|   \__, |
 #                               |___/
 # # # # # # # # # # # # # # # # # # # # # # # #
-# Collection of utility functions for HyprDots
+# Collection of utility functions for SBDots
 # # # # # # # # # # # # # # # # # # # # # # # #
 
 from pathlib import Path
@@ -18,13 +18,13 @@ import time
 import atexit
 
 from .logger import logger
-from .paths import HYPRDOTS_METADATA_FILE
+from .paths import SBDOTS_METADATA_FILE
 
 
 def get_version() -> str:
-    """Get the current version of HyprDots from metadata file."""
+    """Get the current version of SBDots from metadata file."""
     try:
-        with open(HYPRDOTS_METADATA_FILE, "r") as f:
+        with open(SBDOTS_METADATA_FILE, "r") as f:
             metadata = json.load(f)
             return metadata.get("version", "unknown")
     except Exception as e:

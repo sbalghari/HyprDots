@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Download dir
-DOWNLOAD_DIR="/tmp/hyprdots"
+DOWNLOAD_DIR="/tmp/sbdots"
 
 # Main setup script
 SETUP="$DOWNLOAD_DIR/setup/setup.py"
@@ -98,11 +98,11 @@ _install_yay() {
 	fi
 }
 
-# Function to download the latest pre-release of HyprDots
+# Function to download the latest pre-release of SBDots
 _download_pre_release() {
 	info "Fetching latest tag..."
 
-	latest_tag=$(curl -s https://api.github.com/repos/sbalghari/HyprDots/releases |
+	latest_tag=$(curl -s https://api.github.com/repos/sbalghari/SBDots/releases |
 		jq -r '.[] | select(.prerelease==true) | .tag_name' |
 		head -n1)
 
@@ -117,7 +117,7 @@ _download_pre_release() {
 
 	_create_dir "$DOWNLOAD_DIR"
 
-	if git clone --branch "$latest_tag" --depth 1 https://github.com/sbalghari/HyprDots.git "$DOWNLOAD_DIR"; then
+	if git clone --branch "$latest_tag" --depth 1 https://github.com/sbalghari/SBDots.git "$DOWNLOAD_DIR"; then
 		success "Successfully cloned release $latest_tag"
 	else
 		fail "Failed to clone pre-release. Retry later!"
@@ -125,11 +125,11 @@ _download_pre_release() {
 	fi
 }
 
-# Function to download the rolling release of HyprDots
+# Function to download the rolling release of SBDots
 _download_rolling_release() {
 	_create_dir "$DOWNLOAD_DIR"
 
-	if git clone --depth 1 https://github.com/sbalghari/HyprDots.git "$DOWNLOAD_DIR"; then
+	if git clone --depth 1 https://github.com/sbalghari/SBDots.git "$DOWNLOAD_DIR"; then
 		success "Successfully cloned rolling release"
 	else
 		fail "Failed to clone rolling release."
