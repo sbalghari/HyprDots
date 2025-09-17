@@ -2,7 +2,7 @@ from includes.logger import logger, log_heading
 from includes.paths import LOG_FILE
 from includes.tui import print_sbdots_title, print_subtext, print_success, print_error, Spinner
 
-from modules import DotfilesInstaller, WallpapersInstaller, PackagesInstaller
+from modules import DotfilesInstaller, WallpapersInstaller, PackagesInstaller, AutoPowerSaverInstaller
 
 from misc.apply_gtk_theme import apply_gtk_theme
 from misc.apply_wallpaper import apply_wallpaper
@@ -76,7 +76,10 @@ class SBDotsInstaller:
         if not PackagesInstaller(dry_run=self.dry_run).install_optional_applications():
             print_error(
                 "Couldn't install optional applications, continuing...")
-            
+
+        if not AutoPowerSaverInstaller().install():
+            print_error(
+                "Couldn't install auto power saver, continuing...")
 
         # Finalizing
         log_heading("Finalization")
@@ -86,13 +89,13 @@ class SBDotsInstaller:
             spinner.update_text("Reloading hyprland...")
             if not reload_hyprland():
                 spinner.error("Hyprland reload failed.")
-            
+
             sleep(1)
             spinner.update_text("Installing GTK Catppuccin theme...")
             if not apply_gtk_theme(spinner):
                 spinner.error(
                     "Unable to install GTK theme, install manually later!")
-                
+
             sleep(1)
             spinner.update_text("Applying wallpaper...")
             if not apply_wallpaper():
